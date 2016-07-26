@@ -63,6 +63,16 @@ function dispTemp() {
 	}
 	
 	document.getElementById("city-zip").innerHTML = zipCode;
+	
+	zipCode = null;
+	avgTemp = 0;
+	totalDays = 0;
+	totalTemp = 0;
+	currDayTemp = 0;
+	startDate = null;
+	endDate = null;
+	currentDate = null;
+	document.getElementsByTagName('head')[0].removeChild(tempScript);
 }
 	
 	
