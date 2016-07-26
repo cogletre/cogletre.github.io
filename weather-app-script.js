@@ -12,12 +12,7 @@ var tempScript;
 
 function readWeather(weatherData) {
 	
-	if(tempScript){
-		document.head.removeChild(tempScript);
-		tempScript = null;
-	}
-	
-	var tempObj = weatherData;
+	var tempObj = weatherData[0];
 	
 	currDayTemp = tempObj.tempAvg;
 	
@@ -42,12 +37,7 @@ function dispTemp() {
 		tempScript.src = weatherURL;
 		
 		document.head.appendChild(tempScript);
-		
-		
 	}
-	
-	document.getElementById("city-zip").innerHTML = zipCode;
-	document.getElementById("avg-temp-output").innerHTML = "" + calcAverage(currTempArray) + "&deg;";
 }
 
 function calcAverage (dateRange) {
