@@ -13,7 +13,23 @@ var tempScript = null;
 var totalTemp = 0;
 var totalDays = 0;
 
+function readWeather(weatherData) {
+	
+	if(tempScript){
+		document.getElementsByTagName('head')[0].removeChild(tempScript);
+		tempScript = null;
+	}
 
+	var tempObj = weatherData[0];
+
+	currDayTemp = parseInt(tempObj.tempAvg);
+		
+	totalTemp += currDayTemp;
+	totalDays++;
+	
+	console.log(totalTemp + " totalTemp");
+	console.log(totalDays + " totalDays");
+}
 
 
 
@@ -42,30 +58,19 @@ function dispTemp() {
 	
 	var avgTemp = parseInt(totalTemp / totalDays);
 	
+	console.log(isNaN(avgTemp));
+	
 	document.getElementById("city-zip").innerHTML = zipCode;
 	document.getElementById("avg-temp-output").innerHTML = avgTemp + "&deg;";
 
-	console.log("Hopefully last test...");
 
 }
 	
-function readWeather(weatherData) {
 	
-	if(tempScript){
-		document.getElementsByTagName('head')[0].removeChild(tempScript);
-		tempScript = null;
-	}
-
-	var tempObj = weatherData[0];
-
-	currDayTemp = parseInt(tempObj.tempAvg);
-		
-	totalTemp += currDayTemp;
-	totalDays++;
 	
-	console.log(totalTemp + " totalTemp");
-	console.log(totalDays + " totalDays");
-}
+
+
+
 
 /*
 document.getElementById("city-zip").innerHTML = zipCode;
