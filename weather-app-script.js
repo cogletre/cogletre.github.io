@@ -12,7 +12,6 @@ var tempScript = null;
 
 var totalTemp = 0;
 var totalDays = 0;
-var avgTemp = totalTemp / totalDays;
 
 function readWeather(weatherData) {
 	
@@ -43,27 +42,32 @@ function dispTemp() {
 	
 	currentDate = startDate;
 	
-	for(currentDate.getDate(); currentDate.getDate() <= endDate.getDate(); currentDate.setDate(currentDate.getDate() + 1)) {
 		
-		if(currentDate.getDate() != endDate.getDate()){
-			currDateStr = currentDate.toDateString();
-			
-			weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq="+zipCode+"&country_eq=US&timestamp_eq="+currDateStr+"T12:00+00:00&fields=tempAvg";
-			
-			tempScript = document.createElement("script");
-			tempScript.src = weatherURL;
-			
-			document.getElementsByTagName('head')[0].appendChild(tempScript);
-		} else {
-			document.getElementById("city-zip").innerHTML = zipCode;
-			document.getElementById("avg-temp-output").innerHTML = avgTemp + "&deg;";
-	
-			console.log("Hopefully last test...");
-		}
+	while(currentDate.getDate() != endDate.getDate()){
+		currDateStr = currentDate.toDateString();
+		
+		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq="+zipCode+"&country_eq=US&timestamp_eq="+currDateStr+"T12:00+00:00&fields=tempAvg";
+		
+		tempScript = document.createElement("script");
+		tempScript.src = weatherURL;
+		
+		document.getElementsByTagName('head')[0].appendChild(tempScript);
+		
+		currentDate.setDate(currentDate.getDate() + 1);
 	}
 	
+	var avgTemp = parseInt(totalTemp / totalDays);
 	
+	document.getElementById("city-zip").innerHTML = zipCode;
+	document.getElementById("avg-temp-output").innerHTML = avgTemp + "&deg;";
+
+	console.log("Hopefully last test...");
+
 }
+	
+	
+	
+
 
 
 
