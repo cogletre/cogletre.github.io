@@ -31,6 +31,10 @@ function readWeather(weatherData) {
 	
 	console.log(totalTemp + " totalTemp");
 	console.log(totalDays + " totalDays");
+	
+	avgTemp = parseInt(totalTemp/totalDays);
+	
+	console.log(avgTemp + " avgTemp");
 }
 
 
@@ -57,12 +61,6 @@ function dispTemp() {
 		
 		currentDate.setDate(currentDate.getDate() + 1);
 	}
-	
-	avgTemp = totalTemp/totalDays;
-	
-	console.log(avgTemp);
-	
-	console.log(isNaN(avgTemp));
 	
 	document.getElementById("city-zip").innerHTML = zipCode;
 	document.getElementById("avg-temp-output").innerHTML = avgTemp + "&deg;";
