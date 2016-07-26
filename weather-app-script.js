@@ -13,7 +13,7 @@ var uri = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_post
 
 
 
-document.getElementById("displayTemp").onclick = function() {
+function dispTemp() {
 	
 	zipCode = document.getElementById("zipCode").value;
 	
