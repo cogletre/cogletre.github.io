@@ -33,7 +33,7 @@ function dispTemp() {
 		
 		
 		
-		dateRange[dateRange.length] = currDayTemp;
+		//dateRange[dateRange.length] = currDayTemp;
 		
 	}
 }
@@ -51,6 +51,7 @@ function calcAverage (dateRange) {
 	return avgTemps;
 }
 
-
+/*
 document.getElementById("city-zip").innerHTML = zipCode;
 document.getElementById("avg-temp-output").innerHTML = calcAverage(dateRange);
+*/
