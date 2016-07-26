@@ -1,16 +1,25 @@
 
 var zipCode;
-var dateRange = [];
 var startDate,endDate,currentDate;
-var currDayTemp;
-var weatherURL;
 
+var currDayTemp;
+var currTempArray = [];
+
+var weatherURL;
 var weatherXmlHttp = new XMLHttpRequest();
 
 
+function readResponse(response){
+	document.getElementsByTagName('SPAN')[0].innerHTML = response.feed.entry.length + ' entries returned';
+	console.log(response);
+}
 
-var uri = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?period=day&postal_code_eq=22222&country_eq=US&timestamp_eq=2012-09-27&fields=tempAvg"
 
+var url = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?period=day&postal_code_eq=22222&country_eq=US&timestamp_eq=2012-09-27&fields=tempAvg"
+
+function parseWeather(data) {
+	
+}
 
 
 function dispTemp() {
@@ -22,18 +31,22 @@ function dispTemp() {
 	
 	currentDate = startDate;
 	
+	weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=dispTemp?period=day&postal_code_eq=" + zipCode + "&country_eq=US&timestamp_eq=" + currentDate + "&fields=tempAvg";
+	
 	for(currentDate.getDate(); currentDate.getDate() <= endDate.getDate(); currentDate.setDate(currentDate.getDate() + 1)) {
-		/*
-		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?period=day&postal_code_eq=" + zipCode + "&country_eq=US&timestamp_eq=" + currentDate + "&fields=tempAvg";
 		
-		weatherXmlHttp.open("GET", weatherURL, true);
-		weatherXmlHttp.send();
+		function parseWeather(weatherURL) {
+			weatherXmlHttp.open("GET", weatherURL, true);
+			weatherXmlHttp.send();
+			
+			var tempObj = JSON.parse(weatherXmlHttp.responseText);
+			
+			currDayTemp = tempObj[0].tempAvg;
+			
+			currTempArray[currTempArray.length] = currDayTemp;
+		}
+
 		
-		var arr = JSON.parse(weatherXmlHttp.responseText);
-		*/
-		
-		
-		//dateRange[dateRange.length] = currDayTemp;
 		
 	}
 	
@@ -57,3 +70,7 @@ function calcAverage (dateRange) {
 document.getElementById("city-zip").innerHTML = zipCode;
 document.getElementById("avg-temp-output").innerHTML = calcAverage(dateRange);
 */
+
+
+
+
