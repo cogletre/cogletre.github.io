@@ -12,7 +12,7 @@ var tempScript;
 
 function readWeather(weatherData) {
 	
-	document.body.removeChild(tempScript);
+	document.head.removeChild(tempScript);
 	tempScript = null;
 	
 	var tempObj = weatherData;
@@ -39,14 +39,7 @@ function dispTemp() {
 		tempScript = document.createElement("script");
 		tempScript.src = weatherURL;
 		
-		document.getElementsByTagName('head')[0].appendChild(tempScript);
-		
-		document.body.appendChild(tempScript);
-		
-		/*weatherXmlHttp.open("GET", weatherURL, true);
-		weatherXmlHttp.send();*/
-		
-		
+		document.head.appendChild(tempScript);
 		
 		
 	}
