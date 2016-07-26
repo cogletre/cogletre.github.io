@@ -61,15 +61,11 @@ function dispTemp() {
 		
 		currentDate.setDate(currentDate.getDate() + 1);
 	}
-	
-	document.getElementById("city-zip").innerHTML = zipCode;
-	document.getElementById("avg-temp-output").innerHTML = avgTemp + "&deg;";
-
-
 }
 	
 	
-	
+document.getElementById("city-zip").innerHTML = zipCode;
+document.getElementById("avg-temp-output").innerHTML = avgTemp + "&deg;";
 
 
 
