@@ -9,6 +9,7 @@
 	<title>Weather Display Web App</title>
 	
 	<link rel="stylesheet" href="weather-app-style.css">
+	
 	<script type = "text/javascript" src = "weather-app-script.js"></script>
 	
 </head>
@@ -22,14 +23,16 @@
 	
 	<div class = "input-section">
 		
+		<p>Enter Your Zipcode:</p>
+		<span><input type="text" name = "zipcode" id = "zipCode" maxlength = "5" size = "10"></span>
+		<br />
 		
-		<form>
-		Enter Your Zipcode:<br />
-		<input type="text" name = "zipcode" id = "zipCode" maxlength = "5"></input><br /><br />
+		<p>Number of Desired Months in Range:</p>
 		
-		Number of Desired Months in Range:<br />
-		<input type = "month" name = "dateOne" id = "dateOne"><br />
-		<input type = "month" name = "dateTwo" id = "dateTwo">
+		<span><input type = "month" name = "dateOne" id = "dateOne">
+			<span style = "padding:0px 10px">through</span>
+		<input type = "month" name = "dateTwo" id = "dateTwo"></span>
+		<br />
 		
 		<input type = "submit" value = "Display Temperature" id = "displayTemp">
 		</form>
