@@ -43,7 +43,7 @@ function dispTemp() {
 	currentDate = startDate;
 	
 		
-	while(currentDate.getDate() != endDate.getDate()){
+	while(currentDate.getDate() <= endDate.getDate()){
 		currDateStr = currentDate.toDateString();
 		
 		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq="+zipCode+"&country_eq=US&timestamp_eq="+currDateStr+"T12:00+00:00&fields=tempAvg";
@@ -56,7 +56,7 @@ function dispTemp() {
 		currentDate.setDate(currentDate.getDate() + 1);
 	}
 	
-	var avgTemp = totalTemp / totalDays;
+	var avgTemp = totalTemp/totalDays;
 	
 	console.log(isNaN(avgTemp));
 	
