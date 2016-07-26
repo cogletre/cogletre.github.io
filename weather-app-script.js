@@ -1,17 +1,42 @@
 
 var zipCode;
-var dateRange;
-var dateOne,dateTwo;
+var dateRange = [];
+var startDate,endDate,currentDate;
+var currDayTemp;
+var weatherURL;
 
-var apiKEY = "6bde010b79d7f87f0397";
-
-var weatherURI = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?period=day&postal_code_eq=" + zipCode + "&timestamp_eq=2012-02-10T00:00:00-05:00&fields=tempAvg";
+var weatherXmlHttp = new XMLHttpRequest();
 
 
 
-zipCode = document.getElementById("zipCode");
+var uri = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?period=day&postal_code_eq=22222&country_eq=US&timestamp_eq=2012-09-27&fields=tempAvg"
 
-dateOne = document.getElementById("");
+
+
+document.getElementById("displayTemp").onclick() = function() {
+	
+	zipCode = document.getElementById("zipCode");
+	
+	startDate = new Date(document.getElementById("dateOne"));
+	endDate = new Date(document.getElementById("dateTwo"));
+	
+	currentDate = startDate;
+	
+	for(currentDate.getDate(); currentDate.getDate() <= endDate.getDate(); currentDate.setDate(currentDate.getDate() + 1)) {
+		
+		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?period=day&postal_code_eq=" + zipCode + "&country_eq=US&timestamp_eq=" + currentDate + "&fields=tempAvg";
+		
+		weatherXmlHttp.open("GET", weatherURL, true);
+		weatherXmlHttp.send();
+		
+		var arr = JSON.parse(weatherXmlHttp.responseText);
+		
+		
+		
+		dateRange[dateRange.length] = currDayTemp;
+		
+	}
+}
 
 function calcAverage (dateRange) {
 	
@@ -26,3 +51,6 @@ function calcAverage (dateRange) {
 	return avgTemps;
 }
 
+
+document.getElementById("city-zip").innerHTML = zipCode;
+document.getElementById("avg-temp-output").innerHTML = calcAverage(dateRange);

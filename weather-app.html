@@ -27,12 +27,12 @@
 		<span><input type="text" name = "zipcode" id = "zipCode" maxlength = "5" size = "10"></span>
 		<br />
 		
-		<p>Number of Desired Months in Range:</p>
+		<p>Number of Desired Months in Range:<br /><span style = "font-size:10px;font-style:italic;">dates must be after 1979</span></p>
 		
 		<span>
-			<input type = "date" name = "dateOne" id = "dateOne">
+			<input type = "date" name = "dateOne" id = "dateOne" min="1979-12-31">
 				<span style = "padding:0px 10px">through</span>
-			<input type = "date" name = "dateTwo" id = "dateTwo">
+			<input type = "date" name = "dateTwo" id = "dateTwo"  min="1979-12-31">
 		</span>
 		<br />
 		
@@ -41,11 +41,9 @@
 	</div>
 	
 	<div id = "temp-output">
-		<p class = "city-info hide-section">Average temperature for <span id = "city-zip">City Zipcode</span></p>
+		<p class = "hide-section">Average temperature for <span id = "city-zip">City Zipcode</span></p>
 	
-		<p class = "hide-section"><span id = "temp-far-ouptut">Temp in Farenheit</span>&deg; F</p>
-	
-		<p class = "hide-section"><span id = "temp-cel-output">Temp in Celsius</span>&deg; C</p>
+		<p class = "hide-section"><span id = "avg-temp-output">Temp in Farenheit</span>&deg;</p>
 	</div>
 	
 	<footer>
