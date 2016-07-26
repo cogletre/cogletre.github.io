@@ -12,7 +12,7 @@ var tempScript;
 
 function readWeather(weatherData) {
 	
-	var tempObj = weatherData[0];
+	var tempObj = weatherData;
 	
 	currDayTemp = tempObj["tempAvg"];
 	
@@ -36,7 +36,7 @@ function dispTemp() {
 		tempScript = document.createElement("script");
 		tempScript.src = weatherURL;
 		
-		document.head.appendChild(tempScript);
+		document.getElementsByTagName('head')[0].appendChild(tempScript);
 	}
 }
 
