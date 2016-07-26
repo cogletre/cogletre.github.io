@@ -45,20 +45,24 @@ function dispTemp() {
 	
 	for(currentDate.getDate(); currentDate.getDate() <= endDate.getDate(); currentDate.setDate(currentDate.getDate() + 1)) {
 		
-		currDateStr = currentDate.toDateString();
-		
-		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq="+zipCode+"&country_eq=US&timestamp_eq="+currDateStr+"T12:00+00:00&fields=tempAvg";
-		
-		tempScript = document.createElement("script");
-		tempScript.src = weatherURL;
-		
-		document.getElementsByTagName('head')[0].appendChild(tempScript);
+		if(currentDate.getDate() != endDate.getDate()){
+			currDateStr = currentDate.toDateString();
+			
+			weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq="+zipCode+"&country_eq=US&timestamp_eq="+currDateStr+"T12:00+00:00&fields=tempAvg";
+			
+			tempScript = document.createElement("script");
+			tempScript.src = weatherURL;
+			
+			document.getElementsByTagName('head')[0].appendChild(tempScript);
+		} else {
+			document.getElementById("city-zip").innerHTML = zipCode;
+			document.getElementById("avg-temp-output").innerHTML = parseInt(totalTemp / totalDays) + "&deg;";
+	
+			console.log("Hopefully last test...");
+		}
 	}
 	
-	document.getElementById("city-zip").innerHTML = zipCode;
-	document.getElementById("avg-temp-output").innerHTML = parseInt(totalTemp / totalDays) + "&deg;";
 	
-	console.log("this may be messed up...");
 }
 
 
