@@ -17,7 +17,7 @@ function readWeather(weatherData) {
 	
 	var tempObj = weatherData;
 	
-	currDayTemp = tempObj[0].tempAvg;
+	currDayTemp = tempObj.tempAvg;
 	
 	currTempArray[currTempArray.length] = currDayTemp;
 }
