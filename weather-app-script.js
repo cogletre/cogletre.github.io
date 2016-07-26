@@ -62,7 +62,7 @@ function dispTemp() {
 	}
 	
 	document.getElementById("city-zip").innerHTML = zipCode;
-	document.getElementById("avg-temp-output").innerHTML = totalTemp / totalDays + "&deg;";
+	document.getElementById("avg-temp-output").innerHTML = parseInt(totalTemp / totalDays) + "&deg;";
 }
 
 
