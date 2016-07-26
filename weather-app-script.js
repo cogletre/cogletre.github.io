@@ -8,12 +8,13 @@ var currTempArray = [];
 var weatherURL;
 var weatherXmlHttp = new XMLHttpRequest();
 
-
-
-var url = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?period=day&postal_code_eq=22222&country_eq=US&timestamp_eq=2012-09-27&fields=tempAvg"
+var tempScript;
 
 function readWeather(weatherData) {
-			
+	
+	document.body.removeChild(tempScript);
+	tempScript = null;
+	
 	var tempObj = weatherData;
 	
 	currDayTemp = tempObj[0].tempAvg;
@@ -35,8 +36,10 @@ function dispTemp() {
 		
 		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq=" + zipCode + "&country_eq=US&timestamp_eq=" + currentDate + "&fields=tempAvg";
 		
-		var tempScript = document.createElement("script");
+		tempScript = document.createElement("script");
 		tempScript.src = weatherURL;
+		
+		document.getElementsByTagName('head')[0].appendChild(tempScript);
 		
 		document.body.appendChild(tempScript);
 		
@@ -49,7 +52,7 @@ function dispTemp() {
 	}
 	
 	document.getElementById("city-zip").innerHTML = zipCode;
-	document.getElementById("avg-temp-output").innerHTML = calcAverage(currTempArray);
+	document.getElementById("avg-temp-output").innerHTML = "" + calcAverage(currTempArray) + "&deg;";
 }
 
 function calcAverage (dateRange) {
