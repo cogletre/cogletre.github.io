@@ -56,7 +56,7 @@ function dispTemp() {
 		currentDate.setDate(currentDate.getDate() + 1);
 	}
 	
-	var avgTemp = parseInt(totalTemp / totalDays);
+	var avgTemp = totalTemp / totalDays;
 	
 	console.log(isNaN(avgTemp));
 	
