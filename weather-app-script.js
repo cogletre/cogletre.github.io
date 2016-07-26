@@ -17,7 +17,7 @@ function readWeather(weatherData) {
 		tempScript = null;
 	}
 
-	var tempObj = weatherData;
+	var tempObj = JSON.parse(weatherData);
 	
 	currDayTemp = tempObj["tempAvg"];
 	
