@@ -10,6 +10,10 @@ var weatherXmlHttp = new XMLHttpRequest();
 
 var tempScript = null;
 
+var totalTemp = 0;
+var totalDays = 0;
+var avgTemp;
+
 function readWeather(weatherData) {
 	
 	if(tempScript){
@@ -20,6 +24,9 @@ function readWeather(weatherData) {
 	var tempObj = weatherData[0];
 	
 	currDayTemp = tempObj.tempAvg;
+	
+	totalTemp += currDayTemp;
+	totalDays++;
 	
 	currTempArray[currTempArray.length] = currDayTemp;
 }
@@ -46,14 +53,8 @@ function dispTemp() {
 		document.getElementsByTagName('head')[0].appendChild(tempScript);
 	}
 	
-	var totalTemp, tempCount=0;
-	for(var x=0; x < currTempArray.length; x++){
-		totalTemp += currTempArray[x];
-		tempCount++;
-	}
-	
 	document.getElementById("city-zip").innerHTML = zipCode;
-	document.getElementById("avg-temp-output").innerHTML = totalTemp / tempCount + "&deg;";
+	document.getElementById("avg-temp-output").innerHTML = totalTemp / totalDays + "&deg;";
 }
 
 
