@@ -12,8 +12,10 @@ var tempScript;
 
 function readWeather(weatherData) {
 	
-	document.head.removeChild(tempScript);
-	tempScript = null;
+	if(tempScript){
+		document.head.removeChild(tempScript);
+		tempScript = null;
+	}
 	
 	var tempObj = weatherData;
 	
