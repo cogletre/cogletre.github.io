@@ -60,6 +60,8 @@ function dispTemp() {
 	
 	avgTemp = totalTemp/totalDays;
 	
+	console.log(avgTemp);
+	
 	console.log(isNaN(avgTemp));
 	
 	document.getElementById("city-zip").innerHTML = zipCode;
