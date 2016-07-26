@@ -12,6 +12,11 @@ var tempScript;
 
 function readWeather(weatherData) {
 	
+	if(tempScript){}
+		document.head.removeChild('tempScript');
+		tempScript = null;
+	}
+
 	var tempObj = weatherData;
 	
 	currDayTemp = tempObj["tempAvg"];
