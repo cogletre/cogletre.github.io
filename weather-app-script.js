@@ -25,10 +25,10 @@ function readWeather(weatherData) {
 	
 	currDayTemp = tempObj.tempAvg;
 	
-	totalTemp += currDayTemp;
+	totalTemp += parseInt(currDayTemp);
 	totalDays++;
 	
-	currTempArray[currTempArray.length] = currDayTemp;
+	currTempArray[currTempArray.length] = parseInt(currDayTemp);
 }
 
 
