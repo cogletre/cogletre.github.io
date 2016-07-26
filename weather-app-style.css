@@ -26,3 +26,8 @@ footer {
 input, button {
 	margin-top:10px;
 }
+
+.hide-section {
+	display:none;
+	visibility:hidden;
+}
