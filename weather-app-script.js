@@ -8,10 +8,18 @@ var currTempArray = [];
 var weatherURL;
 var weatherXmlHttp = new XMLHttpRequest();
 
-var tempScript;
 
 
 var url = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?period=day&postal_code_eq=22222&country_eq=US&timestamp_eq=2012-09-27&fields=tempAvg"
+
+function readWeather(weatherData) {
+			
+	var tempObj = weatherData;
+	
+	currDayTemp = tempObj[0].tempAvg;
+	
+	currTempArray[currTempArray.length] = currDayTemp;
+}
 
 
 function dispTemp() {
@@ -27,25 +35,15 @@ function dispTemp() {
 		
 		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq=" + zipCode + "&country_eq=US&timestamp_eq=" + currentDate + "&fields=tempAvg";
 		
-		tempScript = document.createElement("script");
-		tempScript.type = "text/javascript";
+		var tempScript = document.createElement("script");
 		tempScript.src = weatherURL;
 		
-		weatherXmlHttp.open("GET", weatherURL, true);
-		weatherXmlHttp.send();
+		document.body.appendChild(tempScript);
 		
-		function readWeather(weatherData) {
-			
-			document.body.removeChild(tempScript);
-			tempScript = null;
-			
-			var tempObj = weatherData;
-			
-			currDayTemp = tempObj[0].tempAvg;
-			
-			currTempArray[currTempArray.length] = currDayTemp;
-		}
-
+		/*weatherXmlHttp.open("GET", weatherURL, true);
+		weatherXmlHttp.send();*/
+		
+		
 		
 		
 	}
