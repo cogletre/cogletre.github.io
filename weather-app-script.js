@@ -12,7 +12,7 @@ var tempScript = null;
 
 var totalTemp = 0;
 var totalDays = 0;
-var avgTemp;
+var avgTemp = totalTemp / totalDays;
 
 function readWeather(weatherData) {
 	
@@ -56,7 +56,7 @@ function dispTemp() {
 			document.getElementsByTagName('head')[0].appendChild(tempScript);
 		} else {
 			document.getElementById("city-zip").innerHTML = zipCode;
-			document.getElementById("avg-temp-output").innerHTML = parseInt(totalTemp / totalDays) + "&deg;";
+			document.getElementById("avg-temp-output").innerHTML = avgTemp + "&deg;";
 	
 			console.log("Hopefully last test...");
 		}
