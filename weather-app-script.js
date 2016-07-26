@@ -72,7 +72,6 @@ function dispTemp() {
 	startDate = null;
 	endDate = null;
 	currentDate = null;
-	document.getElementsByTagName('head')[0].removeChild(tempScript);
 }
 	
 	
