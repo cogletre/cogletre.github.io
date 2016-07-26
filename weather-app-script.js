@@ -57,6 +57,8 @@ function dispTemp() {
 	
 	document.getElementById("city-zip").innerHTML = zipCode;
 	document.getElementById("avg-temp-output").innerHTML = parseInt(totalTemp / totalDays) + "&deg;";
+	
+	console.log("this may be messed up...");
 }
 
 
