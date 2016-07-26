@@ -13,7 +13,7 @@ var tempScript;
 function readWeather(weatherData) {
 	
 	if(tempScript){
-		document.head.removeChild('tempScript');
+		document.getElementsByTagName('head')[0].removeChild(tempScript);
 		tempScript = null;
 	}
 
