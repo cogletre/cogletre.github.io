@@ -25,8 +25,14 @@ function readWeather(weatherData) {
 	
 	currDayTemp = parseInt(tempObj.tempAvg);
 	
+	console.log(currDayTemp);
+	
 	totalTemp += parseInt(currDayTemp);
 	totalDays++;
+	
+	console.log(totalTemp);
+	console.log(totalDays);
+	
 	
 	currTempArray[currTempArray.length] = parseInt(currDayTemp);
 }
