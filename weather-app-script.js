@@ -13,6 +13,8 @@ var tempScript = null;
 var totalTemp = 0;
 var totalDays = 0;
 
+var avgTemp = 0;
+
 function readWeather(weatherData) {
 	
 	if(tempScript){
@@ -56,7 +58,7 @@ function dispTemp() {
 		currentDate.setDate(currentDate.getDate() + 1);
 	}
 	
-	var avgTemp = totalTemp/totalDays;
+	avgTemp = totalTemp/totalDays;
 	
 	console.log(isNaN(avgTemp));
 	
