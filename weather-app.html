@@ -29,9 +29,11 @@
 		
 		<p>Number of Desired Months in Range:</p>
 		
-		<span><input type = "month" name = "dateOne" id = "dateOne">
-			<span style = "padding:0px 10px">through</span>
-		<input type = "month" name = "dateTwo" id = "dateTwo"></span>
+		<span>
+			<input type = "date" name = "dateOne" id = "dateOne">
+				<span style = "padding:0px 10px">through</span>
+			<input type = "date" name = "dateTwo" id = "dateTwo">
+		</span>
 		<br />
 		
 		<button type = "button" id = "displayTemp">Display Temperature</button>
@@ -39,11 +41,11 @@
 	</div>
 	
 	<div id = "temp-output">
-		<p class = "city-info"><span id = "city-name">City Name</span>, <span id = "city-zip">City Zipcode</span></p>
+		<p class = "city-info hide-section">Average temperature for <span id = "city-zip">City Zipcode</span></p>
 	
-		<p class = "temp-far">Temp in Farenheit</p>
+		<p class = "hide-section"><span id = "temp-far-ouptut">Temp in Farenheit</span>&deg; F</p>
 	
-		<p class = "temp-cel">Temp in Celsius</p>
+		<p class = "hide-section"><span id = "temp-cel-output">Temp in Celsius</span>&deg; C</p>
 	</div>
 	
 	<footer>

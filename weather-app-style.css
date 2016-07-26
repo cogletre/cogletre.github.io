@@ -15,12 +15,13 @@ footer {
 	color:black;
 	font-size:14px;
 	text-align:center;
-	margin-top:40%;
+	margin-top:50px;
 }
 
 #temp-info-input, #temp-output {
 	margin:0 20% 0 20%;
 	max-width:60%;
+	text-align:center;
 }
 
 input, button {
