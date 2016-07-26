@@ -34,11 +34,7 @@ function readWeather(weatherData) {
 	console.log(totalDays);
 	
 	
-	currTempArray[currTempArray.length] = parseInt(currDayTemp);
-	
-	for(var x in currTempArray) {
-		console.log(currTempArray[x]);
-	}
+	currTempArray.push(currDayTemp);
 }
 
 
