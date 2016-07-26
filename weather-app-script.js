@@ -22,22 +22,16 @@ function readWeather(weatherData) {
 	}
 
 	var tempObj = weatherData[0];
-	
-	console.log(tempObj + " tempObj");
-	
+
 	currDayTemp = parseInt(tempObj.tempAvg);
-	
-	console.log(currDayTemp + " currentDayTemp");
-	
-	totalTemp += parseInt(currDayTemp);
+		
+	totalTemp += currDayTemp;
 	totalDays++;
 	
 	console.log(totalTemp + " totalTemp");
 	console.log(totalDays + " totalDays");
-	
-	
-	currTempArray.push(currDayTemp);
 }
+
 
 
 function dispTemp() {
