@@ -35,6 +35,10 @@ function readWeather(weatherData) {
 	
 	
 	currTempArray[currTempArray.length] = parseInt(currDayTemp);
+	
+	for(var x in currTempArray) {
+		console.log(currTempArray[x]);
+	}
 }
 
 
