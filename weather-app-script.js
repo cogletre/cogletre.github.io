@@ -12,7 +12,7 @@ var tempScript;
 
 function readWeather(weatherData) {
 	
-	if(tempScript){}
+	if(tempScript){
 		document.head.removeChild('tempScript');
 		tempScript = null;
 	}
