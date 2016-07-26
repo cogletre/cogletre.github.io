@@ -40,7 +40,7 @@ function dispTemp() {
 	}
 	
 	document.getElementById("city-zip").innerHTML = zipCode;
-	document.getElementById("avg-temp-output").innerHTML = calcAverage(currTempArray);
+	document.getElementById("avg-temp-output").innerHTML = calcAverage(currTempArray) + "&deg;";
 }
 
 function calcAverage (dateRange) {
