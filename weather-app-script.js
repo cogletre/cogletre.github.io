@@ -23,7 +23,7 @@ function readWeather(weatherData) {
 
 	var tempObj = weatherData[0];
 	
-	currDayTemp = tempObj.tempAvg;
+	currDayTemp = parseInt(tempObj.tempAvg);
 	
 	totalTemp += parseInt(currDayTemp);
 	totalDays++;
