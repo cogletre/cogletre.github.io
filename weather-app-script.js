@@ -46,21 +46,14 @@ function dispTemp() {
 		document.getElementsByTagName('head')[0].appendChild(tempScript);
 	}
 	
-	function calcAverage (dateRange) {
-	
-	var totalTemps;
-	
-	for(var dayTemp in dateRange) {
-		totalTemps += dayTemp;
+	var totalTemp, tempCount=0;
+	for(var x=0; x < currTempArray.length; x++){
+		totalTemp += currTempArray[x];
+		tempCount++;
 	}
 	
-	var avgTemps = totalTemps / dateRange.length;
-	
-	return avgTemps;
-}
-	
 	document.getElementById("city-zip").innerHTML = zipCode;
-	document.getElementById("avg-temp-output").innerHTML = calcAverage(currTempArray) + "&deg;";
+	document.getElementById("avg-temp-output").innerHTML = totalTemp / tempCount + "&deg;";
 }
 
 
