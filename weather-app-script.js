@@ -36,7 +36,7 @@ function dispTemp() {
 	
 	for(currentDate.getDate(); currentDate.getDate() <= endDate.getDate(); currentDate.setDate(currentDate.getDate() + 1)) {
 		
-		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq="+zipCode+"&country_eq=US&timestamp_eq="+currentDate+"&fields=tempAvg";
+		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq="+zipCode+"&country_eq=US&timestamp_eq="+currentDate+"T12:00+00:00&fields=tempAvg";
 		
 		var enc_weatherURL = decodeURIComponent(weatherURL);
 		
