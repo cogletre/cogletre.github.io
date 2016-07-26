@@ -15,10 +15,10 @@ var uri = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_post
 
 document.getElementById("displayTemp").onclick = function() {
 	
-	zipCode = document.getElementById("zipCode");
+	zipCode = document.getElementById("zipCode").value;
 	
-	startDate = new Date(document.getElementById("dateOne"));
-	endDate = new Date(document.getElementById("dateTwo"));
+	startDate = new Date(document.getElementById("dateOne").value);
+	endDate = new Date(document.getElementById("dateTwo").value);
 	
 	currentDate = startDate;
 	
