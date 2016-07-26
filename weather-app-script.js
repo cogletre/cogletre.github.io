@@ -8,7 +8,7 @@ var currTempArray = [];
 var weatherURL;
 var weatherXmlHttp = new XMLHttpRequest();
 
-var tempScript;
+var tempScript = null;
 
 function readWeather(weatherData) {
 	
@@ -19,7 +19,7 @@ function readWeather(weatherData) {
 
 	var tempObj = JSON.parse(weatherData);
 	
-	currDayTemp = tempObj["tempAvg"];
+	currDayTemp = tempObj.tempAvg;
 	
 	currTempArray[currTempArray.length] = currDayTemp;
 }
