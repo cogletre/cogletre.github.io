@@ -46,11 +46,7 @@ function dispTemp() {
 		document.getElementsByTagName('head')[0].appendChild(tempScript);
 	}
 	
-	document.getElementById("city-zip").innerHTML = zipCode;
-	document.getElementById("avg-temp-output").innerHTML = calcAverage(currTempArray) + "&deg;";
-}
-
-function calcAverage (dateRange) {
+	function calcAverage (dateRange) {
 	
 	var totalTemps;
 	
@@ -62,6 +58,12 @@ function calcAverage (dateRange) {
 	
 	return avgTemps;
 }
+	
+	document.getElementById("city-zip").innerHTML = zipCode;
+	document.getElementById("avg-temp-output").innerHTML = calcAverage(currTempArray) + "&deg;";
+}
+
+
 
 /*
 document.getElementById("city-zip").innerHTML = zipCode;
