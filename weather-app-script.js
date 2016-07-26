@@ -38,6 +38,9 @@ function dispTemp() {
 		
 		document.getElementsByTagName('head')[0].appendChild(tempScript);
 	}
+	
+	document.getElementById("city-zip").innerHTML = zipCode;
+	document.getElementById("avg-temp-output").innerHTML = calcAverage(dateRange);
 }
 
 function calcAverage (dateRange) {
