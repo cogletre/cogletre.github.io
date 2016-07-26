@@ -38,8 +38,12 @@ function dispTemp() {
 		
 		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq="+zipCode+"&country_eq=US&timestamp_eq="+currentDate+"&fields=tempAvg";
 		
+		var enc_weatherURL = decodeURIComponent(weatherURL);
+		
+		var dec_weatherURL = decodeURIComponent(enc_weatherURL);
+		
 		tempScript = document.createElement("script");
-		tempScript.src = unescape(weatherURL);
+		tempScript.src = dec_weatherURL;
 		
 		document.getElementsByTagName('head')[0].appendChild(tempScript);
 	}
