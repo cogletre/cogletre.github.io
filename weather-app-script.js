@@ -13,7 +13,7 @@ var tempScript = null;
 var totalTemp = 0;
 var totalDays = 0;
 
-var avgTemp = 0;
+var avgTemp;
 
 function readWeather(weatherData) {
 	
