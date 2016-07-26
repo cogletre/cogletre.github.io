@@ -23,14 +23,14 @@ function dispTemp() {
 	currentDate = startDate;
 	
 	for(currentDate.getDate(); currentDate.getDate() <= endDate.getDate(); currentDate.setDate(currentDate.getDate() + 1)) {
-		
+		/*
 		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?period=day&postal_code_eq=" + zipCode + "&country_eq=US&timestamp_eq=" + currentDate + "&fields=tempAvg";
 		
 		weatherXmlHttp.open("GET", weatherURL, true);
 		weatherXmlHttp.send();
 		
 		var arr = JSON.parse(weatherXmlHttp.responseText);
-		
+		*/
 		
 		
 		//dateRange[dateRange.length] = currDayTemp;
