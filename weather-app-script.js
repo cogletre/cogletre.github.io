@@ -8,18 +8,10 @@ var currTempArray = [];
 var weatherURL;
 var weatherXmlHttp = new XMLHttpRequest();
 
-
-function readResponse(response){
-	document.getElementsByTagName('SPAN')[0].innerHTML = response.feed.entry.length + ' entries returned';
-	console.log(response);
-}
+var tempScript;
 
 
 var url = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?period=day&postal_code_eq=22222&country_eq=US&timestamp_eq=2012-09-27&fields=tempAvg"
-
-function parseWeather(data) {
-	
-}
 
 
 function dispTemp() {
@@ -33,14 +25,21 @@ function dispTemp() {
 	
 	for(currentDate.getDate(); currentDate.getDate() <= endDate.getDate(); currentDate.setDate(currentDate.getDate() + 1)) {
 		
-		function parseWeather(weatherURL) {
+		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq=" + zipCode + "&country_eq=US&timestamp_eq=" + currentDate + "&fields=tempAvg";
+		
+		tempScript = document.createElement("script");
+		tempScript.type = "text/javascript";
+		tempScript.src = weatherURL;
+		
+		weatherXmlHttp.open("GET", weatherURL, true);
+		weatherXmlHttp.send();
+		
+		function readWeather(weatherData) {
 			
-			weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=parseWeather?period=day&postal_code_eq=" + zipCode + "&country_eq=US&timestamp_eq=" + currentDate + "&fields=tempAvg";
+			document.body.removeChild(tempScript);
+			tempScript = null;
 			
-			weatherXmlHttp.open("GET", weatherURL, true);
-			weatherXmlHttp.send();
-			
-			var tempObj = JSON.parse(weatherXmlHttp.responseText);
+			var tempObj = weatherData;
 			
 			currDayTemp = tempObj[0].tempAvg;
 			
