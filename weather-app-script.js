@@ -36,6 +36,8 @@ function dispTemp() {
 		//dateRange[dateRange.length] = currDayTemp;
 		
 	}
+	
+	document.getElementById("city-zip").innerHTML = zipCode;
 }
 
 function calcAverage (dateRange) {
