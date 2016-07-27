@@ -29,9 +29,6 @@ function readWeather(weatherData) {
 	totalTemp += currDayTemp;
 	totalDays++;
 	
-	console.log(totalTemp + " totalTemp");
-	console.log(totalDays + " totalDays");
-	
 	avgTemp = parseInt(totalTemp/totalDays);
 	
 	document.getElementById("avg-temp-output").innerHTML = avgTemp + "&deg;";
@@ -73,19 +70,3 @@ function dispTemp() {
 	endDate = null;
 	currentDate = null;
 }
-	
-	
-
-
-
-
-
-
-/*
-document.getElementById("city-zip").innerHTML = zipCode;
-document.getElementById("avg-temp-output").innerHTML = calcAverage(dateRange);
-*/
-
-
-
-
