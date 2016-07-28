@@ -18,6 +18,11 @@ a, a.work-link {
 	transition:all 500ms ease;
 }
 
+a.work-link {
+	font-size:15px;
+	font-weight:bold;
+}
+
 a:hover, a.work-link:hover {
 	color:blue;
 }
