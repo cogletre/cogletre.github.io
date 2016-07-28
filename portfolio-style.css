@@ -22,6 +22,11 @@ h6 {}
 
 .previous-work {}
 
-h3.work-title
+h3.work-title {
+	font-size:20px;
+}
+span.work-title {
+	border:1px solid black;
+}
 
 .projects {}
