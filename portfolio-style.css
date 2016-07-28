@@ -67,13 +67,15 @@
 	}
 
 	a.work-link {
-		font-size:13px;
+		font-size:16px;
 	}
 
 	a:hover, a.work-link:hover {
 		color:blue;
 	}
-
+	
+	p.work-skills ul {font-size:14px;}
+	
 	h1 {}
 	h2 {}
 	h3 {}
