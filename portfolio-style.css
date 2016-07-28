@@ -33,6 +33,7 @@ h6 {}
 
 h3.work-title,h3.project-title {
 	font-size:20px;
+	cursor:pointer;
 }
 span.work-title,span.project-title {
 	border:1px solid black;
