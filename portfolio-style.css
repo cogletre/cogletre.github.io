@@ -13,6 +13,16 @@ header {
 	text-align:center;
 }
 
+a {
+	color:#888;
+	transition:all 500ms ease;
+}
+
+a:hover {
+	color:blue;
+	text-shadow:2px 2px gray;
+}
+
 h1 {}
 h2 {}
 h3 {}
