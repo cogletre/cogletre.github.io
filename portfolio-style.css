@@ -27,6 +27,7 @@ h3.work-title {
 }
 span.work-title {
 	border:1px solid black;
+	padding:5px;
 }
 
 .projects {}
