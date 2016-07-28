@@ -1,5 +1,27 @@
 body {
 	color:black;
-	max-width:80%;
-	margin:0% 10%;
+	max-width:70%;
+	margin:0% 15%;
 }
+
+footer {
+	margin-top:150px;
+	text-align:center;
+}
+
+header {
+	text-align:center;
+}
+
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
+
+.previous-work {}
+
+h3.work-title
+
+.projects {}
