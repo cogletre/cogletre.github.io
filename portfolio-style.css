@@ -1,1 +1,5 @@
-body {color:black;}
+body {
+	color:black;
+	max-width:80%;
+	margin:0% 10%;
+}
