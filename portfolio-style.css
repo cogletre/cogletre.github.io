@@ -32,10 +32,10 @@ h6 {}
 
 .previous-work {}
 
-h3.work-title {
+h3.work-title,h3.project-title {
 	font-size:20px;
 }
-span.work-title {
+span.work-title,span.project-title {
 	border:1px solid black;
 	padding:5px;
 }
