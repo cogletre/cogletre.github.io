@@ -14,13 +14,12 @@ header {
 }
 
 a {
-	color:#888;
+	color:black;
 	transition:all 500ms ease;
 }
 
 a:hover {
-	color:blue;
-	text-shadow:2px 2px gray;
+	color:#666;
 }
 
 h1 {}
