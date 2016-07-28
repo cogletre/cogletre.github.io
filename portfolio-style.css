@@ -32,7 +32,7 @@ h6 {}
 .previous-work {}
 .projects {}
 
-#work-accordion h3.work-title, #work-accordion h3.project-title {
+#work-accordion h3.work-title, #projects-accordion h3.project-title {
 	font-size:18px;
 	font-weight:bold;
 	cursor:pointer;
