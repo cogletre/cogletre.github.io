@@ -14,7 +14,7 @@ var avgTemp;
 
 var tempScript = null;
 
-
+//Callback function for JSONP request to WeatherSource.com API
 function readWeather(weatherData) {
 	
 	console.log(weatherData); 
