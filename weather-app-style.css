@@ -31,7 +31,15 @@ input, button {
 	margin-top:10px;
 }
 
-.hide-section {
+.hide-section,.tempHidden {
 	display:none;
 	visibility:hidden;
 }
+
+#dateErrorField {
+	margin:15px 0px;
+	color:red;
+	font-size:18px;
+	font-weight:bold;
+}
+
