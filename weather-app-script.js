@@ -17,7 +17,9 @@ var tempScript = null;
 
 function readWeather(weatherData) {
 	
-	if(tempScript) {
+	console.log(weatherData);
+	
+	/*if(tempScript) {
 		document.getElementsByTagName('head')[0].removeChild(tempScript);
 	}
 	
@@ -46,7 +48,7 @@ function readWeather(weatherData) {
 		
 		document.getElementById("avg-temp-output").innerHTML = avgTemp + "&deg;";
 		document.getElementById("city-zip").innerHTML = zipCode;
-	}
+	}*/
 }
 
 
@@ -73,13 +75,4 @@ function dispTemp() {
 		
 		currentDate.setDate(currentDate.getDate() + 1);
 	}
-	
-	zipCode = null;
-	avgTemp = 0;
-	totalDays = 0;
-	totalTemp = 0;
-	currDayTemp = 0;
-	startDate = null;
-	endDate = null;
-	currentDate = null;
 }
