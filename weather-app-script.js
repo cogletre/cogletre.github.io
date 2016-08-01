@@ -23,10 +23,10 @@ function readWeather(weatherData) {
 	
 	console.log(weatherData); 
 	
-	/*if(tempScript) {
+	if(tempScript) {
 		document.getElementsByTagName('head')[0].removeChild(tempScript);
 	}
-	
+	/*
 	var tempObj = weatherData[0];
 
 	currDayTemp = parseInt(tempObj.tempAvg);
