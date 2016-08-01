@@ -84,6 +84,8 @@ function dispTemp() {
 		while(currentDate.getDate() <= endDate.getDate()){
 			currDateStr = currentDate.toDateString();
 			
+			currentDate.setDate(currentDate.getDate() + 1);
+			
 			weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq="+zipCode+"&country_eq=US&timestamp_eq="+currDateStr+"T12:00+00:00&fields=tempAvg";
 			
 			tempScript = document.createElement("script");
@@ -91,7 +93,6 @@ function dispTemp() {
 			
 			document.getElementsByTagName('head')[0].appendChild(tempScript);
 			
-			currentDate.setDate(currentDate.getDate() + 1);
 		}
 	//}
 }
