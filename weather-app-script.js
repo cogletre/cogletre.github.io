@@ -17,7 +17,7 @@ var tempScript = null;
 
 function readWeather(weatherData) {
 	
-	console.log(weatherData);
+	console.log(weatherData); 
 	
 	/*if(tempScript) {
 		document.getElementsByTagName('head')[0].removeChild(tempScript);
