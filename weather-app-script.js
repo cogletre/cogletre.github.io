@@ -21,7 +21,9 @@ var nullError = "Please fill in every field";
 //Callback function for JSONP request to WeatherSource.com API
 function readWeather(weatherData) {
 	
-	console.log(weatherData); 
+	console.log(weatherData);
+	
+	console.log(weatherData[0].tempAvg);
 	
 	/*if(tempScript) {
 		document.getElementsByTagName('head')[0].removeChild(tempScript);
