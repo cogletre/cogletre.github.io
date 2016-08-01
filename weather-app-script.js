@@ -25,6 +25,10 @@ function readWeather(weatherData) {
 	
 	console.log(weatherData[0].tempAvg);
 	
+	console.log(startDate);
+	console.log(currentDate);
+	console.log(endDate);
+	
 	/*if(tempScript) {
 		document.getElementsByTagName('head')[0].removeChild(tempScript);
 	}
