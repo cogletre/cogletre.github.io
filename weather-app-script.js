@@ -15,6 +15,8 @@ var avgTemp;
 var tempScript = null;
 
 var dateError = "Please choose a valid date range";
+var nullError = "Please fill in every field";
+
 
 //Callback function for JSONP request to WeatherSource.com API
 function readWeather(weatherData) {
@@ -66,6 +68,11 @@ function dispTemp() {
 	
 	var lowestDate = new Date('December 31, 1979 11:59:99');
 	
+	if(zipCode === null || startDate === null || endDate === null) {
+		document.getElementById("dateErrorField").innerHTML = nullError;
+		
+		document.getElementById("dateErrorField").removeAttribute("tempHidden");
+	}
 	if(startDate.getDate() <= lowestDate || startDate.getDate() > endDate.getDate()) {
 		document.getElementById("dateErrorField").innerHTML = dateError;
 		
