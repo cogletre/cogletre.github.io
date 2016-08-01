@@ -66,7 +66,7 @@ function dispTemp() {
 	
 	currentDate = startDate;
 	
-	var lowestDate = new Date('December 31, 1979 11:59:99');
+	/*var lowestDate = new Date('December 31, 1979 11:59:99');
 	
 	if(zipCode === null || startDate === null || endDate === null) {
 		document.getElementById("dateErrorField").innerHTML = nullError;
@@ -77,7 +77,7 @@ function dispTemp() {
 		document.getElementById("dateErrorField").innerHTML = dateError;
 		
 		document.getElementById("dateErrorField").removeAttribute("tempHidden");
-	} else {
+	} else {*/
 		
 		while(currentDate.getDate() <= endDate.getDate()){
 			currDateStr = currentDate.toDateString();
@@ -91,7 +91,7 @@ function dispTemp() {
 			
 			currentDate.setDate(currentDate.getDate() + 1);
 		}
-	}
+	//}
 }
 
 
