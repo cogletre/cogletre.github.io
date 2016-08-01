@@ -58,6 +58,8 @@ function readWeather(weatherData) {
 
 function dispTemp() {
 	
+	var totalTemp = 0;
+	
 	zipCode = document.getElementById("zipCode").value;
 	
 	startDate = new Date(document.getElementById("dateOne").value);
@@ -93,6 +95,11 @@ function dispTemp() {
 		console.log("did it one time");
 	}
 	//}
+	
+	for(var tem in currTempArray){
+		totalTemp += currTempArray[tem];
+		totalDays++;
+	}
 	
 	var avgTemp = totalTemp / totalDays;
 		
