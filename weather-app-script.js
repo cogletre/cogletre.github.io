@@ -21,23 +21,12 @@ var nullError = "Please fill in every field";
 //Callback function for JSONP request to WeatherSource.com API
 function readWeather(weatherData) {
 	
-	console.log(weatherData);
-	
-	console.log(weatherData[0].tempAvg);
-	
-	console.log(startDate);
-	console.log(currentDate);
-	console.log(endDate);
-	
-	/*if(tempScript) {
-		document.getElementsByTagName('head')[0].removeChild(tempScript);
-	}
-	
 	var tempObj = weatherData[0];
 
 	currDayTemp = parseInt(tempObj.tempAvg);
 	
 	currTempArray[currTempArray.length] = currDayTemp;
+	totalDays = totalDays + 1;
 	
 	//totalTemp += currDayTemp;
 	//totalDays++;
@@ -46,7 +35,7 @@ function readWeather(weatherData) {
 	
 	//document.getElementById("avg-temp-output").innerHTML = avgTemp + "&deg;";
 	
-	if (currentDate.getDate() !< endDate.getDate()) {
+	/*if (currentDate.getDate() !< endDate.getDate()) {
 		var totalTemp = 0,totalDays = 0;
 		
 		for(var tem in currTempArray){
@@ -58,6 +47,10 @@ function readWeather(weatherData) {
 		
 		document.getElementById("avg-temp-output").innerHTML = avgTemp + "&deg;";
 		document.getElementById("city-zip").innerHTML = zipCode;
+	}
+	
+	if(tempScript) {
+		document.getElementsByTagName('head')[0].removeChild(tempScript);
 	}*/
 }
 
@@ -85,20 +78,26 @@ function dispTemp() {
 		document.getElementById("dateErrorField").removeAttribute("tempHidden");
 	} else {*/
 		
-		while(currentDate.getDate() <= endDate.getDate()){
-			currDateStr = currentDate.toDateString();
-			
-			currentDate.setDate(currentDate.getDate() + 1);
-			
-			weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq="+zipCode+"&country_eq=US&timestamp_eq="+currDateStr+"T12:00+00:00&fields=tempAvg";
-			
-			tempScript = document.createElement("script");
-			tempScript.src = weatherURL;
-			
-			document.getElementsByTagName('head')[0].appendChild(tempScript);
-			
-		}
+	for(startDate.getDate(); currentDate.getDate() <= endDate.getDate(); currentDate.setDate(currentDate.getDate() + 1)){
+		currDateStr = currentDate.toDateString();
+		
+		currentDate.setDate(currentDate.getDate() + 1);
+		
+		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq="+zipCode+"&country_eq=US&timestamp_eq="+currDateStr+"T12:00+00:00&fields=tempAvg";
+		
+		tempScript = document.createElement("script");
+		tempScript.src = weatherURL;
+		
+		document.getElementsByTagName('head')[0].appendChild(tempScript);
+		
+		console.log("did it one time");
+	}
 	//}
+	
+	var avgTemp = totalTemp / totalDays;
+		
+	document.getElementById("avg-temp-output").innerHTML = avgTemp + "&deg;";
+	document.getElementById("city-zip").innerHTML = zipCode;
 }
 
 
