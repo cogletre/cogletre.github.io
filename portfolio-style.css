@@ -32,6 +32,10 @@
 	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools {
 		margin-top:5px;
 	}
+	ol.project-steps {
+		margin-top:5px;
+		margin-bottom:5px;
+	}
 
 	a:hover, a.work-link:hover {
 		color:blue;
@@ -93,6 +97,10 @@
 	}
 	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools {
 		margin-top:5px;
+	}
+	ol.project-steps {
+		margin-top:5px;
+		margin-bottom:5px;
 	}
 	
 	h1 {}
