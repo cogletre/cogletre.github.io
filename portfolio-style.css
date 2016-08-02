@@ -61,6 +61,12 @@ body {
 		font-weight:bold;
 		cursor:pointer;
 	}
+	
+	.bio-photo {
+		max-width:40%;
+		margin-left:10px;
+		float:left;
+	}
 }
 
 
@@ -118,6 +124,11 @@ body {
 		font-size:16px;
 		font-weight:bold;
 		cursor:pointer;
+	}
+	
+	.bio-photo {
+		text-align:center;
+		float:none;
 	}
 }
 
