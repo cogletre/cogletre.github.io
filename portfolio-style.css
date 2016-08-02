@@ -26,10 +26,10 @@
 		font-weight:bold;
 	}
 	
-	p.work-skills,p.role-description {
+	p.work-skills,p.role-description,p.project-description,p.project-tools {
 		margin-bottom:5px;
 	}
-	ul.work-skills,ul.role-description {
+	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools {
 		margin-top:5px;
 	}
 
@@ -88,10 +88,10 @@
 		font-size:14px;
 	}
 	
-	p.work-skills,p.role-description {
+	p.work-skills,p.role-description,p.project-description,p.project-tools {
 		margin-bottom:5px;
 	}
-	ul.work-skills,ul.role-description {
+	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools {
 		margin-top:5px;
 	}
 	
