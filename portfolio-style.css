@@ -1,4 +1,14 @@
 
+html {
+	height:100%;
+	background:gray;
+}
+body {
+	min-height:100%;
+	background:white;
+	padding:10px 20px 10px;
+}
+
 /* Styling for screens wider than 768px */
 @media screen and (min-width:768px){
 	body {
