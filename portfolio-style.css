@@ -26,15 +26,11 @@
 		font-weight:bold;
 	}
 	
-	p.work-skills,p.role-description,p.project-description,p.project-tools {
+	p.work-skills,p.role-description,p.project-description,p.project-tools,p.project-steps {
 		margin-bottom:5px;
 	}
-	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools {
+	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools,ol.project-steps {
 		margin-top:5px;
-	}
-	ol.project-steps {
-		margin-top:5px;
-		margin-bottom:5px;
 	}
 
 	a:hover, a.work-link:hover {
@@ -92,15 +88,11 @@
 		font-size:14px;
 	}
 	
-	p.work-skills,p.role-description,p.project-description,p.project-tools {
+	p.work-skills,p.role-description,p.project-description,p.project-tools,p.project-steps {
 		margin-bottom:5px;
 	}
-	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools {
+	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools,ol.project-steps {
 		margin-top:5px;
-	}
-	ol.project-steps {
-		margin-top:5px;
-		margin-bottom:5px;
 	}
 	
 	h1 {}
