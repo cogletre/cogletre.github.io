@@ -29,6 +29,9 @@
 	p.work-skills,p.role-description {
 		margin-bottom:5px;
 	}
+	ul.work-skills,ul.role-description {
+		margin-top:5px;
+	}
 
 	a:hover, a.work-link:hover {
 		color:blue;
@@ -87,6 +90,9 @@
 	
 	p.work-skills,p.role-description {
 		margin-bottom:5px;
+	}
+	ul.work-skills,ul.role-description {
+		margin-top:5px;
 	}
 	
 	h1 {}
