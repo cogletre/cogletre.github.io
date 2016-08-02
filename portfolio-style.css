@@ -53,9 +53,8 @@ body {
 	h4 {}
 	h5 {}
 	h6 {}
-
-	.previous-work {}
-	.projects {}
+		
+	.previous-work,.projects,.about-me {padding:0 3% 0 0;}
 
 	#work-accordion h3.work-title, #projects-accordion h3.project-title {
 		font-size:18px;
