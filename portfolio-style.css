@@ -6,7 +6,6 @@ html {
 body {
 	min-height:100%;
 	background:white;
-	padding:10px 20px 10px;
 }
 
 /* Styling for screens wider than 768px */
@@ -15,6 +14,7 @@ body {
 		color:black;
 		max-width:70%;
 		margin:0% 15%;
+		padding:10px 20px 10px;
 	}
 
 	footer {
@@ -93,6 +93,7 @@ body {
 
 	a.work-link {
 		font-size:16px;
+		margin-left:-10%;
 	}
 
 	a:hover, a.work-link:hover {
@@ -105,9 +106,11 @@ body {
 	
 	p.work-skills,p.role-description,p.project-description,p.project-tools,p.project-steps {
 		margin-bottom:5px;
+		margin-left:-15%;
 	}
 	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools,ol.project-steps {
 		margin-top:5px;
+		margin-left:-20%;
 	}
 	
 	h1 {}
