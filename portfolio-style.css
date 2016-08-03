@@ -66,6 +66,7 @@ body {
 		max-width:40%;
 		margin-right:20px;
 		float:left;
+		border-radius:2px;
 	}
 }
 
@@ -132,6 +133,7 @@ body {
 	.bio-photo {
 		margin-left:5%;
 		float:none;
+		border-radius:2px;
 	}
 }
 
