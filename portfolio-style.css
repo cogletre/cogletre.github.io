@@ -71,7 +71,7 @@ body {
 
 
 /* Begin mobile-optimized styling */
-@media handheld, (max-width:767px) {
+@media screen and (max-width:767px) {
 	body {
 		color:black;
 		max-width:100%;
