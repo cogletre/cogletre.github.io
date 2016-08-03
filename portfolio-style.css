@@ -96,7 +96,10 @@ body {
 
 	a.work-link {
 		font-size:16px;
-		margin-left:-10%;
+		margin-left:-23%;
+	}
+	a.project-link {
+		font-size:16px;
 	}
 
 	a:hover, a.work-link:hover {
@@ -109,7 +112,6 @@ body {
 	
 	p.work-skills,p.role-description,p.project-description,p.project-tools,p.project-steps {
 		margin-bottom:5px;
-		margin-left:-12%;
 	}
 	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools,ol.project-steps {
 		margin-top:5px;
