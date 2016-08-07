@@ -10,6 +10,22 @@ body {
 	border-left:2px solid green;
 	border-right:2px solid green;
 }
+footer {
+	margin-top:50px;
+	text-align:center;
+}
+
+header {
+	text-align:center;
+}
+a, a.work-link {
+	color:black;
+	transition:all 500ms ease;
+}
+p.work-skills,p.role-description,p.project-description,p.project-tools,p.project-steps {
+	margin-bottom:5px;
+}
+
 
 /* Styling for screens wider than 768px */
 @media screen and (min-width:768px){
@@ -19,28 +35,11 @@ body {
 		margin:0% 15%;
 	}
 
-	footer {
-		margin-top:150px;
-		text-align:center;
-	}
-
-	header {
-		text-align:center;
-	}
-
-	a, a.work-link {
-		color:black;
-		transition:all 500ms ease;
-	}
-
 	a.work-link {
 		font-size:15px;
 		font-weight:bold;
 	}
-	
-	p.work-skills,p.role-description,p.project-description,p.project-tools,p.project-steps {
-		margin-bottom:5px;
-	}
+
 	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools,ol.project-steps {
 		margin-top:5px;
 	}
@@ -80,19 +79,8 @@ body {
 		max-width:100%;
 	}
 
-	footer {
-		margin-top:50px;
-		text-align:center;
-	}
 
-	header {
-		text-align:center;
-	}
-
-	a, a.work-link {
-		color:black;
-		transition:all 500ms ease;
-	}
+	
 
 	a.work-link {
 		font-size:16px;
@@ -109,10 +97,7 @@ body {
 	.work-skills,.role-description {
 		font-size:14px;
 	}
-	
-	p.work-skills,p.role-description,p.project-description,p.project-tools,p.project-steps {
-		margin-bottom:5px;
-	}
+
 	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools,ol.project-steps {
 		margin-top:5px;
 		margin-left:-13%;
