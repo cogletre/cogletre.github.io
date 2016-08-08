@@ -1,8 +1,4 @@
 
-html {height:100%;}
-
-body {min-height:100%;}
-
 .border {background:gray;}
 .border-right {border-left:2px solid green;}
 .border-left {border-right:2px solid green;}

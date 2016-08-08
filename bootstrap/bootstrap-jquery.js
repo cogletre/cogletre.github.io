@@ -3,7 +3,9 @@ $( document ).ready(function(){
 	$("div.border").height( $("div.main-content").height() );
 	
 	$( window ).resize( function(){
+		
 		$( "div.border" ).height( $("div.main-content").height() );
+		
 		
 		if( $(window).width() < 544 ) {
 			$("div.border").removeClass("col-xs-1");
