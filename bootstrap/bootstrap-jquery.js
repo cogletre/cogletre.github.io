@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$( document ).ready(function(){
     
 	$( "#work-accordion" ).accordion({
 		active:false,
@@ -21,4 +21,9 @@ $(document).ready(function(){
 		$("div.border").addClass("col-xs-2");
 		$("div.border").removeAttr("min-width");
 	}
+});
+
+$( window ).resize( function(){
+	
+	$( "div.border" ).height( $(window).height() );
 });
