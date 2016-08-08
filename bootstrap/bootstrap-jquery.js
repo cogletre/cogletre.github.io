@@ -14,13 +14,11 @@ $( document ).ready( function(){
 		$("div.bio-div").addClass("col-xs-10");
 		$("div.photo-div").addClass("col-xs-10");
 	} else if( $(window).width() >= 544 &&  $(window).width() < 922) {
-		$("div.bio-div").removeClass("col-xs-10");
-		$("div.photo-div").removeClass("col-xs-10");
-		$("div.bio-div").addClass("col-md-3");
-		$("div.photo-div").addClass("col-md-9");
+		$("div.bio-div").addClass("col-md-9");
+		$("div.photo-div").addClass("col-md-3");
 	} else {
-		$("div.bio-div").addClass("col-lg-3");
-		$("div.photo-div").addClass("col-lg-9");
+		$("div.bio-div").addClass("col-lg-9");
+		$("div.photo-div").addClass("col-lg-3");
 	}
 	
 	$( "#work-accordion" ).accordion({
@@ -64,7 +62,7 @@ $( window ).resize( function(){
 		$("div.photo-div").removeClass("col-lg-3");
 		$("div.bio-div").removeClass("col-md-9");
 		$("div.photo-div").removeClass("col-md-3");
-	} else if( $(window).width() >= 544 &&  $(window).width() < 922) {
+	} else if( $(window).width() >= 544 && $(window).width() < 922) {
 		$("div.bio-div").removeClass("col-xs-10");
 		$("div.photo-div").removeClass("col-xs-10");
 		$("div.bio-div").removeClass("col-lg-9");
@@ -76,8 +74,8 @@ $( window ).resize( function(){
 		$("div.photo-div").addClass("col-lg-3");
 		$("div.bio-div").removeClass("col-xs-10");
 		$("div.photo-div").removeClass("col-xs-10");
-		$("div.bio-div").removeClass("col-md-3");
-		$("div.photo-div").removeClass("col-md-9");
+		$("div.bio-div").removeClass("col-md-9");
+		$("div.photo-div").removeClass("col-md-3");
 	}
 });
 
