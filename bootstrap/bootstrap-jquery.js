@@ -1,6 +1,11 @@
 $( document ).ready(function(){
     
-	$("div.border").height( $(window.height() ));
+	$("div.border").height( $( window.height() ) );
+	
+	$( window ).resize( function(){
+	
+		$( "div.border" ).height( $(window).height() );
+	});
 	
 	$( "#work-accordion" ).accordion({
 		active:false,
@@ -16,7 +21,7 @@ $( document ).ready(function(){
 		heightStyle: "content"
 	});
 	
-	if(window.width() < 768px) {
+	if( $(window).width() < 768px) {
 		$("div.border").removeClass("col-xs-1");
 		$("div.border").attr("min-width",2%);
 		$("div.main-content").removeClass("col-xs-10");
@@ -29,7 +34,3 @@ $( document ).ready(function(){
 	}
 });
 
-$( window ).resize( function(){
-	
-	$( "div.border" ).height( $(window).height() );
-});
