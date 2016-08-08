@@ -1,6 +1,6 @@
 $( document ).ready(function(){
     
-	$("div.border").height( $( window.height() ) );
+	$("div.border").height( $(window).height() );
 	
 	$( window ).resize( function(){
 	
