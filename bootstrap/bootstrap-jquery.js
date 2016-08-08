@@ -2,13 +2,13 @@ $( document ).ready( function(){
     
 	$("div.border").height( $( window ).height() );
 	
-	if( $(window).width() < 992) {
+	/*if( $(window).width() < 992) {
 		$("div.border").addClass("col-xs-1");
 		$("div.main-content").addClass("col-xs-10");
 	} else {
 		$("div.border").addClass("col-xs-2");
 		$("div.main-content").addClass("col-xs-8");
-	}
+	}*/
 	
 	$( "#work-accordion" ).accordion({
 		active:false,
@@ -26,7 +26,7 @@ $( document ).ready( function(){
 	
 	
 });
-
+/*
 $( window ).resize( function(){
 		
 	$( "div.border" ).height( $("div.main-content").height() );
@@ -42,4 +42,4 @@ $( window ).resize( function(){
 		$("div.main-content").removeClass("col-xs-10");
 		$("div.main-content").addClass("col-xs-8");
 	}
-});
+});*/
