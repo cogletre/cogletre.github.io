@@ -2,13 +2,26 @@ $( document ).ready( function(){
     
 	$("div.border").height( $( window ).height() );
 	
-	/*if( $(window).width() < 992) {
+	if( $(window).width() < 992) {
 		$("div.border").addClass("col-xs-1");
 		$("div.main-content").addClass("col-xs-10");
 	} else {
 		$("div.border").addClass("col-xs-2");
 		$("div.main-content").addClass("col-xs-8");
-	}*/
+	}
+	
+	if( $(window).width() < 544) {
+		$("div.bio-div").addClass("col-xs-10");
+		$("div.photo-div").addClass("col-xs-10");
+	} else if( $(window).width() >= 544 &&  $(window).width() < 922) {
+		$("div.bio-div").removeClass("col-xs-10");
+		$("div.photo-div").removeClass("col-xs-10");
+		$("div.bio-div").addClass("col-md-3");
+		$("div.photo-div").addClass("col-md-9");
+	} else {
+		$("div.bio-div").addClass("col-lg-3");
+		$("div.photo-div").addClass("col-lg-9");
+	}
 	
 	$( "#work-accordion" ).accordion({
 		active:false,
@@ -26,7 +39,7 @@ $( document ).ready( function(){
 	
 	
 });
-/*
+
 $( window ).resize( function(){
 		
 	$( "div.border" ).height( $("div.main-content").height() );
@@ -42,4 +55,31 @@ $( window ).resize( function(){
 		$("div.main-content").removeClass("col-xs-10");
 		$("div.main-content").addClass("col-xs-8");
 	}
-});*/
+	
+	
+	if( $(window).width() < 544) {
+		$("div.bio-div").addClass("col-xs-10");
+		$("div.photo-div").addClass("col-xs-10");
+		$("div.bio-div").removeClass("col-lg-9");
+		$("div.photo-div").removeClass("col-lg-3");
+		$("div.bio-div").removeClass("col-md-3");
+		$("div.photo-div").removeClass("col-md-9");
+	} else if( $(window).width() >= 544 &&  $(window).width() < 922) {
+		$("div.bio-div").removeClass("col-xs-10");
+		$("div.photo-div").removeClass("col-xs-10");
+		$("div.bio-div").removeClass("col-lg-9");
+		$("div.photo-div").removeClass("col-lg-3");
+		$("div.bio-div").addClass("col-md-3");
+		$("div.photo-div").addClass("col-md-9");
+	} else {
+		$("div.bio-div").addClass("col-lg-3");
+		$("div.photo-div").addClass("col-lg-9");
+		$("div.bio-div").removeClass("col-xs-10");
+		$("div.photo-div").removeClass("col-xs-10");
+		$("div.bio-div").removeClass("col-md-3");
+		$("div.photo-div").removeClass("col-md-9");
+	}
+});
+
+
+
