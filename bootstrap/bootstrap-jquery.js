@@ -1,5 +1,7 @@
 $( document ).ready(function(){
     
+	$("div.border").height( $(window.height() ));
+	
 	$( "#work-accordion" ).accordion({
 		active:false,
 		collapsible:true,
