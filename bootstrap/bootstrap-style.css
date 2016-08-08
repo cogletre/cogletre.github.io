@@ -3,15 +3,21 @@ html {height:100%;}
 
 body {min-height:100%;}
 
-footer {
-	margin-top:50px;
+.border {background:gray;}
+.border-right {border-left:2px solid green;}
+.border-left {border-right:2px solid green;}
+header {
 	text-align:center;
 }
-
-.my-name {
-	font-size:25px;
+.photo-div {padding-right:0;}
+.bio-div {padding-left:0;}	
+footer {
+	margin-top:50px;text-align:center;
 }
+.my-name {font-size:32px;}
+.career-title {font-size:26px;margin-bottom:20px;}
 
-.career-title {
-	
+a, a.work-link {
+	color:black;
+	transition:all 500ms ease;
 }
