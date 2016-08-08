@@ -4,12 +4,12 @@ $( document ).ready( function(){
 	
 	if( $(window).width() < 544 ) {
 		$("div.border").removeClass("col-xs-1");
-		$("div.border").attr("max-width","5px");
+		$("div.border").addClass("small-border");
 		$("div.main-content").removeClass("col-xs-10");
 		$("div.main-content").addClass("col-xs-12");
 	} else if( $(window).width() >= 544 &&  $(window).width() < 992) {
 		$("div.border").addClass("col-xs-1");
-		$("div.border").removeAttr("min-width");
+		$("div.border").removeClass("small-border");
 		$("div.main-content").addClass("col-xs-10");
 		$("div.main-content").removeClass("col-xs-12");
 	} else {
@@ -42,13 +42,14 @@ $( window ).resize( function(){
 	
 	if( $(window).width() < 544 ) {
 		$("div.border").removeClass("col-xs-1");
-		$("div.border").attr("max-width","5px");
+		$("div.border").addClass("small-border");
 		$("div.main-content").removeClass("col-xs-10");
 		$("div.main-content").addClass("col-xs-12");
 	} else if( $(window).width() >= 544 &&  $(window).width() < 992) {
 		$("div.border").addClass("col-xs-1");
 		$("div.border").removeClass("col-xs-2");
 		$("div.border").removeAttr("min-width");
+		$("div.border").removeClass("small-border");
 		$("div.main-content").addClass("col-xs-10");
 		$("div.main-content").removeClass("col-xs-12");
 		$("div.main-content").removeClass("col-xs-8");

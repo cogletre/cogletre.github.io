@@ -2,6 +2,7 @@
 .border {background:gray;}
 .border-right {border-left:2px solid green;}
 .border-left {border-right:2px solid green;}
+.small-border {max-width:10px;}
 
 header {
 	text-align:center;
