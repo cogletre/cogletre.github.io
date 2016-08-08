@@ -21,9 +21,9 @@ $( document ).ready(function(){
 		heightStyle: "content"
 	});
 	
-	if( $(window).width() < 768px) {
+	if( $(window).width() < 768) {
 		$("div.border").removeClass("col-xs-1");
-		$("div.border").attr("min-width",2%);
+		$("div.border").attr("min-width","2%");
 		$("div.main-content").removeClass("col-xs-10");
 		$("div.main-content").addClass("col-xs-12");
 	} else {
