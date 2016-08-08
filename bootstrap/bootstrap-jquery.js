@@ -4,7 +4,7 @@ $( document ).ready( function(){
 	
 	if( $(window).width() < 544 ) {
 		$("div.border").removeClass("col-xs-1");
-		$("div.border").attr("max-width",5);
+		$("div.border").attr("max-width","5px");
 		$("div.main-content").removeClass("col-xs-10");
 		$("div.main-content").addClass("col-xs-12");
 	} else if( $(window).width() >= 544 &&  $(window).width() < 992) {
@@ -42,7 +42,7 @@ $( window ).resize( function(){
 	
 	if( $(window).width() < 544 ) {
 		$("div.border").removeClass("col-xs-1");
-		$("div.border").attr("max-width",5);
+		$("div.border").attr("max-width","5px");
 		$("div.main-content").removeClass("col-xs-10");
 		$("div.main-content").addClass("col-xs-12");
 	} else if( $(window).width() >= 544 &&  $(window).width() < 992) {
