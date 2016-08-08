@@ -1,10 +1,9 @@
 $( document ).ready(function(){
     
-	$("div.border").height( $(window).height() );
+	$("div.border").height( $(document).height() );
 	
 	$( window ).resize( function(){
-	
-		$( "div.border" ).height( $(window).height() );
+		$( "div.border" ).height( $(document).height() );
 	});
 	
 	$( "#work-accordion" ).accordion({
