@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "author" content="Chris Ogletree">
+	<meta name = "description" content="Calculator webapp to test out single-page applications, also using bootstrap">
+
+	<title>Calculator</title>
+
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+	<link href = "calc-style.css" rel = "stylesheet">
+	
+	<script src = "calc-script.js"></script>
+	
+</head>
+
+<body>
+	
+	<header>
+		<h1>Calculator</h1>
+	</header>
+	
+	
+	<div id = "calc-border" class = "calculator row">
+		
+		<div class = "display-box" style = "max-width:80%;margin-left:10%;"></div>
+		
+		<div class = "row row-one">
+			<div class = "col-xs-3">
+			<button id = "button-one" class = "num-but" value = "1"></button>
+			</div><div class = "col-xs-3"><button id = "button-two" class = "num-but" value = "2"></button>
+			</div><div class = "col-xs-3"><button id = "button-three" class = "num-but"  value = "3"></button>
+			</div><div class = "col-xs-3"><button id = "button-add" class = "op-but"  value = "+"></button></div>
+		</div>
+		<div class = "row row-two">
+			<div class = "col-xs-3"><button id = "button-four" class = "num-but"  value = "4"></button>
+			</div><div class = "col-xs-3"><button id = "button-five" class = "num-but"  value = "5"></button>
+			</div><div class = "col-xs-3"><button id = "button-six" class = "num-but"  value = "6"></button>
+			</div><div class = "col-xs-3"><button id = "button-sub" class = "op-but"  value = "-"></button></div>
+		</div>
+		<div class = "row row-three">
+			<div class = "col-xs-3"><button id = "button-seven" class = "num-but"  value = "7"></button>
+			</div><div class = "col-xs-3"><button id = "button-eight" class = "num-but"  value = "8"></button>
+			</div><div class = "col-xs-3"><button id = "button-nine" class = "num-but"  value = "9"></button>
+			</div><div class = "col-xs-3"><button id = "button-mult" class = "op-but"  value = "*"></button></div>
+		</div>
+		<div class = "row row-four">
+			<div class = "col-xs-3"><button id = "button-clear" class = "op-but"  value = "CLR"></button>
+			</div><div class = "col-xs-3"><button id = "button-zero" class = "num-but"  value = "0"></button>
+			</div><div class = "col-xs-3"><button id = "button-equals" class = "op-but"  value = "="></button>
+			</div><div class = "col-xs-3"><button id = "button-div" class = "op-but"  value = "/"></button></div>
+		</div>
+		
+	</div>
+</body>
+
+</html>
