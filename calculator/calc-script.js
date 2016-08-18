@@ -1,10 +1,10 @@
-var finEquation = "0";
+var finEquation = "";
 var finVal;
 
 
 $( document ).ready( function() {
 	
-	document.getElementById("display-box").innerHTML = finEquation;
+	document.getElementById("display-box").innerHTML = "0";
 });
 
 function numClick( input ) {
