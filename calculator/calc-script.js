@@ -9,7 +9,7 @@ function numClick( input ) {
 	
 	finEquation = finEquation + input.toString();
 	
-	$( "#display-box" ).innerHTML(finEquation);
+	$( "#display-box" ).innerHTML = finEquation;
 };
 
 function clearEquation() {
