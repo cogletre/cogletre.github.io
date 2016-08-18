@@ -7,7 +7,7 @@ $( document ).ready( function() {
 
 function numClick( input ) {
 	
-	finEquation.push( input.toString() );
+	finEquation = finEquation + input.toString();
 	
 	$( "#display-box" ).innerHTML(finEquation);
 };
