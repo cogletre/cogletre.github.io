@@ -5,9 +5,14 @@ $( document ).ready( function() {
 	
 	var finVal;
 	
-	function numClick( input ) {
+	
+	
+	
+});
+
+function numClick( input ) {
 		
-		finEquation.pop( input );
+		finEquation.pop( input.toString() );
 		
 		$( "#display-box" ).innerHTML(finEquation);
 	};
@@ -24,4 +29,3 @@ $( document ).ready( function() {
 		
 		$( "#display-box" ).innerHTML( finVal );
 	};
-});
