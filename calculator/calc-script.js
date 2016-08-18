@@ -1,26 +1,29 @@
-var finEquation = "";
+var finEquation = "0";
 var finVal;
 
 
 $( document ).ready( function() {
+	$( "#display-equation" ).innerHTML = "0";
 });
 
 function numClick( input ) {
 	
 	finEquation = finEquation + input.toString();
 	
-	$( "#display-box" ).innerHTML = finEquation;
+	$( "#display-equation" ).innerHTML = finEquation;
 };
 
 function clearEquation() {
 	
-	finEquation = "";
+	finEquation = "0";
 	
-	$( "#display-box" ).innerHTML( "0" );
+	$( "#display-equation" ).innerHTML = finEquation;
 };
 
 function equationEquals() {
 	finVal = eval( finEquation );
 	
-	$( "#display-box" ).innerHTML( finVal );
+	$( "#display-equation" ).innerHTML = finVal;
+	
+	finEquation = "0";
 };
