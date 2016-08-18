@@ -21,8 +21,6 @@ function opClick( input ) {
 	document.getElementById("display-box").innerHTML = finEquation;
 };
 
-
-
 function clearEquation() {
 	
 	finEquation = "";
