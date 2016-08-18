@@ -25,7 +25,7 @@ function opClick( input ) {
 
 function clearEquation() {
 	
-	finEquation = "0";
+	finEquation = "";
 	
 	document.getElementById("display-box").innerHTML = finEquation;
 };
@@ -35,5 +35,5 @@ function equationEquals() {
 	
 	document.getElementById("display-box").innerHTML = finVal;
 	
-	finEquation = "0";
+	finEquation = "";
 };
