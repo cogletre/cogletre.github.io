@@ -14,6 +14,15 @@ function numClick( input ) {
 	document.getElementById("display-box").innerHTML = finEquation;
 };
 
+function opClick( input ) {
+	
+	finEquation = finEquation + input.toString();
+	
+	document.getElementById("display-box").innerHTML = finEquation;
+};
+
+
+
 function clearEquation() {
 	
 	finEquation = "0";
