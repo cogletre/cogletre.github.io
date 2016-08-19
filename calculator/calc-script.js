@@ -34,6 +34,24 @@ function rParClick() {
 	document.getElementById("display-box").innerHTML = finEquation;
 };
 
+function sqrClick() {
+	
+	sqr = "2"
+	
+	finEquation = finEquation + sqr.sup();
+	
+	document.getElementById("display-box").innerHTML = finEquation;
+};
+function sqrtClick() {
+	
+	sqrt = "1/2"
+	
+	finEquation = finEquation + sqrt.sup();
+	
+	document.getElementById("display-box").innerHTML = finEquation;
+};
+
+
 function clearEquation() {
 	
 	finEquation = "";
