@@ -9,14 +9,22 @@ $( document ).ready( function() {
 
 function numClick( input ) {
 	
-	finEquation = finEquation + input.toString();
+	if(!finVal) {
+		finEquation = finEquation + input.toString();
+	} else {
+		finEquation = finVal + input.toString();
+	}
 	
 	document.getElementById("display-box").innerHTML = finEquation;
 };
 
 function opClick( input ) {
 	
-	finEquation = finEquation + input.toString();
+	if(!finVal) {
+		finEquation = finEquation + input.toString();
+	} else {
+		finEquation = finVal + input.toString();
+	}
 	
 	document.getElementById("display-box").innerHTML = finEquation;
 };
