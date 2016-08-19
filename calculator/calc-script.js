@@ -21,6 +21,19 @@ function opClick( input ) {
 	document.getElementById("display-box").innerHTML = finEquation;
 };
 
+function lParClick() {
+	
+	finEquation = finEquation + "(";
+	
+	document.getElementById("display-box").innerHTML = finEquation;
+};
+function rParClick() {
+	
+	finEquation = finEquation + ")";
+	
+	document.getElementById("display-box").innerHTML = finEquation;
+};
+
 function clearEquation() {
 	
 	finEquation = "";
