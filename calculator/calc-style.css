@@ -1,7 +1,7 @@
 
 body {margin-left:2%;margin-top:2%;}
 
-#calc-outside {border-radius:5px;box-shadow:1px 1px 1px black;background:#aaa;max-height:500px;max-width:750px;}
+#calc-outside {border-radius:5px;box-shadow:1px 1px 1px black;background:#aaa;max-height:550px;max-width:750px;}
 #display-box {height:30px;background:#ddd;border:1px solid black;font-size:20px;margin-bottom:5%;}
 
 .row {margin:0px;}
