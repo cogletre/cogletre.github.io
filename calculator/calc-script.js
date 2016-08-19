@@ -9,18 +9,14 @@ $( document ).ready( function() {
 
 function numClick( input ) {
 	
-	if(!finVal) {
-		finEquation = finEquation + input.toString();
-	} else {
-		finEquation = finVal + input.toString();
-	}
-	
+	finEquation = finEquation + input.toString();
+
 	document.getElementById("display-box").innerHTML = finEquation;
 };
 
 function opClick( input ) {
 	
-	if(!finVal) {
+	if(finVal === "") {
 		finEquation = finEquation + input.toString();
 	} else {
 		finEquation = finVal + input.toString();
@@ -32,6 +28,7 @@ function opClick( input ) {
 function clearEquation() {
 	
 	finEquation = "";
+	finVal = "";
 	
 	document.getElementById("display-box").innerHTML = finEquation;
 };
