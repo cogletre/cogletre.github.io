@@ -16,11 +16,7 @@ function numClick( input ) {
 
 function opClick( input ) {
 	
-	if(finVal === "") {
-		finEquation = finEquation + input.toString();
-	} else {
-		finEquation = finVal + input.toString();
-	}
+	finEquation = finEquation + input.toString();
 	
 	document.getElementById("display-box").innerHTML = finEquation;
 };
@@ -30,7 +26,7 @@ function clearEquation() {
 	finEquation = "";
 	finVal = "";
 	
-	document.getElementById("display-box").innerHTML = finEquation;
+	document.getElementById("display-box").innerHTML = "0";
 };
 
 function equationEquals() {
