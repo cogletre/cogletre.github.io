@@ -1,7 +1,7 @@
 
 $( document ).ready( function(){
 	
-	$("div.border").height( $( window ).height() );
+	$("div.border").height( $( "div.main-content" ).height() );
 	
 	if( $(window).width() < 992) {
 		$("div.border").addClass("col-xs-1");
@@ -36,9 +36,6 @@ $( document ).ready( function(){
 	
 });
 
-$( document ).scroll( function() {
-	$("div.border").height( $( window ).height() );
-});
 
 $( window ).resize( function(){
 		
