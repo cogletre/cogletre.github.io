@@ -1,6 +1,6 @@
 $( document ).ready( function(){
     
-	var mainHeight = $("main-content").height();
+	var mainHeight = $("#main-content").height();
 	
 	$("div.border").height( mainHeight );
 	
