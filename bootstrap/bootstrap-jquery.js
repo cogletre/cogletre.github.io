@@ -1,10 +1,7 @@
-var mainHeight = $("#main-content").height();
 
 $( document ).ready( function(){
-    
 	
-	
-	$("div.border").height( mainHeight );
+	$("div.border").height( $( window ).height() );
 	
 	if( $(window).width() < 992) {
 		$("div.border").addClass("col-xs-1");
@@ -37,6 +34,10 @@ $( document ).ready( function(){
 	});
 	
 	
+});
+
+$( window ).scroll( function() {
+	$("div.border").height( $( window ).height() );
 });
 
 $( window ).resize( function(){
