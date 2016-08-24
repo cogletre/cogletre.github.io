@@ -36,7 +36,7 @@ $( document ).ready( function(){
 	
 });
 
-$( window ).scroll( function() {
+$( document ).scroll( function() {
 	$("div.border").height( $( window ).height() );
 });
 
