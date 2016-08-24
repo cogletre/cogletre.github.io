@@ -1,6 +1,8 @@
 $( document ).ready( function(){
     
-	$("div.border").height( $( "#main-content" ).height() );
+	var main-height = $("main-content").height();
+	
+	$("div.border").height( main-height );
 	
 	if( $(window).width() < 992) {
 		$("div.border").addClass("col-xs-1");
