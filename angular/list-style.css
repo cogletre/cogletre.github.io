@@ -1,0 +1,23 @@
+
+@media screen and (min-width:767px){
+body {font-size:18px;max-width:400px;}
+}
+@media screen and (max-width:768px){
+body {font-size:18px;max-width:100%;}
+}
+
+
+
+.col1{width:6%;}
+.col2{width:40%;}
+.col3{width:10%;}
+
+td {padding-left:10px;}
+.top-row {border-bottom:1px solid black;}
+
+.selectCell {border-right:1px solid black;}
+.itemSelect {}
+
+.itemName {border-right:1px solid black;}
+
+.removeItem {cursor:pointer;font-size:12px;}
