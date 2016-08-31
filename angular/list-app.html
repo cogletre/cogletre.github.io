@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "author" content="Chris Ogletree">
+	<meta name = "description" content="Fooling around with AngularJS to make a shopping list application">
+  
+	<title>Shopping List App</title>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	
+	<script src="list-script.js"></script>
+	
+	<style>
+		body {font-size:18px;max-width:400px;}
+		
+		.col1{width:6%;}
+		.col2{width:40%;}
+		.col3{width:10%;}
+		
+		td {padding-left:10px;}
+		.top-row {border-bottom:1px solid black;}
+		
+		.selectCell {border-right:1px solid black;}
+		.itemSelect {}
+		
+		.itemName {border-right:1px solid black;}
+		
+		.removeItem {cursor:pointer;font-size:12px;}
+	</style>
+</head>
+
+<body>
+	
+	<h1>Shopping List</h1>
+	<div ng-app="shoppingList" ng-controller="listCtrl">
+		
+		<input ng-model="itemName"><button ng-click="addItem()">Add</button>
+		<br /><br />
+		<button ng-click="removeChecked()">Remove Checked Items</button>
+		<button ng-click="removeAll()">Remove All Items</button>
+		
+		
+		<table style = "border-collapse:collapse;margin-top:20px;">
+			<tr class="top-row">
+				<td class="col1"></td>
+				<td class="col2">Item</td>
+				<td class="col3">Remove</td>
+			</tr>
+			<tr ng-repeat="x in listItems">
+				<td class="selectCell col1" style = ""><input type="checkbox" ng-model="checkedItem" ng-click="checkItem($index)" class="itemSelect" ></td>
+				<td class="itemName col2">{{x.name}}</td>
+				<td class="removeItem col3"><span class="removeItem" ng-click="removeItem()">Remove</span></td>
+			</tr>
+		</table>
+		
+		
+	</div>
+</body>
+
+</html>
+
+
