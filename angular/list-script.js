@@ -69,7 +69,7 @@ app.controller("listCtrl", function($scope) {
 				} else {
 					$scope.storedListNames.push(storeName);
 					localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
-					localStorage.setItem("storedNames",storedListNames);
+					localStorage.setItem("storedNames", JSON.stringify(storedListNames));
 				}
 				// Message if stored successfully
 				document.getElementById("saveStatus").innerHTML = "Saved!";
