@@ -16,6 +16,7 @@ app.controller("listCtrl", function($scope) {
 	$scope.listName = "";
 	$scope.itemExists = false;
 	$scope.savedLists = [];
+	$scope.storedListNames = [];
 	//add item to list
 	$scope.addItem = function(){
 		if (!$scope.itemName) {return;}
@@ -59,15 +60,16 @@ app.controller("listCtrl", function($scope) {
 	//function to save list to localStorage in browser
 	$scope.saveList = function() {
 		if ($scope.listName !== "") {
-			var storeName = $scope.listName;
-			$scope.savedLists.push(storeName);
 			if (typeof(Storage) !== "undefined") {
+				var storeName = $scope.listName;
 				// Store
 				if (localStorage.storeName) {
 					localStorage.removeItem($scope.listName);
 					localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
 				} else {
+					$scope.storedListNames.push(storeName);
 					localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
+					localStorage.setItem("storedNames",storeNameList);
 				}
 				// Message if stored successfully
 				document.getElementById("saveStatus").innerHTML = "Saved!";
