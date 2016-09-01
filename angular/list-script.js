@@ -15,6 +15,7 @@ app.controller("listCtrl", function($scope) {
 	$scope.listItems = [];
 	$scope.listName = "";
 	$scope.itemExists = false;
+	$scope.savedLists = [];
 	//add item to list
 	$scope.addItem = function(){
 		if (!$scope.itemName) {return;}
@@ -59,6 +60,7 @@ app.controller("listCtrl", function($scope) {
 	$scope.saveList = function() {
 		if ($scope.listName !== "") {
 			var storeName = $scope.listName;
+			$scope.savedLists.push(storeName);
 			if (typeof(Storage) !== "undefined") {
 				// Store
 				if (localStorage.storeName) {
