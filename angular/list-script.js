@@ -93,8 +93,13 @@ app.controller("listCtrl", function($scope) {
 			// Store
 			if (localStorage.listName) {
 				var gotList = localStorage.getItem(listName);
+				var parseList = JSON.parse(gotList);
 				
-				$scope.listItems = JSON.parse(gotList);
+				for(x in gotList) {
+					$scope.listItems[x.name] = parseList[x.name];
+					$scope.listItems[x.checked] = false;
+				}
+				
 			} else {}
 			// Message if stored successfully
 			document.getElementById("saveStatus").innerHTML = "Found it!";
