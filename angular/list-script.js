@@ -58,9 +58,10 @@ app.controller("listCtrl", function($scope) {
 	//function to save list to localStorage in browser
 	$scope.saveList = function() {
 		if ($scope.listName !== "") {
+			var storeName = $scope.listName;
 			if (typeof(Storage) !== "undefined") {
 				// Store
-				if (localStorage.$scope.listName) {
+				if (localStorage.storeName) {
 					localStorage.removeItem($scope.listName);
 					localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
 				} else {
