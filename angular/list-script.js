@@ -10,8 +10,10 @@ var itemExists = function(list,item) {
 	}
 }
 
+
 app.controller("listCtrl", function($scope) {
 	$scope.listItems = [];
+	$scope.listName = "";
 	$scope.addItem = function(){
 		if (!$scope.itemName) {return;}
 		if (!itemExists($scope.listItems,$scope.itemName)) {
@@ -35,6 +37,23 @@ app.controller("listCtrl", function($scope) {
 				x--;
 			}
 		}
+	}
+	$scope.showSaved = false;
+	$scope.showLists = function() {
+		$scope.showSaved = !$scope.showSaved;
+	}
+	$scope.saveList = function() {
+		if (typeof(Storage) !== "undefined") {
+			// Store
+			localStorage.setItem($scope.listName,$scope.listItems);
+			// Retrieve
+			document.getElementById("saveStatus").innerHTML = "Saved!";
+		} else {
+			document.getElementById("saveStatus").innerHTML = "Sorry, can't save your lists";
+		}
+	}
+	$scope.getList = function(listName) {
+		
 	}
 });
 

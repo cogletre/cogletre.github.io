@@ -40,7 +40,14 @@
 			</tr>
 		</table>
 		
+		<input ng-model="listName"><button ng-click="saveList(listName)" class="savelist">Save</button><span id="saveStatus"></span>
 		
+		<button ng-click="showLists()" ng-hide="showSaved" ng-model="showSaved">Show Saved Lists</button>
+		<ul>
+			<li ng-repeat="list in savedLists">
+				<button ng-click="getList(list.name)">{{list.name}}</button>
+			</li>
+		</ul>
 	</div>
 </body>
 
