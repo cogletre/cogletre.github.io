@@ -92,12 +92,13 @@ app.controller("listCtrl", function($scope) {
 		if (typeof(Storage) !== "undefined") {
 			// Store
 			if (localStorage.listName) {
+				if (localStorage.listName) {
+				$scope.listItems = [];
 				var gotList = localStorage.getItem(listName);
 				var parseList = JSON.parse(gotList);
 				
-				for(x in gotList) {
-					$scope.listItems[x.name] = parseList[x.name];
-					$scope.listItems[x.checked] = false;
+				for(x in parseList) {
+					$scope.listItems.push({'name':x.name,'checked':false});
 				}
 				
 			} else {}
