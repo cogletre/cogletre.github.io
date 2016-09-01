@@ -38,17 +38,31 @@ app.controller("listCtrl", function($scope) {
 			}
 		}
 	}
+	//check length list to see if worth saving
+	if ($scope.listItems.length > 0) {
+		$scope.hasItems = true;
+	} else {
+		$scope.hasItems = false;
+	}
+	//function to display saved lists or not, based on click
 	$scope.showSaved = false;
 	$scope.showLists = function() {
 		$scope.showSaved = !$scope.showSaved;
+		if ($scope.showSaved = true) {
+			document.getElementById("showListButton").innerHTML = "Show Saved Lists";
+		} else {
+			document.getElementById("showListButton").innerHTML = "Hide Saved Lists";
+		}
 	}
+	//function to save list to localStorage in browser
 	$scope.saveList = function() {
 		if (typeof(Storage) !== "undefined") {
 			// Store
 			localStorage.setItem($scope.listName,$scope.listItems);
-			// Retrieve
+			// Message if stored successfully
 			document.getElementById("saveStatus").innerHTML = "Saved!";
 		} else {
+			// Message is storage is not supported
 			document.getElementById("saveStatus").innerHTML = "Sorry, can't save your lists";
 		}
 	}

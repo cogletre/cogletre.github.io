@@ -27,7 +27,7 @@
 		<button ng-click="removeAll()">Remove All Items</button>
 		
 		
-		<table style = "border-collapse:collapse;margin-top:20px;">
+		<table style = "border-collapse:collapse;margin-top:20px;margin-bottom:20px;">
 			<tr class="top-row">
 				<td class="col1"></td>
 				<td class="col2">Item</td>
@@ -40,14 +40,16 @@
 			</tr>
 		</table>
 		
-		<input ng-model="listName"><button ng-click="saveList(listName)" class="savelist">Save</button><span id="saveStatus"></span>
-		
-		<button ng-click="showLists()" ng-hide="showSaved" ng-model="showSaved">Show Saved Lists</button>
-		<ul>
-			<li ng-repeat="list in savedLists">
-				<button ng-click="getList(list.name)">{{list.name}}</button>
-			</li>
-		</ul>
+		<div ng-show="hasItems">
+			<input ng-model="listName"><button ng-click="saveList(listName)" class="savelist">Save</button><span id="saveStatus"></span>
+			
+			<button id="showListButton" ng-click="showLists()"></button>
+			<ul ng-show="showSaved">
+				<li ng-repeat="list in savedLists">
+					<button ng-click="getList(list.name)">{{list.name}}</button>
+				</li>
+			</ul>
+		</div>
 	</div>
 </body>
 
