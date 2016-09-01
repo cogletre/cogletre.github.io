@@ -97,11 +97,8 @@ app.controller("listCtrl", function($scope) {
 			for(x in parseList) {
 				$scope.listItems.push({name:parseList[x].name,checked:false});
 			}
-		}
-			
 			// Message if stored successfully
 			document.getElementById("saveStatus").innerHTML = "Found it!";
-
 		} else {
 			// Message is storage is not supported
 			document.getElementById("saveStatus").innerHTML = "Sorry, can't retrieve your lists";
