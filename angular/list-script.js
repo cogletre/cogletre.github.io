@@ -16,7 +16,7 @@ app.controller("listCtrl", function($scope) {
 	$scope.listName = "";
 	$scope.itemExists = false;
 	$scope.savedLists = [];
-	$scope.storedListNames = [];
+	$scope.storedListNames = JSON.parse(localStorage.storedNames);
 	//add item to list
 	$scope.addItem = function(){
 		if (!$scope.itemName) {return;}
@@ -64,12 +64,12 @@ app.controller("listCtrl", function($scope) {
 				var storeName = $scope.listName;
 				// Store
 				if (localStorage.storeName) {
-					localStorage.removeItem($scope.listName);
-					localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
+					localStorage.removeItem(storeName);
+					localStorage.setItem(storeName, JSON.stringify($scope.listItems));
 				} else {
 					$scope.storedListNames.push(storeName);
 					localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
-					localStorage.setItem("storedNames",storeNameList);
+					localStorage.setItem("storedNames",storedListNames);
 				}
 				// Message if stored successfully
 				document.getElementById("saveStatus").innerHTML = "Saved!";
@@ -77,6 +77,7 @@ app.controller("listCtrl", function($scope) {
 				// Message is storage is not supported
 				document.getElementById("saveStatus").innerHTML = "Sorry, can't save your lists";
 			}
+			$scope.listName = "";
 		} else {
 			document.getElementById("saveStatus").innerHTML = "Please name your list";
 		}
