@@ -90,22 +90,18 @@ app.controller("listCtrl", function($scope) {
 	//function to retrieve a saved list from localStorage
 	$scope.getList = function(listName) {
 		if (typeof(Storage) !== "undefined") {
-			// Store
-			//if (localStorage.listName) {
-				$scope.listItems = [];
-				var gotList = localStorage.getItem(listName);
-				var parseList = JSON.parse(gotList);
-				
-				for(x in parseList) {
-					$scope.listItems.push({name:x.name,checked:false});
-				}
-				
-				// Message if stored successfully
-				document.getElementById("saveStatus").innerHTML = "Found it!";
-			//} else {
-				// Message if unsuccessful
-			//	document.getElementById("saveStatus").innerHTML = "Something went wrong...";
-			//}
+			$scope.listItems = [];
+
+			var parseList = JSON.parse(localStorage.getItem(listName));
+			
+			for(x in parseList) {
+				$scope.listItems.push({name:parseList[x].name,checked:false});
+			}
+		}
+			
+			// Message if stored successfully
+			document.getElementById("saveStatus").innerHTML = "Found it!";
+
 		} else {
 			// Message is storage is not supported
 			document.getElementById("saveStatus").innerHTML = "Sorry, can't retrieve your lists";
