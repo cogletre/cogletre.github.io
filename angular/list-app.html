@@ -46,7 +46,7 @@
 			<button id="showListButton" ng-click="showLists()">Show Saved Lists</button>
 			<ul ng-show="showSaved">
 				<li ng-repeat="list in storedListNames">
-					<button ng-click="getList(list.name)">{{list.name}}</button>
+					<button ng-click="getList(list.name)">{{list[$index]}}</button>
 				</li>
 			</ul>
 		</div>
