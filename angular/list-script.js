@@ -78,9 +78,19 @@ app.controller("listCtrl", function($scope) {
 	}
 	//function to retrieve a saved list from localStorage
 	$scope.getList = function(listName) {
-		
-		
-		$scope.hasItems = false;
+		if (typeof(Storage) !== "undefined") {
+			// Store
+			if (localStorage.listName) {
+				var gotList = localStorage.getItem(listName);
+				
+				$scope.listItems = JSON.parse(gotList);
+			} else {}
+			// Message if stored successfully
+			document.getElementById("saveStatus").innerHTML = "Found it!";
+		} else {
+			// Message is storage is not supported
+			document.getElementById("saveStatus").innerHTML = "Sorry, can't retrieve your lists";
+		}
 	}
 });
 

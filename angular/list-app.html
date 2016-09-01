@@ -43,7 +43,7 @@
 		<div>
 			<input ng-model="listName"><button ng-click="saveList(listName)" class="savelist">Save</button><span id="saveStatus"></span>
 			<br />
-			<button id="showListButton" ng-click="showLists()"></button>
+			<button id="showListButton" ng-click="showLists()">Show Saved Lists</button>
 			<ul ng-show="showSaved">
 				<li ng-repeat="list in savedLists">
 					<button ng-click="getList(list.name)">{{list.name}}</button>
