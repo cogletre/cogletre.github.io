@@ -70,7 +70,9 @@ app.controller("listCtrl", function($scope) {
 				if (localStorage.storeName) {
 					localStorage.setItem(storeName, JSON.stringify($scope.listItems));
 				} else {
-					$scope.storedListNames.push(storeName);
+					if($scope.storedListNames.indexOf(storeName) == -1) {
+						$scope.storedListNames.push(storeName);
+					}
 					localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
 					localStorage.setItem("storedNames", JSON.stringify($scope.storedListNames));
 				}
