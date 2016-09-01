@@ -49,7 +49,7 @@ app.controller("listCtrl", function($scope) {
 	$scope.showSaved = false;
 	$scope.showLists = function() {
 		$scope.showSaved = !$scope.showSaved;
-		if ($scope.showSaved = true) {
+		if ($scope.showSaved === true) {
 			document.getElementById("showListButton").innerHTML = "Show Saved Lists";
 		} else {
 			document.getElementById("showListButton").innerHTML = "Hide Saved Lists";
