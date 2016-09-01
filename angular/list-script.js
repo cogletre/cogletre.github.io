@@ -92,7 +92,6 @@ app.controller("listCtrl", function($scope) {
 		if (typeof(Storage) !== "undefined") {
 			// Store
 			if (localStorage.listName) {
-				if (localStorage.listName) {
 				$scope.listItems = [];
 				var gotList = localStorage.getItem(listName);
 				var parseList = JSON.parse(gotList);
