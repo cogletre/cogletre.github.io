@@ -40,7 +40,7 @@
 			</tr>
 		</table>
 		
-		<span ng-show="hasItems">
+		<div>
 			<input ng-model="listName"><button ng-click="saveList(listName)" class="savelist">Save</button><span id="saveStatus"></span>
 			<br />
 			<button id="showListButton" ng-click="showLists()"></button>
@@ -49,7 +49,7 @@
 					<button ng-click="getList(list.name)">{{list.name}}</button>
 				</li>
 			</ul>
-		</span>
+		</div>
 	</div>
 </body>
 

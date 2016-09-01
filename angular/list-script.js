@@ -15,23 +15,18 @@ app.controller("listCtrl", function($scope) {
 	$scope.listItems = [];
 	$scope.listName = "";
 	$scope.itemExists = false;
-	$scope.hasItems = false;
 	//add item to list
 	$scope.addItem = function(){
 		if (!$scope.itemName) {return;}
 		if (!itemExists($scope.listItems,$scope.itemName)) {
 			$scope.listItems.push({name:$scope.itemName,checked:false});
 			$scope.itemExists = false;
-			$scope.hasItems = true;
-		} else {
-			$scope.itemExists = true;
 		}
 		$scope.itemName = "";
 	}
 	//clears the list
 	$scope.removeAll = function(){
 		$scope.listItems = [];
-		$scope.hasItems = false;
 	}
 	//removes selected item from list
 	$scope.removeItem = function (x) {
@@ -50,12 +45,6 @@ app.controller("listCtrl", function($scope) {
 			}
 		}
 	}
-	//check length list to see if worth saving
-	if ($scope.listItems.length === 0) {
-		
-	} else {
-		
-	}
 	//function to display saved lists or not, based on click
 	$scope.showSaved = false;
 	$scope.showLists = function() {
@@ -68,19 +57,23 @@ app.controller("listCtrl", function($scope) {
 	}
 	//function to save list to localStorage in browser
 	$scope.saveList = function() {
-		if (typeof(Storage) !== "undefined") {
-			// Store
-			if (localStorage.$scope.listName) {
-				localStorage.removeItem($scope.listName);
-				localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
+		if ($scope.listName !== "") {
+			if (typeof(Storage) !== "undefined") {
+				// Store
+				if (localStorage.$scope.listName) {
+					localStorage.removeItem($scope.listName);
+					localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
+				} else {
+					localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
+				}
+				// Message if stored successfully
+				document.getElementById("saveStatus").innerHTML = "Saved!";
 			} else {
-				localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
+				// Message is storage is not supported
+				document.getElementById("saveStatus").innerHTML = "Sorry, can't save your lists";
 			}
-			// Message if stored successfully
-			document.getElementById("saveStatus").innerHTML = "Saved!";
 		} else {
-			// Message is storage is not supported
-			document.getElementById("saveStatus").innerHTML = "Sorry, can't save your lists";
+			document.getElementById("saveStatus").innerHTML = "Please name your list";
 		}
 	}
 	//function to retrieve a saved list from localStorage
