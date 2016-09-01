@@ -50,9 +50,9 @@ app.controller("listCtrl", function($scope) {
 	}
 	//check length list to see if worth saving
 	if ($scope.listItems.length === 0) {
-		$scope.hasItems = false;
-	} else {
 		$scope.hasItems = true;
+	} else {
+		$scope.hasItems = false;
 	}
 	//function to display saved lists or not, based on click
 	$scope.showSaved = false;
