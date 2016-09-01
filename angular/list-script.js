@@ -97,7 +97,7 @@ app.controller("listCtrl", function($scope) {
 				var parseList = JSON.parse(gotList);
 				
 				for(x in parseList) {
-					$scope.listItems.push({'name':x.name,'checked':false});
+					$scope.listItems.push({name:x.name,checked:false});
 				}
 				
 				// Message if stored successfully
