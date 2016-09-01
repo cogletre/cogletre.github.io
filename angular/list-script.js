@@ -14,22 +14,32 @@ var itemExists = function(list,item) {
 app.controller("listCtrl", function($scope) {
 	$scope.listItems = [];
 	$scope.listName = "";
+	$scope.itemExists = false;
+	$scope.hasItems = false;
+	//add item to list
 	$scope.addItem = function(){
 		if (!$scope.itemName) {return;}
 		if (!itemExists($scope.listItems,$scope.itemName)) {
 			$scope.listItems.push({name:$scope.itemName,checked:false});
+			$scope.itemExists = false;
+		} else {
+			$scope.itemExists = true;
 		}
 		$scope.itemName = "";
 	}
+	//clears the list
 	$scope.removeAll = function(){
 		$scope.listItems = [];
 	}
+	//removes selected item from list
 	$scope.removeItem = function (x) {
         $scope.listItems.splice(x, 1);
     }
+	//function to toggle checkboxes
 	$scope.checkItem = function(x) {
 		$scope.listItems[x].checked = !$scope.listItems[x].checked;
 	}
+	//remove all checked items from list
 	$scope.removeChecked = function() {
 		for (x=0; x<$scope.listItems.length;x++) {
 			if($scope.listItems[x].checked == true) {
@@ -66,6 +76,7 @@ app.controller("listCtrl", function($scope) {
 			document.getElementById("saveStatus").innerHTML = "Sorry, can't save your lists";
 		}
 	}
+	//function to retrieve a saved list from localStorage
 	$scope.getList = function(listName) {
 		
 	}

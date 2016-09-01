@@ -21,7 +21,7 @@
 	<h1>Shopping List</h1>
 	<div ng-app="shoppingList" ng-controller="listCtrl">
 		
-		<input ng-model="itemName"><button ng-click="addItem()">Add</button>
+		<input ng-model="itemName"><button ng-click="addItem()">Add</button><span style = "color:red;" ng-show="itemExists">Item Exists</span>
 		<br /><br />
 		<button ng-click="removeChecked()">Remove Checked Items</button>
 		<button ng-click="removeAll()">Remove All Items</button>
@@ -42,7 +42,7 @@
 		
 		<div ng-show="hasItems">
 			<input ng-model="listName"><button ng-click="saveList(listName)" class="savelist">Save</button><span id="saveStatus"></span>
-			
+			<br />
 			<button id="showListButton" ng-click="showLists()"></button>
 			<ul ng-show="showSaved">
 				<li ng-repeat="list in savedLists">
