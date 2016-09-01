@@ -68,7 +68,6 @@ app.controller("listCtrl", function($scope) {
 				var storeName = $scope.listName;
 				// Store
 				if (localStorage.storeName) {
-					localStorage.removeItem(storeName);
 					localStorage.setItem(storeName, JSON.stringify($scope.listItems));
 				} else {
 					$scope.storedListNames.push(storeName);
