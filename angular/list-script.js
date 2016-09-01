@@ -22,6 +22,7 @@ app.controller("listCtrl", function($scope) {
 		if (!itemExists($scope.listItems,$scope.itemName)) {
 			$scope.listItems.push({name:$scope.itemName,checked:false});
 			$scope.itemExists = false;
+			$scope.hasItems = true;
 		} else {
 			$scope.itemExists = true;
 		}
@@ -30,6 +31,7 @@ app.controller("listCtrl", function($scope) {
 	//clears the list
 	$scope.removeAll = function(){
 		$scope.listItems = [];
+		$scope.hasItems = false;
 	}
 	//removes selected item from list
 	$scope.removeItem = function (x) {
@@ -50,9 +52,9 @@ app.controller("listCtrl", function($scope) {
 	}
 	//check length list to see if worth saving
 	if ($scope.listItems.length === 0) {
-		$scope.hasItems = true;
+		
 	} else {
-		$scope.hasItems = false;
+		
 	}
 	//function to display saved lists or not, based on click
 	$scope.showSaved = false;
@@ -68,7 +70,12 @@ app.controller("listCtrl", function($scope) {
 	$scope.saveList = function() {
 		if (typeof(Storage) !== "undefined") {
 			// Store
-			localStorage.setItem($scope.listName,$scope.listItems);
+			if (localStorage.$scope.listName) {
+				localStorage.removeItem($scope.listName);
+				localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
+			} else {
+				localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
+			}
 			// Message if stored successfully
 			document.getElementById("saveStatus").innerHTML = "Saved!";
 		} else {
@@ -79,6 +86,8 @@ app.controller("listCtrl", function($scope) {
 	//function to retrieve a saved list from localStorage
 	$scope.getList = function(listName) {
 		
+		
+		$scope.hasItems = false;
 	}
 });
 
