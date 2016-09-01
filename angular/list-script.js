@@ -18,6 +18,8 @@ app.controller("listCtrl", function($scope) {
 	$scope.savedLists = [];
 	if(localStorage.storedNames){
 		$scope.storedListNames = JSON.parse(localStorage.storedNames);
+	} else {
+		$scope.storedListNames = []
 	}
 	//add item to list
 	$scope.addItem = function(){
