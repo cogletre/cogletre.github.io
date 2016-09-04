@@ -6,9 +6,9 @@ app.controller("todoListCtrl", function($scope) {
 
 	//add item to list
 	$scope.addTask = function(){
-		if (!$scope.itemName) {return;}
+		if (!$scope.taskName) {return;}
 		$scope.taskList.push({name:$scope.taskName,checked:false});		
-		$scope.itemName = "";
+		$scope.taskName = "";
 	}
 	
 	//clears the list
