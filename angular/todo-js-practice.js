@@ -28,7 +28,7 @@ app.controller("todoListCtrl", function($scope) {
 	
 	//function to toggle checkboxes
 	$scope.checkTask = function(ind) {
-		$scope.taskList[ind].checked = !$scope.taskList[x].checked;
+		$scope.taskList[ind].checked = !$scope.taskList[ind].checked;
 	}
 	
 	//remove all checked items from list
