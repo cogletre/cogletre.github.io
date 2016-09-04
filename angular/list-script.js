@@ -38,6 +38,11 @@ app.controller("listCtrl", function($scope) {
 	$scope.removeItem = function (x) {
         $scope.listItems.splice(x, 1);
     }
+	
+	$scope.editItem = function (x) {
+        var newItemName = prompt("Enter new item name:");
+		$scope.listItems[x].name = newItemName;
+    }
 	//function to toggle checkboxes
 	$scope.checkItem = function(x) {
 		$scope.listItems[x].checked = !$scope.listItems[x].checked;
