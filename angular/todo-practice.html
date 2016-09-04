@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset = "UTF-8">
+	<meta name = "author" content="Chris Ogletree">
+	<meta name = "description" content="Fooling around with AngularJS to make a shopping list application">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>Shopping List App</title>
+	
+	<script src="anjs/angular.min.js"></script>
+	
+	<script src="todo-js-practice.js"></script>
+	
+	<link rel = "stylesheet" href="list-style.css">
+</head>
+
+<body>
+	
+	<h1>Shopping List</h1>
+	<div ng-app="shoppingList" ng-controller="listCtrl">
+		
+		<input ng-model="taskName"><button ng-click="addTask()">Add Task</button>
+		
+		<table>
+			<tr>
+				<td>Done</td><td>Task Name</td><td>Edit Task</td><td>Remove Task</td>
+			</tr>
+			<tr ng-repeat="task in taskList">
+				<td><input type="checkbox" ng-model="taskDone" ng-click="checkTask($index)"></td>
+				<td><span>{{task.name}}</span></td>
+				<td><span ng-click="editTask($index)">Edit</span></td>
+				<td><span ng-click="removeTask($index)">Remove</td>
+			</tr>
+		</table>
+		
+		<button ng-click="removeChecked()">Remove Checked Tasks</button>
+		<button ng-click="removeAll()">Remove All Tasks</button>
+	</div>
+</body>
+
+</html>
+
+
