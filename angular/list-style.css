@@ -17,4 +17,4 @@ td {padding-left:10px;}
 
 .itemName {border-right:1px solid black;}
 
-.removeItem {cursor:pointer;font-size:12px;}
+.removeItem,.editItem {cursor:pointer;font-size:12px;}

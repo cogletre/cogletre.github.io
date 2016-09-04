@@ -30,7 +30,7 @@
 		<table style = "border-collapse:collapse;margin-top:20px;margin-bottom:20px;">
 			<tr class="top-row">
 				<td class="col1"></td>
-				<td class="col2">Item</td>
+				<td class="col2">Item Name</td>
 				<td class = "col3">Edit</td>
 				<td class="col3">Remove</td>
 			</tr>
@@ -38,7 +38,7 @@
 				<td class="selectCell col1" style = ""><input type="checkbox" ng-model="checkedItem" ng-click="checkItem($index)" class="itemSelect" ></td>
 				<td class="itemName col2">{{x.name}}</td>
 				<td class="editItem col3"><span class="editItem" ng-click="editItem($index)">Edit</span></td>
-				<td class="removeItem col3"><span class="removeItem" ng-click="removeItem()">Remove</span></td>
+				<td class="removeItem col3"><span class="removeItem" ng-click="removeItem($index)">Remove</span></td>
 			</tr>
 		</table>
 		
