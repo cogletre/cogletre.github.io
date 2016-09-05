@@ -123,12 +123,16 @@ app.controller("listCtrl", function($scope) {
 		}
 		// Message if list loaded successfully
 		document.getElementById("saveStatus").style.color = "blue";
-		document.getElementById("saveStatus").innerHTML = "Found list: " + listName;
+		document.getElementById("saveStatus").innerHTML = "Loaded: " + listName;
 	}
 	
 	$scope.deleteList = function(listName, listIndex) {
 		localStorage.removeItem(listName);
 		$scope.storedListNames.splice(listIndex,1);
+		
+		if($scope.storedListNames.length == 0) {
+			$scope.showSaved = false;
+		}
 	}
 });
 
