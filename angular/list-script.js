@@ -20,8 +20,13 @@ app.controller("listCtrl", function($scope) {
 		$scope.saveNotAllowed = false;
 		
 		//if local storage supported, check for saved lists
+/*<<<<<<< HEAD
 		if(JSON.parse(localStorage.storedNames).length !== 0){
 			$scope.storedListNames = JSON.parse(localStorage.storedNames);
+=======
+		if(localStorage.length !== 0){
+			$scope.savedLists = localStorage;
+>>>>>>> parent of 6bf37bc... hopefully splice works now
 			$scope.noSavedLists = false;
 		} else {
 			$scope.storedListNames = [];
@@ -33,7 +38,7 @@ app.controller("listCtrl", function($scope) {
 		$scope.noSavedLists = true;
 		$scope.storedListNames = [];
 		document.getElementById("saveStatus").innerHTML = "Sorry, you can't save your lists";
-	}
+	}*/
 	
 	//add item to list
 	$scope.addItem = function(){
@@ -97,17 +102,27 @@ app.controller("listCtrl", function($scope) {
 	$scope.saveList = function() {
 		if ($scope.listName !== "") {
 			var storeName = $scope.listName;
+<<<<<<< HEAD
 			//check if list name exists in storage
 			if ($scope.storedListNames.indexOf(storeName) !== -1) {
+=======
+			if (localStorage.storeName) {
+>>>>>>> parent of 6bf37bc... hopefully splice works now
 				localStorage.setItem(storeName, JSON.stringify($scope.listItems));
 				//message if list is updated
 				document.getElementById("saveStatus").style.color = "green";
 				document.getElementById("saveStatus").innerHTML = "Updated!";
 				$scope.noSavedLists = false;
 			} else {
+<<<<<<< HEAD
 				$scope.storedListNames.push({'name':storeName})
+=======
+				if($scope.storedListNames.indexOf(storeName) == -1) {
+					$scope.storedListNames.push(storeName);
+				}
+>>>>>>> parent of 6bf37bc... hopefully splice works now
 				localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
-				localStorage.setItem('storedNames', JSON.stringify($scope.storedListNames));
+				//localStorage.setItem("storedNames", JSON.stringify($scope.storedListNames));
 				
 				//message if list is stored
 				document.getElementById("saveStatus").style.color = "blue";
@@ -135,12 +150,10 @@ app.controller("listCtrl", function($scope) {
 		document.getElementById("saveStatus").innerHTML = "Loaded: " + listName;
 	}
 	
-	$scope.deleteList = function(listName,listIndex) {
+	$scope.deleteList = function(list,listIndex) {
+		localStorage.removeItem(list.name);
 		
-		localStorage.removeItem(listName);
-		$scope.storedListNames.splice(listIndex,1);
-		
-		localStorage.setItem('storedNames', JSON.stringify($scope.storedListNames));
+		$scope.savedLists.splice(listIndex,1);
 		
 		/*if($scope.storedListNames.length === 0) {
 			$scope.showSaved = false;
