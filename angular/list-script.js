@@ -78,7 +78,11 @@ app.controller("listCtrl", function($scope) {
 	//function to display saved lists or not, based on click
 	$scope.showSaved = false;
 	$scope.showLists = function() {
-		$scope.showSaved = !$scope.showSaved;
+		if($scope.noSavedLists === false) {
+			$scope.showSaved = !$scope.showSaved;
+		} else {
+			$scope.showSaved = false;
+		}
 		if ($scope.showSaved === false) {
 			document.getElementById("showListButton").style.background = "buttonface";
 			document.getElementById("showListButton").innerHTML = "Show Saved Lists";
@@ -131,9 +135,11 @@ app.controller("listCtrl", function($scope) {
 		localStorage.removeItem(listName);
 		$scope.storedListNames.splice(listIndex,1);
 		
-		if($scope.storedListNames.length == 0) {
+		if($scope.storedListNames.length === 0) {
 			$scope.showSaved = false;
 			$scope.noSavedLists = true;
+			document.getElementById("showListButton").style.background = "buttonface";
+			document.getElementById("showListButton").innerHTML = "Show Saved Lists";
 		}
 	}
 });
