@@ -12,7 +12,7 @@ body {font-size:18px;max-width:400px;}
 td {padding-left:10px;}
 .top-row {border-bottom:1px solid black;}
 
-.selectCell,.itemName,.editItem {border-right:1px solid black;}
+.selectCell,.itemName,.editCell {border-right:1px solid black;}
 .itemSelect {}
 
 .removeItem,.editItem {cursor:pointer;font-size:12px;}
@@ -23,3 +23,6 @@ td {padding-left:10px;}
 
 .itemNameInput {margin-right:5px;border:1px solid black;}
 .addItemButton {margin-right:10px;}
+
+.listNameInput {margin-right:5px;}
+.showListButton {margin-top:10px;}

@@ -67,6 +67,7 @@ app.controller("listCtrl", function($scope) {
 		if ($scope.showSaved === false) {
 			document.getElementById("showListButton").innerHTML = "Show Saved Lists";
 		} else {
+			document.getElementById("showListButton").style.background = "rgb(128,128,128)";
 			document.getElementById("showListButton").innerHTML = "Hide Saved Lists";
 		}
 	}
@@ -86,13 +87,16 @@ app.controller("listCtrl", function($scope) {
 					localStorage.setItem("storedNames", JSON.stringify($scope.storedListNames));
 				}
 				// Message if stored successfully
+				document.getElementById("saveStatus").style.color = "blue";
 				document.getElementById("saveStatus").innerHTML = "Saved!";
 			} else {
 				// Message is storage is not supported
+				document.getElementById("saveStatus").style.color = "red";
 				document.getElementById("saveStatus").innerHTML = "Sorry, can't save your lists";
 			}
 			$scope.listName = "";
 		} else {
+			document.getElementById("saveStatus").style.color = "red";
 			document.getElementById("saveStatus").innerHTML = "Please name your list";
 		}
 	}
@@ -107,9 +111,11 @@ app.controller("listCtrl", function($scope) {
 				$scope.listItems.push({name:parseList[x].name,checked:false});
 			}
 			// Message if list loaded successfully
+			document.getElementById("saveStatus").style.color = "blue";
 			document.getElementById("saveStatus").innerHTML = "Found it!";
 		} else {
 			// Message is storage is not supported
+			document.getElementById("saveStatus").style.color = "red";
 			document.getElementById("saveStatus").innerHTML = "Sorry, can't retrieve your lists";
 		}
 	}

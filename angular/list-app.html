@@ -34,22 +34,22 @@
 				<td class="col3">Remove</td>
 			</tr>
 			<tr ng-repeat="x in listItems">
-				<td class="selectCell col1" style = ""><input type="checkbox" ng-model="checkedItem" ng-click="checkItem($index)" class="itemSelect" ></td>
+				<td class="selectCell col1"><input type="checkbox" ng-model="checkedItem" ng-click="checkItem($index)" class="itemSelect" ></td>
 				<td class="itemName col2">{{x.name}}</td>
-				<td class="editItem col3"><span class="editItem" ng-click="editItem($index)">Edit</span></td>
-				<td class="removeItem col3"><span class="removeItem" ng-click="removeItem($index)">Remove</span></td>
+				<td class="editCell col3"><span class="editItem" ng-click="editItem($index)">Edit</span></td>
+				<td class="removeCell col3"><span class="removeItem" ng-click="removeItem($index)">Remove</span></td>
 			</tr>
 		</table>
 		
 		<div>
-			<input ng-model="listName"><button ng-click="saveList(listName)" class="savelist">Save</button><span class="saveStatus" id="saveStatus"></span>
+			<input ng-model="listName" class="listNameInput"><button ng-click="saveList(listName)" class="savelist">Save</button><span class="saveStatus" id="saveStatus"></span>
 			<br />
-			<button id="showListButton" ng-click="showLists()">Show Saved Lists</button>
-			<ul ng-show="showSaved">
+			<button id="showListButton" class="showListButton" ng-click="showLists()">Show Saved Lists</button>
+			<ol ng-show="showSaved">
 				<li ng-repeat="name in storedListNames">
 					<button ng-click="getList(name)">{{name}}</button>
 				</li>
-			</ul>
+			</ol>
 		</div>
 	</div>
 </body>
