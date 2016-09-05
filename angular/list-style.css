@@ -17,11 +17,11 @@ td {padding-left:10px;}
 
 .removeItem,.editItem,.deleteList {cursor:pointer;font-size:12px;}
 
-.saveStatus {margin-left:15px;}
-
 .checkedRow {background:tan;}
 
 .itemNameInput,.listNameInput {margin-right:5px;border:1px solid black;}
-.addItemButton {margin-right:10px;}
+.addItemButton,.loadListButton {margin-right:5px;}
 
 .showListButton {margin-top:10px;}
+
+.itemExists,.saveStatus {font-size:12px;}

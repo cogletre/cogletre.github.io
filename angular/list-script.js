@@ -125,6 +125,9 @@ app.controller("listCtrl", function($scope) {
 		document.getElementById("saveStatus").style.color = "blue";
 		document.getElementById("saveStatus").innerHTML = "Found list: " + listName;
 	}
-
+	
+	$scope.deleteList = function(listName) {
+		localStorage.removeItem(listName);
+	}
 });
 

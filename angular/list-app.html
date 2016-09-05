@@ -21,7 +21,7 @@
 	
 	<div ng-app="shoppingList" ng-controller="listCtrl">
 		<h1>Shopping List</h1>
-		<input ng-model="itemName" class="itemNameInput"><button ng-click="addItem()" class="addItemButton">Add</button><span style = "color:red;" ng-show="itemExists">Item Exists</span>
+		<input ng-model="itemName" class="itemNameInput"><button ng-click="addItem()" class="addItemButton">Add</button><span style = "color:red;" ng-show="itemExists" class="itemExists">Item Exists</span>
 		<br /><br />
 		<button ng-click="removeChecked()">Remove Checked Items</button>
 		<button ng-click="removeAll()">Remove All Items</button>
@@ -48,7 +48,7 @@
 			<button id="showListButton" class="showListButton" ng-click="showLists()" ng-disabled="noSavedLists && saveNotAllowed">Show Saved Lists</button>
 			<ol ng-show="showSaved">
 				<li ng-repeat="name in storedListNames">
-					<button ng-click="getList(name)">{{name}}</button>
+					<button ng-click="getList(name)" class="loadListButton">{{name}}</button><span ng-click="deleteList(name)" class="deleteList">Delete</span>
 				</li>
 			</ol>
 		</div>
