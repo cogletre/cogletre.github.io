@@ -28,8 +28,10 @@ app.controller("listCtrl", function($scope) {
 			$scope.noSavedLists = true;
 		}
 	} else {
+		//set ng-disable values to prevent clicking if local storage is not supported
 		$scope.saveNotAllowed = true;
 		$scope.noSavedLists = true;
+		document.getElementById("saveStatus").innerHTML = "Sorry, you can't save your lists";
 	}
 	
 	//add item to list
@@ -80,35 +82,29 @@ app.controller("listCtrl", function($scope) {
 			document.getElementById("showListButton").style.background = "buttonface";
 			document.getElementById("showListButton").innerHTML = "Show Saved Lists";
 		} else {
-			document.getElementById("showListButton").style.background = "rgb(128,128,128)";
+			document.getElementById("showListButton").style.background = "rgb(175,175,175)";
 			document.getElementById("showListButton").innerHTML = "Hide Saved Lists";
 		}
 	}
 	//function to save list to localStorage in browser
 	$scope.saveList = function() {
 		if ($scope.listName !== "") {
-			if (typeof(Storage) !== "undefined") {
-				var storeName = $scope.listName;
-				if (localStorage.storeName) {
-					localStorage.setItem(storeName, JSON.stringify($scope.listItems));
-					//message if list is updated
-					document.getElementById("saveStatus").style.color = "green";
-					document.getElementById("saveStatus").innerHTML = "Updated!";
-				} else {
-					if($scope.storedListNames.indexOf(storeName) == -1) {
-						$scope.storedListNames.push(storeName);
-					}
-					localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
-					localStorage.setItem("storedNames", JSON.stringify($scope.storedListNames));
-					
-					//message if list is stored
-					document.getElementById("saveStatus").style.color = "blue";
-					document.getElementById("saveStatus").innerHTML = "Saved!";
-				}
+			var storeName = $scope.listName;
+			if (localStorage.storeName) {
+				localStorage.setItem(storeName, JSON.stringify($scope.listItems));
+				//message if list is updated
+				document.getElementById("saveStatus").style.color = "green";
+				document.getElementById("saveStatus").innerHTML = "Updated!";
 			} else {
-				// Message is storage is not supported
-				document.getElementById("saveStatus").style.color = "red";
-				document.getElementById("saveStatus").innerHTML = "Sorry, cannot save your lists";
+				if($scope.storedListNames.indexOf(storeName) == -1) {
+					$scope.storedListNames.push(storeName);
+				}
+				localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
+				localStorage.setItem("storedNames", JSON.stringify($scope.storedListNames));
+				
+				//message if list is stored
+				document.getElementById("saveStatus").style.color = "blue";
+				document.getElementById("saveStatus").innerHTML = "Saved!";
 			}
 			$scope.listName = "";
 		} else {
@@ -118,27 +114,17 @@ app.controller("listCtrl", function($scope) {
 	}
 	//function to retrieve a saved list from localStorage
 	$scope.getList = function(listName) {
-		if (typeof(Storage) !== "undefined") {
-			$scope.listItems = [];
+		$scope.listItems = [];
+		
+		var parseList = JSON.parse(localStorage.getItem(listName));
+		
+		for(x in parseList) {
+			$scope.listItems.push({name:parseList[x].name,checked:false});
+		}
+		// Message if list loaded successfully
+		document.getElementById("saveStatus").style.color = "blue";
+		document.getElementById("saveStatus").innerHTML = "Found it!";
+	}
 
-			var parseList = JSON.parse(localStorage.getItem(listName));
-			
-			for(x in parseList) {
-				$scope.listItems.push({name:parseList[x].name,checked:false});
-			}
-			// Message if list loaded successfully
-			document.getElementById("saveStatus").style.color = "blue";
-			document.getElementById("saveStatus").innerHTML = "Found it!";
-		} else {
-			// Message if storage is not supported
-			document.getElementById("saveStatus").style.color = "red";
-			document.getElementById("saveStatus").innerHTML = "Sorry, can't retrieve your lists";
-		}
-	}
-	$scope.deleteList = function(listName) {
-		if (typeof(Storage) !== "undefined") {
-			
-		}
-	}
 });
 

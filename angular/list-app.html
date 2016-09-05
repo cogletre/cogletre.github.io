@@ -43,12 +43,12 @@
 		</table>
 		
 		<div>
-			<input ng-model="listName" class="listNameInput"><button ng-click="saveList(listName)" ng-disabled="saveNotAllowed" class="savelist">Save</button><span class="saveStatus" id="saveStatus"></span>
+			<input ng-model="listName" ng-disabled="saveNotAllowed" class="listNameInput"><button ng-click="saveList(listName)" ng-disabled="saveNotAllowed" class="savelist">Save</button><span class="saveStatus" id="saveStatus"></span>
 			<br />
 			<button id="showListButton" class="showListButton" ng-click="showLists()" ng-disabled="noSavedLists && saveNotAllowed">Show Saved Lists</button>
 			<ol ng-show="showSaved">
 				<li ng-repeat="name in storedListNames">
-					<button ng-click="getList(name)">{{name}}</button><span ng-click="deleteList(name)" class="deleteList">Delete</span>
+					<button ng-click="getList(name)">{{name}}</button>
 				</li>
 			</ol>
 		</div>
