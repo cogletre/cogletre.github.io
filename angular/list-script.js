@@ -15,7 +15,6 @@ app.controller("listCtrl", function($scope) {
 	$scope.listName = "";
 	$scope.itemExists = false;
 	$scope.savedLists = [];
-	$scope.storedListNames = [];
 	//decide if local storage is supported by browser
 	if (typeof(Storage) !== "undefined") {
 		$scope.saveNotAllowed = false;
