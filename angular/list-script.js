@@ -20,7 +20,7 @@ app.controller("listCtrl", function($scope) {
 		$scope.saveNotAllowed = false;
 	}
 		//if local storage supported, check for saved lists
-<<<<<<< HEAD
+//<<<<<<< HEAD
 /*
 		if(JSON.parse(localStorage.storedNames).length !== 0){
 			$scope.storedListNames = JSON.parse(localStorage.storedNames);
