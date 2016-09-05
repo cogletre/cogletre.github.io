@@ -52,6 +52,8 @@
 				<li ng-repeat="list in savedLists">
 					<button ng-click="getList(name)" class="loadListButton">{{list.name}}</button><span ng-click="deleteList(list,$index)" class="deleteList">Delete</span>
 					<button ng-click="getList(name)" class="loadListButton">{{listName.name}}</button><span ng-click="deleteList(listName,$index)" class="deleteList">Delete</span>
+				<li ng-repeat="list in savedLists">
+					<button ng-click="getList(name)" class="loadListButton">{{list.name}}</button><span ng-click="deleteList(list,$index)" class="deleteList">Delete</span>
 				</li>
 			</ol>
 		</div>

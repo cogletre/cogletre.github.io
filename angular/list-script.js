@@ -20,9 +20,12 @@ app.controller("listCtrl", function($scope) {
 		$scope.saveNotAllowed = false;
 	}
 		//if local storage supported, check for saved lists
+<<<<<<< HEAD
 /*
 		if(JSON.parse(localStorage.storedNames).length !== 0){
 			$scope.storedListNames = JSON.parse(localStorage.storedNames);
+=======
+>>>>>>> parent of 6bf37bc... hopefully splice works now
 		if(localStorage.length !== 0){
 			$scope.savedLists = localStorage;
 			$scope.noSavedLists = false;
@@ -100,9 +103,12 @@ app.controller("listCtrl", function($scope) {
 	$scope.saveList = function() {
 		if ($scope.listName !== "") {
 			var storeName = $scope.listName;
+//<<<<<<< HEAD
 
 			//check if list name exists in storage
-			if ($scope.storedListNames.indexOf(storeName) !== -1) {
+			//if ($scope.storedListNames.indexOf(storeName) !== -1) {
+//=======
+//>>>>>>> parent of 6bf37bc... hopefully splice works now
 			if (localStorage.storeName) {
 				localStorage.setItem(storeName, JSON.stringify($scope.listItems));
 				//message if list is updated
@@ -129,7 +135,7 @@ app.controller("listCtrl", function($scope) {
 			document.getElementById("saveStatus").innerHTML = "Please name your list";
 		}
 	}
-	}
+	
 	//function to retrieve a saved list from localStorage
 	$scope.getList = function(listName) {
 		$scope.listItems = [];
