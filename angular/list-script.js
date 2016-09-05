@@ -107,9 +107,6 @@ app.controller("listCtrl", function($scope) {
 					document.getElementById("saveStatus").innerHTML = "Updated!";
 					$scope.noSavedLists = false;
 				} else {
-					if($scope.storedListNames.indexOf(storeName) == -1) {
-						$scope.storedListNames.push({'name':storeName});
-					}
 					localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
 					localStorage.setItem('storedNames', JSON.stringify($scope.storedListNames));
 					
