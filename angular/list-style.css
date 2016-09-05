@@ -21,8 +21,7 @@ td {padding-left:10px;}
 
 .checkedRow {background:tan;}
 
-.itemNameInput {margin-right:5px;border:1px solid black;}
+.itemNameInput,.listNameInput {margin-right:5px;border:1px solid black;}
 .addItemButton {margin-right:10px;}
 
-.listNameInput {margin-right:5px;}
 .showListButton {margin-top:10px;}
