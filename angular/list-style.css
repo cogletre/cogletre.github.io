@@ -20,8 +20,8 @@ td {padding-left:10px;}
 .checkedRow {background:tan;}
 
 .itemNameInput,.listNameInput {margin-right:5px;border:1px solid black;}
-.addItemButton,.loadListButton {margin-right:5px;}
+.addItemButton,.loadListButton,.saveListButton {margin-right:5px;}
 
 .showListButton {margin-top:10px;}
 
-.itemExists,.saveStatus {font-size:12px;}
+.itemExists,.saveStatus {font-size:14px;}
