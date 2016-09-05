@@ -98,22 +98,25 @@ app.controller("listCtrl", function($scope) {
 	$scope.saveList = function() {
 		if ($scope.listName !== "") {
 			var storeName = $scope.listName;
+			var namesStored = JSON.parse(localStorage.storedNames);
 			//check if list name exists in storage
-			if (localStorage.storeName) {
-				localStorage.setItem(storeName, JSON.stringify($scope.listItems));
-				//message if list is updated
-				document.getElementById("saveStatus").style.color = "green";
-				document.getElementById("saveStatus").innerHTML = "Updated!";
-			} else {
-				if($scope.storedListNames.indexOf(storeName) == -1) {
-					$scope.storedListNames.push({'name':storeName});
+			for(x in namesStored) {
+				if (namesStored[x]['name'].toLowerCase() === storeName.toLowerCase()) {
+					localStorage.setItem(storeName, JSON.stringify($scope.listItems));
+					//message if list is updated
+					document.getElementById("saveStatus").style.color = "green";
+					document.getElementById("saveStatus").innerHTML = "Updated!";
+				} else {
+					if($scope.storedListNames.indexOf(storeName) == -1) {
+						$scope.storedListNames.push({'name':storeName});
+					}
+					localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
+					localStorage.setItem('storedNames', JSON.stringify($scope.storedListNames));
+					
+					//message if list is stored
+					document.getElementById("saveStatus").style.color = "blue";
+					document.getElementById("saveStatus").innerHTML = "Saved!";
 				}
-				localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
-				localStorage.setItem('storedNames', JSON.stringify($scope.storedListNames));
-				
-				//message if list is stored
-				document.getElementById("saveStatus").style.color = "blue";
-				document.getElementById("saveStatus").innerHTML = "Saved!";
 			}
 			$scope.listName = "";
 			$scope.noSavedLists = false;
