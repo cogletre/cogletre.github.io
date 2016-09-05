@@ -21,7 +21,7 @@ a, a.work-link {
 	color:black;
 	transition:all 500ms ease;
 }
-p.work-skills,p.role-description,p.project-description,p.project-tools,p.project-steps {
+p.work-skills,p.role-description,p.project-description,p.project-tools {
 	margin-bottom:5px;
 }
 
@@ -39,7 +39,7 @@ p.work-skills,p.role-description,p.project-description,p.project-tools,p.project
 		font-weight:bold;
 	}
 
-	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools,ol.project-steps {
+	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools {
 		margin-top:5px;
 	}
 
@@ -97,7 +97,7 @@ p.work-skills,p.role-description,p.project-description,p.project-tools,p.project
 		font-size:14px;
 	}
 
-	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools,ol.project-steps {
+	ul.work-skills,ul.role-description,ul.project-description,ul.project-tools {
 		margin-top:5px;
 		margin-left:-13%;
 	}
