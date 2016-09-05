@@ -77,13 +77,9 @@ p.work-skills,p.role-description,p.project-description,p.project-tools {
 		color:black;
 		max-width:100%;
 	}
-
-
-	
-
 	a.work-link {
 		font-size:16px;
-		margin-left:-23%;
+		margin-left:-14%;
 	}
 	a.project-link {
 		font-size:16px;
