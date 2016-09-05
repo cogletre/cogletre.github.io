@@ -15,13 +15,23 @@ app.controller("listCtrl", function($scope) {
 	$scope.listName = "";
 	$scope.itemExists = false;
 	$scope.savedLists = [];
-	if(localStorage.storedNames){
-		$scope.storedListNames = JSON.parse(localStorage.storedNames);
-		$scope.noSavedLists = false;
+	//decide if local storage is supported by browser
+	if (typeof(Storage) !== "undefined") {
+		$scope.saveNotAllowed = false;
+		
+		//if local storage supported, check for saved lists
+		if(localStorage.storedNames){
+			$scope.storedListNames = JSON.parse(localStorage.storedNames);
+			$scope.noSavedLists = false;
+		} else {
+			$scope.storedListNames = [];
+			$scope.noSavedLists = true;
+		}
 	} else {
-		$scope.storedListNames = [];
+		$scope.saveNotAllowed = true;
 		$scope.noSavedLists = true;
 	}
+	
 	//add item to list
 	$scope.addItem = function(){
 		if (!$scope.itemName) {return;}
@@ -120,9 +130,14 @@ app.controller("listCtrl", function($scope) {
 			document.getElementById("saveStatus").style.color = "blue";
 			document.getElementById("saveStatus").innerHTML = "Found it!";
 		} else {
-			// Message is storage is not supported
+			// Message if storage is not supported
 			document.getElementById("saveStatus").style.color = "red";
 			document.getElementById("saveStatus").innerHTML = "Sorry, can't retrieve your lists";
+		}
+	}
+	$scope.deleteList = function(listName) {
+		if (typeof(Storage) !== "undefined") {
+			
 		}
 	}
 });

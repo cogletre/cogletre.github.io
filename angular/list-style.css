@@ -15,7 +15,7 @@ td {padding-left:10px;}
 .selectCell,.itemName,.editCell {border-right:1px solid black;}
 .itemSelect {}
 
-.removeItem,.editItem {cursor:pointer;font-size:12px;}
+.removeItem,.editItem,.deleteList {cursor:pointer;font-size:12px;}
 
 .saveStatus {margin-left:15px;}
 
