@@ -18,7 +18,7 @@ app.controller("listCtrl", function($scope) {
 	//decide if local storage is supported by browser
 	if (typeof(Storage) !== "undefined") {
 		$scope.saveNotAllowed = false;
-		
+	}
 		//if local storage supported, check for saved lists
 /*
 		if(JSON.parse(localStorage.storedNames).length !== 0){
@@ -128,6 +128,7 @@ app.controller("listCtrl", function($scope) {
 			document.getElementById("saveStatus").style.color = "red";
 			document.getElementById("saveStatus").innerHTML = "Please name your list";
 		}
+	}
 	}
 	//function to retrieve a saved list from localStorage
 	$scope.getList = function(listName) {
