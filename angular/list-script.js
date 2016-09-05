@@ -31,6 +31,7 @@ app.controller("listCtrl", function($scope) {
 		//set ng-disable values to prevent clicking if local storage is not supported
 		$scope.saveNotAllowed = true;
 		$scope.noSavedLists = true;
+		$scope.storedListNames = [];
 		document.getElementById("saveStatus").innerHTML = "Sorry, you can't save your lists";
 	}
 	
@@ -132,6 +133,7 @@ app.controller("listCtrl", function($scope) {
 		
 		if($scope.storedListNames.length == 0) {
 			$scope.showSaved = false;
+			$scope.noSavedLists = true;
 		}
 	}
 });
