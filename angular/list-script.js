@@ -112,6 +112,7 @@ app.controller("listCtrl", function($scope) {
 				document.getElementById("saveStatus").innerHTML = "Saved!";
 			}
 			$scope.listName = "";
+			$scope.noSavedLists = false;
 		} else {
 			document.getElementById("saveStatus").style.color = "red";
 			document.getElementById("saveStatus").innerHTML = "Please name your list";
