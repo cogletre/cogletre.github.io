@@ -132,11 +132,14 @@ app.controller("listCtrl", function($scope) {
 		document.getElementById("saveStatus").innerHTML = "Loaded: " + listName;
 	}
 	
-	$scope.deleteList = function(listName, listIndex) {
-		var listNames = JSON.parse(localStorage.storedNames);
-		var newList = listNames.splice(listIndex,1);
-		$scope.storedListNames = newList;
-		localStorage.storedNames = JSON.stringify(newList);
+	$scope.deleteList = function(listName,listIndex) {
+		
+		var storedLists = JSON.parse(localStorage.storedNames);
+		localStorage.storedNames = JSON.stringify(storedLists.splice(listIndex,1));
+		
+		localStorage.removeItem(listName);
+		
+		$scope.storedListNames.splice(listIndex,1);
 		
 		/*if($scope.storedListNames.length === 0) {
 			$scope.showSaved = false;
