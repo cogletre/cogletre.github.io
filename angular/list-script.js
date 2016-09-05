@@ -2,7 +2,7 @@ var app = angular.module("shoppingList", []);
 
 var itemExists = function(list,item) {
 	for(x = 0; x < list.length; x++) {
-		if(list[x]['name'] === item) {
+		if(list[x]['name'].toLowerCase() === item.toLowerCase()) {
 			return true;
 		} else {
 			return false;
