@@ -135,7 +135,7 @@ app.controller("listCtrl", function($scope) {
 	$scope.deleteList = function(listName, listIndex) {
 		var listNames = JSON.parse(localStorage.storedNames);
 		var newList = listNames.splice(listIndex,1);
-		$scope.storedListNames = newList
+		$scope.storedListNames = newList;
 		localStorage.storedNames = JSON.stringify(newList);
 		
 		/*if($scope.storedListNames.length === 0) {
