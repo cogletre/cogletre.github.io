@@ -123,7 +123,7 @@ app.controller("listCtrl", function($scope) {
 		}
 		// Message if list loaded successfully
 		document.getElementById("saveStatus").style.color = "blue";
-		document.getElementById("saveStatus").innerHTML = "Found it!";
+		document.getElementById("saveStatus").innerHTML = "Found list: " + listName;
 	}
 
 });
