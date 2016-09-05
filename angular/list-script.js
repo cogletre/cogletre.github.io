@@ -77,23 +77,26 @@ app.controller("listCtrl", function($scope) {
 		if ($scope.listName !== "") {
 			if (typeof(Storage) !== "undefined") {
 				var storeName = $scope.listName;
-				// Store
 				if (localStorage.storeName) {
 					localStorage.setItem(storeName, JSON.stringify($scope.listItems));
+					//message if list is updated
+					document.getElementById("saveStatus").style.color = "green";
+					document.getElementById("saveStatus").innerHTML = "Updated!";
 				} else {
 					if($scope.storedListNames.indexOf(storeName) == -1) {
 						$scope.storedListNames.push(storeName);
 					}
 					localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
 					localStorage.setItem("storedNames", JSON.stringify($scope.storedListNames));
+					
+					//message if list is stored
+					document.getElementById("saveStatus").style.color = "blue";
+					document.getElementById("saveStatus").innerHTML = "Saved!";
 				}
-				// Message if stored successfully
-				document.getElementById("saveStatus").style.color = "blue";
-				document.getElementById("saveStatus").innerHTML = "Saved!";
 			} else {
 				// Message is storage is not supported
 				document.getElementById("saveStatus").style.color = "red";
-				document.getElementById("saveStatus").innerHTML = "Sorry, can't save your lists";
+				document.getElementById("saveStatus").innerHTML = "Sorry, cannot save your lists";
 			}
 			$scope.listName = "";
 		} else {
