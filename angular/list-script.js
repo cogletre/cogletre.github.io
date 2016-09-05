@@ -126,8 +126,9 @@ app.controller("listCtrl", function($scope) {
 		document.getElementById("saveStatus").innerHTML = "Found list: " + listName;
 	}
 	
-	$scope.deleteList = function(listName) {
+	$scope.deleteList = function(listName, listIndex) {
 		localStorage.removeItem(listName);
+		$scope.storedListNames.splice(listIndex,1);
 	}
 });
 
