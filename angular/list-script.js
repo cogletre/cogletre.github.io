@@ -116,7 +116,7 @@ app.controller("listCtrl", function($scope) {
 					//message if list is stored
 					document.getElementById("saveStatus").style.color = "blue";
 					document.getElementById("saveStatus").innerHTML = "Saved!";
-				}
+				//}
 			//}
 			$scope.listName = "";
 			$scope.noSavedLists = false;
