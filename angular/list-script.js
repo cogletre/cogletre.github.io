@@ -107,7 +107,7 @@ app.controller("listCtrl", function($scope) {
 			} else {
 				$scope.storedListNames.push({'name':storeName})
 				localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
-				localStorage.setItem('storedNames', JSON.stringify({'name':$scope.storedListNames}));
+				localStorage.setItem('storedNames', JSON.stringify($scope.storedListNames));
 				
 				//message if list is stored
 				document.getElementById("saveStatus").style.color = "blue";
