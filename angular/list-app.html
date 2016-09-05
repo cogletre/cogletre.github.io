@@ -48,7 +48,7 @@
 			<button id="showListButton" class="showListButton" ng-click="showLists()" ng-disabled="noSavedLists && saveNotAllowed">Show Saved Lists</button>
 			<ol ng-show="showSaved">
 				<li ng-repeat="listName in storedListNames">
-					<button ng-click="getList(listName)" class="loadListButton">{{listName.name}}</button><span ng-click="deleteList(listName.name,$index)" class="deleteList">Delete</span>
+					<button ng-click="getList(listName.name)" class="loadListButton">{{listName.name}}</button><span ng-click="deleteList(listName.name,$index)" class="deleteList">Delete</span>
 				</li>
 			</ol>
 		</div>
