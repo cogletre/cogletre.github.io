@@ -65,10 +65,10 @@ app.controller("listCtrl", function($scope) {
 	$scope.showLists = function() {
 		$scope.showSaved = !$scope.showSaved;
 		if ($scope.showSaved === false) {
-			document.getElementById("showListButton").style.background-color = "buttonface";
+			document.getElementById("showListButton").style.background = "buttonface";
 			document.getElementById("showListButton").innerHTML = "Show Saved Lists";
 		} else {
-			document.getElementById("showListButton").style.background-color = "rgb(128,128,128)";
+			document.getElementById("showListButton").style.background = "rgb(128,128,128)";
 			document.getElementById("showListButton").innerHTML = "Hide Saved Lists";
 		}
 	}
