@@ -17,11 +17,10 @@
 </head>
 
 <body>
-	
-	<h1>Shopping List</h1>
+
 	<div ng-app="shoppingList" ng-controller="listCtrl">
-		
-		<input ng-model="itemName"><button ng-click="addItem()">Add</button><span style = "color:red;" ng-show="itemExists">Item Exists</span>
+		<h1>Shopping List</h1>
+		<input ng-model="itemName" class="itemNameInput"><button ng-click="addItem()" class="addItemButton">Add</button><span style = "color:red;" ng-show="itemExists">Item Exists</span>
 		<br /><br />
 		<button ng-click="removeChecked()">Remove Checked Items</button>
 		<button ng-click="removeAll()">Remove All Items</button>
@@ -31,7 +30,7 @@
 			<tr class="top-row">
 				<td class="col1"></td>
 				<td class="col2">Item Name</td>
-				<td class = "col3">Edit</td>
+				<td class="col3">Edit</td>
 				<td class="col3">Remove</td>
 			</tr>
 			<tr ng-repeat="x in listItems">
@@ -43,7 +42,7 @@
 		</table>
 		
 		<div>
-			<input ng-model="listName"><button ng-click="saveList(listName)" class="savelist">Save</button><span id="saveStatus"></span>
+			<input ng-model="listName"><button ng-click="saveList(listName)" class="savelist">Save</button><span class="saveStatus" id="saveStatus"></span>
 			<br />
 			<button id="showListButton" ng-click="showLists()">Show Saved Lists</button>
 			<ul ng-show="showSaved">

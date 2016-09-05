@@ -12,9 +12,14 @@ body {font-size:18px;max-width:400px;}
 td {padding-left:10px;}
 .top-row {border-bottom:1px solid black;}
 
-.selectCell {border-right:1px solid black;}
+.selectCell,.itemName,.editItem {border-right:1px solid black;}
 .itemSelect {}
 
-.itemName {border-right:1px solid black;}
-
 .removeItem,.editItem {cursor:pointer;font-size:12px;}
+
+.saveStatus {margin-left:15px;}
+
+.checkedRow {background:tan;}
+
+.itemNameInput {margin-right:5px;border:1px solid black;}
+.addItemButton {margin-right:10px;}

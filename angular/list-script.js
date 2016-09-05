@@ -10,7 +10,6 @@ var itemExists = function(list,item) {
 	}
 }
 
-
 app.controller("listCtrl", function($scope) {
 	$scope.listItems = [];
 	$scope.listName = "";
@@ -27,6 +26,8 @@ app.controller("listCtrl", function($scope) {
 		if (!itemExists($scope.listItems,$scope.itemName)) {
 			$scope.listItems.push({name:$scope.itemName,checked:false});
 			$scope.itemExists = false;
+		} else {
+			$scope.itemExists = true;
 		}
 		$scope.itemName = "";
 	}
@@ -46,6 +47,9 @@ app.controller("listCtrl", function($scope) {
 	//function to toggle checkboxes
 	$scope.checkItem = function(x) {
 		$scope.listItems[x].checked = !$scope.listItems[x].checked;
+		if ($scope.listItems[x].checked) {
+			
+		}
 	}
 	//remove all checked items from list
 	$scope.removeChecked = function() {
@@ -102,7 +106,7 @@ app.controller("listCtrl", function($scope) {
 			for(x in parseList) {
 				$scope.listItems.push({name:parseList[x].name,checked:false});
 			}
-			// Message if stored successfully
+			// Message if list loaded successfully
 			document.getElementById("saveStatus").innerHTML = "Found it!";
 		} else {
 			// Message is storage is not supported
