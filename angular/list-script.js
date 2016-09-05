@@ -132,15 +132,17 @@ app.controller("listCtrl", function($scope) {
 	}
 	
 	$scope.deleteList = function(listName, listIndex) {
-		localStorage.removeItem(listName);
-		$scope.storedListNames.splice(listIndex,1);
+		var listNames = JSON.parse(localStorage.storedNames);
+		var newList = listNames.splice(listIndex,1);
+		$scope.storedListNames = newList
+		localStorage.storedNames = JSON.stringify(newList);
 		
-		if($scope.storedListNames.length === 0) {
+		/*if($scope.storedListNames.length === 0) {
 			$scope.showSaved = false;
 			$scope.noSavedLists = true;
 			document.getElementById("showListButton").style.background = "buttonface";
 			document.getElementById("showListButton").innerHTML = "Show Saved Lists";
-		}
+		}*/
 	}
 });
 
