@@ -105,6 +105,7 @@ app.controller("listCtrl", function($scope) {
 					//message if list is updated
 					document.getElementById("saveStatus").style.color = "green";
 					document.getElementById("saveStatus").innerHTML = "Updated!";
+					$scope.noSavedLists = false;
 				} else {
 					if($scope.storedListNames.indexOf(storeName) == -1) {
 						$scope.storedListNames.push({'name':storeName});
@@ -115,10 +116,11 @@ app.controller("listCtrl", function($scope) {
 					//message if list is stored
 					document.getElementById("saveStatus").style.color = "blue";
 					document.getElementById("saveStatus").innerHTML = "Saved!";
+					$scope.noSavedLists = false;
 				}
 			}
 			$scope.listName = "";
-			$scope.noSavedLists = false;
+			
 		} else {
 			document.getElementById("saveStatus").style.color = "red";
 			document.getElementById("saveStatus").innerHTML = "Please name your list";
