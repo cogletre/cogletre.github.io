@@ -21,7 +21,7 @@ app.controller("listCtrl", function($scope) {
 		$scope.saveNotAllowed = false;
 		
 		//if local storage supported, check for saved lists
-		if(localStorage.length !== 0){
+		if(localStorage.storedNames.length !== 0){
 			$scope.storedListNames = JSON.parse(localStorage.storedNames);
 			$scope.noSavedLists = false;
 		} else {
@@ -79,11 +79,13 @@ app.controller("listCtrl", function($scope) {
 	//function to display saved lists or not, based on click
 	$scope.showSaved = false;
 	$scope.showLists = function() {
+		
 		if($scope.noSavedLists === false) {
 			$scope.showSaved = !$scope.showSaved;
 		} else {
 			$scope.showSaved = false;
 		}
+		
 		if ($scope.showSaved === false) {
 			document.getElementById("showListButton").style.background = "buttonface";
 			document.getElementById("showListButton").innerHTML = "Show Saved Lists";
