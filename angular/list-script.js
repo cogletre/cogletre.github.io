@@ -20,8 +20,8 @@ app.controller("listCtrl", function($scope) {
 		$scope.saveNotAllowed = false;
 		
 		//if local storage supported, check for saved lists
-		if(localStorage.storedNames){
-			$scope.storedListNames = JSON.parse(localStorage.storedNames);
+		if(localStorage.length !== 0){
+			$scope.savedLists = localStorage;
 			$scope.noSavedLists = false;
 		} else {
 			$scope.storedListNames = [];
@@ -105,7 +105,7 @@ app.controller("listCtrl", function($scope) {
 					$scope.storedListNames.push(storeName);
 				}
 				localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
-				localStorage.setItem("storedNames", JSON.stringify($scope.storedListNames));
+				//localStorage.setItem("storedNames", JSON.stringify($scope.storedListNames));
 				
 				//message if list is stored
 				document.getElementById("saveStatus").style.color = "blue";
@@ -132,14 +132,10 @@ app.controller("listCtrl", function($scope) {
 		document.getElementById("saveStatus").innerHTML = "Loaded: " + listName;
 	}
 	
-	$scope.deleteList = function(listName,listIndex) {
+	$scope.deleteList = function(list,listIndex) {
+		localStorage.removeItem(list.name);
 		
-		var storedLists = JSON.parse(localStorage.storedNames);
-		localStorage.storedNames = storedLists.splice(listIndex,1);
-		
-		localStorage.removeItem(listName);
-		
-		$scope.storedListNames.splice(listIndex,1);
+		$scope.savedLists.splice(listIndex,1);
 		
 		/*if($scope.storedListNames.length === 0) {
 			$scope.showSaved = false;
