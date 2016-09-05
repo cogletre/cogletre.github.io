@@ -45,7 +45,7 @@
 		<div>
 			<input ng-model="listName" ng-disabled="saveNotAllowed" class="listNameInput"><button ng-click="saveList(listName)" ng-disabled="saveNotAllowed" class="saveListButton">Save</button><span class="saveStatus" id="saveStatus"></span>
 			<br />
-			<button id="showListButton" class="showListButton" ng-click="showLists()" ng-disabled="noSavedLists && saveNotAllowed">Show Saved Lists</button>
+			<button id="showListButton" class="showListButton" ng-click="showLists()" ng-disabled="noSavedLists || saveNotAllowed">Show Saved Lists</button>
 			<ol ng-show="showSaved">
 				<li ng-repeat="listName in storedListNames">
 					<button ng-click="getList(listName.name)" class="loadListButton">{{listName.name}}</button><span ng-click="deleteList(listName.name,$index)" class="deleteList">Delete</span>
