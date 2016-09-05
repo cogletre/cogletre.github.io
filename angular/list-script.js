@@ -101,7 +101,7 @@ app.controller("listCtrl", function($scope) {
 			var namesStored = JSON.parse(localStorage.storedNames);
 			//check if list name exists in storage
 			for(x = 0; x < namesStored.length; x++) {
-				if (namesStored[x]['names']toLowerCase() === storeName.toLowerCase()) {
+				if (namesStored[x]['name'].toLowerCase() === storeName.toLowerCase()) {
 					localStorage.setItem(storeName, JSON.stringify($scope.listItems));
 					//message if list is updated
 					document.getElementById("saveStatus").style.color = "green";
