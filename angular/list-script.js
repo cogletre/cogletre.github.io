@@ -15,13 +15,14 @@ app.controller("listCtrl", function($scope) {
 	$scope.listName = "";
 	$scope.itemExists = false;
 	$scope.savedLists = [];
+	$scope.storedListNames = [];
 	//decide if local storage is supported by browser
 	if (typeof(Storage) !== "undefined") {
 		$scope.saveNotAllowed = false;
 		
 		//if local storage supported, check for saved lists
 		if(localStorage.length !== 0){
-			$scope.savedLists = localStorage;
+			$scope.storedListNames = JSON.parse(localStorage.storedNames);
 			$scope.noSavedLists = false;
 		} else {
 			$scope.storedListNames = [];
@@ -95,6 +96,7 @@ app.controller("listCtrl", function($scope) {
 	$scope.saveList = function() {
 		if ($scope.listName !== "") {
 			var storeName = $scope.listName;
+			//check if list name exists in storage
 			if (localStorage.storeName) {
 				localStorage.setItem(storeName, JSON.stringify($scope.listItems));
 				//message if list is updated
@@ -102,10 +104,10 @@ app.controller("listCtrl", function($scope) {
 				document.getElementById("saveStatus").innerHTML = "Updated!";
 			} else {
 				if($scope.storedListNames.indexOf(storeName) == -1) {
-					$scope.storedListNames.push(storeName);
+					$scope.storedListNames.push({'name':storeName});
 				}
 				localStorage.setItem($scope.listName, JSON.stringify($scope.listItems));
-				//localStorage.setItem("storedNames", JSON.stringify($scope.storedListNames));
+				localStorage.setItem('storedNames', JSON.stringify($scope.storedListNames));
 				
 				//message if list is stored
 				document.getElementById("saveStatus").style.color = "blue";
@@ -132,10 +134,12 @@ app.controller("listCtrl", function($scope) {
 		document.getElementById("saveStatus").innerHTML = "Loaded: " + listName;
 	}
 	
-	$scope.deleteList = function(list,listIndex) {
-		localStorage.removeItem(list.name);
+	$scope.deleteList = function(listName,listIndex) {
 		
-		$scope.savedLists.splice(listIndex,1);
+		localStorage.removeItem(listName);
+		$scope.storedListNames.splice(listIndex,1);
+		
+		localStorage.setItem('storedNames', JSON.stringify($scope.storedListNames));
 		
 		/*if($scope.storedListNames.length === 0) {
 			$scope.showSaved = false;
