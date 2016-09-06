@@ -24,13 +24,18 @@ table.listTable {
 
 .topRow {border-bottom:1px solid black;font-size:14px;font-weight:bold;}
 .itemRow {border-bottom:1px solid rgba(150,150,150,0.5);}
-.selectCell,.itemName,.editCell,.removeCell {
+.selectCell,.nameCell,.editCell,.removeCell {
 	border-left:1px solid rgba(150,150,150,0.5);
 	border-right:1px solid rgba(150,150,150,0.5);
 	border-bottom:1px solid rgba(150,150,150,0.5);
 }
 
-.removeItem,.editItem,.deleteList {cursor:pointer;font-size:12px;}
+.itemSelect {margin:5px 0 0 5px;}
+
+.removeItem,.editItem,.deleteList {cursor:pointer;font-size:12px;transition:all 500ms ease;}
+
+.removeItem:hover,.deleteList:hover {color:red;text-decoration:underline;}
+.editItem:hover {color:green;text-decoration:underline;}
 
 .itemNameInput,.listNameInput {
 	margin-right:5px;

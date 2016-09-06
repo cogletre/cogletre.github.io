@@ -34,9 +34,9 @@
 				<td class="col3">Edit</td>
 				<td class="col3">Remove</td>
 			</tr>
-			<tr ng-repeat="x in listItems" class="itemRow">
+			<tr ng-repeat="item in listItems" class="itemRow">
 				<td class="selectCell col1"><input type="checkbox" ng-model="checkedItem" ng-click="checkItem($index)" class="itemSelect" ></td>
-				<td class="itemName col2">{{x.name}}</td>
+				<td class="nameCell col2">{{item.name}}</td>
 				<td class="editCell col3"><span class="editItem" ng-click="editItem($index)">Edit</span></td>
 				<td class="removeCell col3"><span class="removeItem" ng-click="removeItem($index)">Remove</span></td>
 			</tr>
