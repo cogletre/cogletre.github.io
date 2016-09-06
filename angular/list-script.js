@@ -21,8 +21,10 @@ app.controller("listCtrl", function($scope) {
 		$scope.saveNotAllowed = false;
 		if(localStorage.storedNames){
 			$scope.storedListNames = JSON.parse(localStorage.storedNames);
+			$noSavedLists = false;
 		} else {
 			localStorage.storedNames = JSON.stringify($scope.storedListNames);
+			$noSavedLists = true;
 		}
 	} else {
 		$scope.saveNotAllowed = true;
@@ -133,10 +135,10 @@ app.controller("listCtrl", function($scope) {
 		document.getElementById("saveStatus").innerHTML = "Loaded: " + listName;
 	}
 	
-	$scope.deleteList = function(list,listIndex) {
-		localStorage.removeItem(list.name);
+	$scope.deleteList = function(listName,listIndex) {
+		localStorage.removeItem(listName);
 		
-		$scope.savedLists.splice(listIndex,1);
+		//$scope.savedLists.splice(listIndex,1);
 		
 		/*if($scope.storedListNames.length === 0) {
 			$scope.showSaved = false;
