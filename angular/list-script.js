@@ -10,7 +10,7 @@ var itemExists = function(list,item) {
 	}
 }
 
-app.controller("listCtrl", function($scope) {
+app.controller("listCtrl", function($scope,$timeout) {
 	$scope.listItems = [];
 	$scope.listName = "";
 	$scope.itemExists = false;
@@ -136,7 +136,7 @@ app.controller("listCtrl", function($scope) {
 			$scope.listItems.push({name:parseList[x].name,checked:false});
 		}
 		// Message if list loaded successfully
-		document.getElementById("loadStatus").style.color = "blue";
+		document.getElementById("loadStatus").style.color = "green";
 		document.getElementById("loadStatus").innerHTML = "Loaded: " + listName;
 		$timeout(function(){document.getElementById("loadStatus").innerHTML = ""},2000);
 	}
