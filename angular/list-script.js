@@ -15,31 +15,19 @@ app.controller("listCtrl", function($scope) {
 	$scope.listName = "";
 	$scope.itemExists = false;
 	$scope.savedLists = [];
-	//decide if local storage is supported by browser
+	//confirm if local storage is supported by browser
 	if (typeof(Storage) !== "undefined") {
 		$scope.saveNotAllowed = false;
-	}
-		//if local storage supported, check for saved lists
-//<<<<<<< HEAD
-/*
-		if(JSON.parse(localStorage.storedNames).length !== 0){
+		if(localStorage.storedNames) {
 			$scope.storedListNames = JSON.parse(localStorage.storedNames);
-=======
->>>>>>> parent of 6bf37bc... hopefully splice works now
-		if(localStorage.length !== 0){
-			$scope.savedLists = localStorage;
-			$scope.noSavedLists = false;
 		} else {
-			$scope.storedListNames = [];
-			$scope.noSavedLists = true;
+			localStorage.storedNames = JSON.stringify([]);
 		}
 	} else {
-		//set ng-disable values to prevent clicking if local storage is not supported
 		$scope.saveNotAllowed = true;
 		$scope.noSavedLists = true;
-		$scope.storedListNames = [];
 		document.getElementById("saveStatus").innerHTML = "Sorry, you can't save your lists";
-	}*/
+	}
 	
 	//add item to list
 	$scope.addItem = function(){
