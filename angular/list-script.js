@@ -92,24 +92,24 @@ app.controller("listCtrl", function($scope) {
 	$scope.saveList = function() {
 		if ($scope.listName !== "") {
 			var storeName = $scope.listName;
-			if (localStorage.storeName) {
+			if ($scope.storedListNames.indexOf(storeName) !== -1) {
 				localStorage.setItem(storeName, JSON.stringify($scope.listItems));
 				//message if list is updated
 				document.getElementById("saveStatus").style.color = "green";
 				document.getElementById("saveStatus").innerHTML = "Updated!";
-				//$scope.noSavedLists = false;
+				$scope.noSavedLists = false;
 			} else {
-				/*$scope.storedListNames.push({'name':storeName})
-				if($scope.storedListNames.indexOf(storeName) == -1) {
+				$scope.storedListNames.push(storeName);
+				/*if($scope.storedListNames.indexOf(storeName) == -1) {
 					$scope.storedListNames.push(storeName);
 				}*/
 				localStorage.setItem(storeName, JSON.stringify($scope.listItems));
-				//localStorage.setItem("storedNames", JSON.stringify($scope.storedListNames));
+				localStorage.setItem("storedNames", JSON.stringify($scope.storedListNames));
 				
 				//message if list is stored
 				document.getElementById("saveStatus").style.color = "blue";
 				document.getElementById("saveStatus").innerHTML = "Saved!";
-				//$scope.noSavedLists = false;
+				$scope.noSavedLists = false;
 			}
 			$scope.listName = "";
 			
