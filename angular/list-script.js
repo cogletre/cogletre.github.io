@@ -50,6 +50,7 @@ app.controller("listCtrl", function($scope,$timeout) {
 	$scope.addItem = function(){
 		if (!$scope.itemName) {return;}
 		if (!itemExists($scope.listItems,$scope.itemName)) {
+			//var capItemName = $scope.itemName.charAt(0).toUpperCase() + $scope.itemName.slice(1);
 			$scope.listItems.push({name:$scope.itemName,checked:false});
 			$scope.itemExists = false;
 		} else {

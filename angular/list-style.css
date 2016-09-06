@@ -54,5 +54,5 @@ table.listTable {
 .addItemButton,.loadListButton,.saveListButton,.showListButton {margin-right:5px;}
 
 .showListButton {margin-top:10px;}
-
+.savedLists {margin-bottom:0px;}
 .itemExists,.saveStatus,.loadStatus {font-size:14px;}
