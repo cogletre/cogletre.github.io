@@ -18,12 +18,16 @@ app.controller("listCtrl", function($scope) {
 	//confirm if local storage is supported by browser
 	if (typeof(Storage) !== "undefined") {
 		$scope.saveNotAllowed = false;
-		if(JSON.parse(localStorage.storedNames).length !== 0){
-			$scope.storedListNames = JSON.parse(localStorage.storedNames);
-			$noSavedLists = false;
+		if(localStorage.storedNames){
+			if(JSON.parse(localStorage.storedNames).length > 0) {
+				$scope.storedListNames = JSON.parse(localStorage.storedNames);
+				$scope.noSavedLists = false;
+			} else {
+				$scope.noSavedLists = true;
+			}
 		} else {
 			localStorage.storedNames = JSON.stringify($scope.storedListNames);
-			$noSavedLists = true;
+			$scope.noSavedLists = true;
 		}
 	} else {
 		$scope.saveNotAllowed = true;
