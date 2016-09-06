@@ -139,7 +139,7 @@ app.controller("listCtrl", function($scope) {
 		localStorage.removeItem(listName);
 		
 		$scope.storedListNames.splice(listIndex,1);
-		
+		localStorage.storedNames = JSON.stringify($scope.storedListNames);
 		/*if($scope.storedListNames.length === 0) {
 			$scope.showSaved = false;
 			$scope.noSavedLists = true;
