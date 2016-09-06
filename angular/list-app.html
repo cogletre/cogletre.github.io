@@ -21,7 +21,7 @@
 	
 	<div ng-app="shoppingList" ng-controller="listCtrl" id="appContainer">
 		<h1 class="listTitle">Shopping List</h1>
-		<input ng-model="itemName" class="itemNameInput" placeholder="e.g. Banana, Toilet Paper, etc."><button ng-click="addItem()" class="addItemButton">Add</button><span style = "color:red;" ng-show="itemExists" class="itemExists">Item Exists</span>
+		<input ng-model="itemName" class="itemNameInput" placeholder="e.g. Bananas, Rice, etc."><button ng-click="addItem()" class="addItemButton">Add</button><span style = "color:red;" ng-show="itemExists" class="itemExists">Item Exists</span>
 		<br /><br />
 		<button ng-click="removeChecked()">Remove Checked Items</button>
 		<button ng-click="removeAll()">Remove All Items</button>
@@ -43,9 +43,9 @@
 		</table>
 		
 		<div>
-			<input ng-model="listName" ng-disabled="saveNotAllowed" class="listNameInput" placeholder="e.g. 'My List', etc."><button ng-click="saveList(listName)" ng-disabled="saveNotAllowed" class="saveListButton">Save</button><span class="saveStatus" id="saveStatus"></span>
+			<input ng-model="listName" ng-disabled="saveNotAllowed" class="listNameInput" placeholder="e.g. My List"><button ng-click="saveList(listName)" ng-disabled="saveNotAllowed" class="saveListButton">Save</button><span class="saveStatus" id="saveStatus"></span>
 			<br />
-			<button id="showListButton" class="showListButton" ng-click="showLists()" ng-disabled="noSavedLists || saveNotAllowed">Show Saved Lists</button>
+			<button id="showListButton" class="showListButton" ng-click="showLists()" ng-disabled="noSavedLists || saveNotAllowed">Show Saved Lists</button><span class="loadStatus" id="loadStatus"></span>
 			<ol ng-show="showSaved">
 				<li ng-repeat="listName in storedListNames">
 					<button ng-click="getList(listName)" class="loadListButton">{{listName}}</button><span ng-click="deleteList(listName,$index)" class="deleteList">Delete</span>

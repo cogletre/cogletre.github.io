@@ -131,8 +131,8 @@ app.controller("listCtrl", function($scope) {
 			$scope.listItems.push({name:parseList[x].name,checked:false});
 		}
 		// Message if list loaded successfully
-		document.getElementById("saveStatus").style.color = "blue";
-		document.getElementById("saveStatus").innerHTML = "Loaded: " + listName;
+		document.getElementById("loadStatus").style.color = "blue";
+		document.getElementById("loadStatus").innerHTML = "Loaded: " + listName;
 	}
 	
 	$scope.deleteList = function(listName,listIndex) {
@@ -140,11 +140,15 @@ app.controller("listCtrl", function($scope) {
 		
 		$scope.storedListNames.splice(listIndex,1);
 		localStorage.storedNames = JSON.stringify($scope.storedListNames);
-		/*if($scope.storedListNames.length === 0) {
+		
+		document.getElementById("loadStatus").style.color = "red";
+		document.getElementById("loadStatus").innerHTML = "Deleted: " + listName;
+		
+		if($scope.storedListNames.length === 0) {
 			$scope.showSaved = false;
 			$scope.noSavedLists = true;
 			document.getElementById("showListButton").style.background = "buttonface";
 			document.getElementById("showListButton").innerHTML = "Show Saved Lists";
-		}*/
+		}
 	}
 });
