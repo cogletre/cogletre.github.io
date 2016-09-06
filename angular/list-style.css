@@ -23,7 +23,9 @@ table.listTable {
 .col3{width:12%;padding-left:10px;}
 
 .topRow {border-bottom:1px solid black;font-size:14px;font-weight:bold;}
-.itemRow {border-bottom:1px solid rgba(150,150,150,0.5);}
+.itemRow {border-bottom:1px solid rgba(150,150,150,0.5);transition:all 500ms ease;}
+.itemRow:hover {background-color:rgba(230,230,230,0.5);}
+
 .selectCell,.nameCell,.editCell,.removeCell {
 	border-left:1px solid rgba(150,150,150,0.5);
 	border-right:1px solid rgba(150,150,150,0.5);
