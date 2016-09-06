@@ -117,7 +117,7 @@ app.controller("listCtrl", function($scope) {
 				$scope.noSavedLists = false;
 			}
 			$scope.listName = "";
-			
+			$scope.listItems = [];
 		} else {
 			document.getElementById("saveStatus").style.color = "red";
 			document.getElementById("saveStatus").innerHTML = "Please name your list";

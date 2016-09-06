@@ -23,7 +23,7 @@ table.listTable {
 .col3{width:12%;padding-left:10px;}
 
 .top-row {border-bottom:1px solid black;font-size:14px;font-weight:bold;}
-
+.itemRow {border-bottom:1px solid rgba(150,150,150,0.5);}
 .itemName,.editCell,.removeCell {border-left:1px solid black;}
 
 .removeItem,.editItem,.deleteList {cursor:pointer;font-size:12px;}
