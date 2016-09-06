@@ -138,7 +138,7 @@ app.controller("listCtrl", function($scope) {
 	$scope.deleteList = function(listName,listIndex) {
 		localStorage.removeItem(listName);
 		
-		//$scope.savedLists.splice(listIndex,1);
+		$scope.storedListNames.splice(listIndex,1);
 		
 		/*if($scope.storedListNames.length === 0) {
 			$scope.showSaved = false;
