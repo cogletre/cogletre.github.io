@@ -20,19 +20,21 @@ table.listTable {
 }
 .col1{width:5%;padding:0px;}
 .col2{width:40%;padding-left:10px;}
-.col3{width:12%;padding-left:10px;}
+.col3{width:5%;padding-left:10px;}
+.col4{width:12%;padding-left:10px;}
 
 .topRow {border-bottom:1px solid black;font-size:14px;font-weight:bold;}
 .itemRow {border-bottom:1px solid rgba(150,150,150,0.5);transition:all 500ms ease;}
 .itemRow:hover {background-color:rgba(230,230,230,0.5);}
 
-.selectCell,.nameCell,.editCell,.removeCell {
+.itemRow td {
 	border-left:1px solid rgba(150,150,150,0.5);
 	border-right:1px solid rgba(150,150,150,0.5);
 	border-bottom:1px solid rgba(150,150,150,0.5);
 	transition:all 500ms ease;
 }
-.selectCell:hover,.nameCell:hover,.editCell:hover,.removeCell:hover {
+
+.itemRow td:hover {
 	background-color:rgba(200,200,200,0.5);
 }
 
@@ -40,8 +42,8 @@ table.listTable {
 
 .editItem,.removeItem,.deleteList {cursor:pointer;font-size:12px;transition:all 500ms ease;}
 
-.removeItem:hover,.deleteList:hover {color:red;text-decoration:underline;}
-.editItem:hover {color:green;text-decoration:underline;}
+.removeItem:hover,.deleteList:hover {color:red;}
+.editItem:hover {color:green;}
 .itemSelect:hover {box-shadow:0px 0px 1px rgb(150,150,150);}
 
 .itemNameInput,.listNameInput {
@@ -50,9 +52,17 @@ table.listTable {
 	padding-left:5px;
 	max-width:50%;
 }
+.itemQuantityInput {
+	margin-right:5px;
+	border:1px solid rgba(175,175,175,0.7);
+	padding-left:5px;
+	max-width:15%;
+}
 
 .addItemButton,.loadListButton,.saveListButton,.showListButton {margin-right:5px;}
 
 .showListButton {margin-top:10px;}
 .savedLists {margin-bottom:0px;}
 .itemExists,.saveStatus,.loadStatus {font-size:14px;}
+.itemExists,.saveStatus {margin-bottom:5px;}
+

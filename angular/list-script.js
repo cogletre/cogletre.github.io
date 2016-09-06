@@ -3,13 +3,15 @@ var app = angular.module("shoppingList", []);
 
 // function to determine if an item added to the list already exists
 var itemExists = function(list,item) {
+	var exists = false;
+	
 	for(x = 0; x < list.length; x++) {
 		if(list[x]['name'].toLowerCase() === item.toLowerCase()) {
-			return true;
-		} else {
-			return false;
+			exists = true;
 		}
 	}
+	
+	return exists;
 }
 
 // sets controller for application, uses $scope and $timeout dependencies
@@ -49,15 +51,17 @@ app.controller("listCtrl", function($scope,$timeout) {
 	// function to add an item to the list; sets name based on input and sets checked value to false
 	$scope.addItem = function(){
 		if (!$scope.itemName) {return;}
+		if (!$scope.itemQuantity) {return;}
 		if (!itemExists($scope.listItems,$scope.itemName)) {
 			//var capItemName = $scope.itemName.charAt(0).toUpperCase() + $scope.itemName.slice(1);
-			$scope.listItems.push({name:$scope.itemName,checked:false});
+			$scope.listItems.push({name:$scope.itemName,quantity:$scope.itemQuantity,checked:false});
 			$scope.itemExists = false;
 		} else {
 			$scope.itemExists = true;
 		}
 		// reset the itemName input field
 		$scope.itemName = "";
+		$scope.itemQuantity = "";
 	}
 	
 	// function to remove all items from the list
@@ -72,8 +76,14 @@ app.controller("listCtrl", function($scope,$timeout) {
 	
 	// function for editing an item; prompts user for a new item name
 	$scope.editItem = function (itemIndex) {
-        var newItemName = prompt("Enter new item name:");
+        var newItemName = prompt("Enter new item name:",$scope.listItems[itemIndex].name);
+        var newItemQuantity = prompt("Enter new item quantity:",$scope.listItems[itemIndex].quantity);
+		
+		while (isNaN(newItemQuantity)){
+			newItemQuantity = prompt("Please enter a number:");
+		}
 		$scope.listItems[itemIndex].name = newItemName;
+		$scope.listItems[itemIndex].quantity = newItemQuantity;
     }
 	
 	// function for checkbox click, sets checked value of listItem to the opposite
@@ -150,7 +160,7 @@ app.controller("listCtrl", function($scope,$timeout) {
 		var parseList = JSON.parse(localStorage.getItem(listName));
 		
 		for(x in parseList) {
-			$scope.listItems.push({name:parseList[x].name,checked:false});
+			$scope.listItems.push({name:parseList[x].name,quantity:parseList[x].quantity,checked:false});
 		}
 		// Message if list loaded successfully
 		document.getElementById("loadStatus").style.color = "green";

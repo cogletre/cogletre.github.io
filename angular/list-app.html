@@ -21,8 +21,10 @@
 	
 	<div ng-app="shoppingList" ng-controller="listCtrl" id="appContainer">
 		<h1 class="listTitle">Shopping List</h1>
-		<input ng-model="itemName" class="itemNameInput" placeholder="e.g. Bananas, Rice, etc."><button ng-click="addItem()" class="addItemButton">Add</button><span style = "color:red;" ng-show="itemExists" class="itemExists">Item Exists</span>
-		<br /><br />
+		<input ng-model="itemName" class="itemNameInput" placeholder="e.g. Bananas, Rice, etc.">
+		<input type="number" class="itemQuantityInput" placeholder="###" ng-model="itemQuantity" min="1" maxlength="3"><button ng-click="addItem()" class="addItemButton">Add</button>
+		<br /><span style = "color:red;" ng-show="itemExists" class="itemExists">Item Exists</span>
+		<br />
 		<button ng-click="removeChecked()">Remove Checked Items</button>
 		<button ng-click="removeAll()">Remove All Items</button>
 		
@@ -31,19 +33,23 @@
 			<tr class="topRow">
 				<td class="col1"></td>
 				<td class="col2">Item Name</td>
-				<td class="col3">Edit</td>
-				<td class="col3">Remove</td>
+				<td class="col3">#</td>
+				<td class="col4">Edit</td>
+				<td class="col4">Remove</td>
 			</tr>
 			<tr ng-repeat="item in listItems" class="itemRow">
 				<td class="selectCell col1"><input type="checkbox" ng-model="checkedItem" ng-click="checkItem($index)" class="itemSelect" ></td>
 				<td class="nameCell col2">{{item.name}}</td>
-				<td class="editCell col3"><span class="editItem" ng-click="editItem($index)">Edit</span></td>
-				<td class="removeCell col3"><span class="removeItem" ng-click="removeItem($index)">Remove</span></td>
+				<td class="quantityCell col3" style="font-size:14px;">{{item.quantity}}</td>
+				<td class="editCell col4 editItem" ng-click="editItem($index)">Edit</td>
+				<td class="removeCell col4 removeItem" ng-click="removeItem($index)">Remove</td>
 			</tr>
 		</table>
 		
 		<div>
-			<input ng-model="listName" ng-disabled="saveNotAllowed || noListItems" class="listNameInput" placeholder="e.g. My List"><button ng-click="saveList(listName)" ng-disabled="saveNotAllowed || noListItems" class="saveListButton">Save</button><span class="saveStatus" id="saveStatus"></span>
+			<input ng-model="listName" ng-disabled="saveNotAllowed || noListItems" class="listNameInput" placeholder="e.g. My List"><button ng-click="saveList(listName)" ng-disabled="saveNotAllowed || noListItems" class="saveListButton">Save</button>
+			<br />
+			<span class="saveStatus" id="saveStatus"></span>
 			<br />
 			<button id="showListButton" class="showListButton" ng-click="showLists()" ng-disabled="noSavedLists || saveNotAllowed">Show Saved Lists</button><span class="loadStatus" id="loadStatus"></span>
 			<ol ng-show="showSaved" class="savedLists">

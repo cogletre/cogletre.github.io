@@ -43,6 +43,7 @@
 				for (x = 0; x < $scope.taskList.length; x++){
 					if ($scope.taskList[x].checked === true) {
 						$scope.taskList.splice(x,1);
+						//splice removes and item so need to remove one from this as well
 						x--;
 					}
 				}
@@ -59,6 +60,7 @@
 					document.getElementById("warningMessage").innerHTML = "The task must have a name; please try again.";
 				} else {
 					$scope.taskList[taskIndex].name = newTaskName;
+					document.getElementById("warningMessage").innerHTML = "";
 				}
 			}
 			
