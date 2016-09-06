@@ -28,14 +28,19 @@ table.listTable {
 	border-left:1px solid rgba(150,150,150,0.5);
 	border-right:1px solid rgba(150,150,150,0.5);
 	border-bottom:1px solid rgba(150,150,150,0.5);
+	transition:all 500ms ease;
+}
+.selectCell:hover,.nameCell:hover,.editCell:hover,.removeCell:hover {
+	background-color:rgba(150,150,150,0.5);
 }
 
-.itemSelect {margin:5px 0 0 5px;}
+.itemSelect {margin:5px 0 0 5px;cursor:pointer;}
 
-.removeItem,.editItem,.deleteList {cursor:pointer;font-size:12px;transition:all 500ms ease;}
+.editItem,.removeItem,.deleteList {cursor:pointer;font-size:12px;transition:all 500ms ease;}
 
 .removeItem:hover,.deleteList:hover {color:red;text-decoration:underline;}
 .editItem:hover {color:green;text-decoration:underline;}
+.itemSelect:hover {box-shadow:0px 0px 1px rgb(150,150,150);}
 
 .itemNameInput,.listNameInput {
 	margin-right:5px;
