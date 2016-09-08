@@ -22,7 +22,7 @@
 	<div ng-app="shoppingList" ng-controller="listCtrl" id="appContainer">
 		<h1 class="listTitle">Shopping List</h1>
 		<input ng-model="itemName" class="itemNameInput" placeholder="e.g. Bananas, Rice, etc.">
-		<input type="number" class="itemQuantityInput" placeholder="###" ng-model="itemQuantity" min="1" maxlength="3"><button ng-click="addItem()" class="addItemButton">Add</button>
+		<input type="number" class="itemQuantityInput" placeholder="###" ng-model="itemQuantity" min="1"><button ng-click="addItem()" class="addItemButton">Add</button>
 		<br /><span style = "color:red;" ng-show="itemExists" class="itemExists">Item Exists</span>
 		<br />
 		<button ng-click="removeChecked()">Remove Checked Items</button>
