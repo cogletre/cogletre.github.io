@@ -43,10 +43,10 @@
 		
 		<table class="listTable table table-striped">
 			<tr class="topRow">
-				<td class="col1"></td>
-				<td class="col2">Task</td>
-				<td class="col4">Edit</td>
-				<td class="col4">Remove</td>
+				<th class="col1"></th>
+				<th class="col2">Task</th>
+				<th class="col4">Edit</th>
+				<th class="col4">Remove</th>
 			</tr>
 			<tr ng-repeat="task in taskList" class="taskRow">
 				<td class="selectCell col1"><input type="checkbox" ng-model="checkedTask" ng-click="checkTask($index)" class="taskSelect" ></td>
