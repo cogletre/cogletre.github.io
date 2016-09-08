@@ -4,15 +4,32 @@
 .border-left {border-right:2px solid green;}
 .small-border {max-width:10px;}
 
-header {
+/* page header section */
+
+.header-jumbotron {
 	text-align:center;
+	background:white;
+	border-bottom:1px solid green;
+	border-radius:0;
+	padding:0px;
 }
-.my-name {font-size:32px;}
-.career-title {font-size:26px;margin-bottom:20px;}
+
+.header-jumbotron h1.my-name {font-size:32px;}
+.header-jumbotron h2.career-title {font-size:26px;margin-bottom:20px;}
+
+.header-jumbotron p a {font-size:16px;}
+.header-jumbotron p a.resume-link {margin-right:10px;}
+.header-jumbotron p a.github-link {margin-left:10px;}
+
+
+/* end page header section */
+
+
 
 .photo-div {padding-right:0;}
 .bio-div {padding-left:0;}	
 img.bio-photo {max-width:95%;}
+
 
 
 footer {
