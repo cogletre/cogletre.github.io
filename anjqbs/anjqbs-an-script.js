@@ -51,7 +51,7 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 	}
 	
 	// function to add an item to the list; sets name based on input and sets checked value to false
-	$scope.addItem = function(){
+	$scope.addTask = function(){
 		if (!$scope.taskName) {return;}
 		if (!taskExists($scope.taskList,$scope.taskName)) {
 			$scope.taskList.push({name:$scope.taskName,checked:false});

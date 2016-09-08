@@ -33,12 +33,24 @@
 	
 	<div ng-app="todoListApp" ng-controller="todoListCtrl" id="appContainer">
 		<h1 class="taskListTitle">To-Do List</h1>
-		<input ng-model="taskName" class="taskNameInput" placeholder="Your To-Do Task">
+		<input ng-model="taskName" class="taskNameInput" placeholder="Your To-Do Task"><button class="addTaskItem" ng-click="addTask()">Add</button>
 
 		<br /><span style = "color:red;" ng-show="taskExists" class="itemExists">Task Exists</span>
 		<br />
-		<button ng-click="removeChecked()">Remove Checked Tasks</button>
-		<button ng-click="removeAll()">Remove All Tasks</button>
+		
+		<div class="loadListDiv">
+			<input ng-model="taskListName" ng-disabled="saveNotAllowed || noTaskItems" class="listNameInput" placeholder="e.g. Chores, etc."><button ng-click="saveTaskList(taskListName)" ng-disabled="saveNotAllowed || noTaskItems" class="saveListButton">Save</button>
+			<br />
+			<span class="saveStatus" id="saveStatus"></span>
+			<br />
+			<button id="showListButton" class="showListButton" ng-click="showTaskLists()" ng-disabled="noSavedLists || saveNotAllowed">Show Saved Lists</button><span class="loadStatus" id="loadStatus"></span>
+			<ol ng-show="showSaved" class="savedLists">
+				<li ng-repeat="taskListName in storedTaskNames">
+					<button ng-click="getList(taskListName)" class="loadListButton">{{taskListName}}</button><span ng-click="deleteList(listName,$index)" class="deleteList">Delete</span>
+				</li>
+			</ol>
+		</div>
+		
 		
 		
 		<table class="listTable table table-striped">
@@ -56,17 +68,9 @@
 			</tr>
 		</table>
 		
-		<div>
-			<input ng-model="taskListName" ng-disabled="saveNotAllowed || noTaskItems" class="listNameInput" placeholder="e.g. Chores, etc."><button ng-click="saveTaskList(taskListName)" ng-disabled="saveNotAllowed || noTaskItems" class="saveListButton">Save</button>
-			<br />
-			<span class="saveStatus" id="saveStatus"></span>
-			<br />
-			<button id="showListButton" class="showListButton" ng-click="showTaskLists()" ng-disabled="noSavedLists || saveNotAllowed">Show Saved Lists</button><span class="loadStatus" id="loadStatus"></span>
-			<ol ng-show="showSaved" class="savedLists">
-				<li ng-repeat="taskListName in storedTaskNames">
-					<button ng-click="getList(taskListName)" class="loadListButton">{{taskListName}}</button><span ng-click="deleteList(listName,$index)" class="deleteList">Delete</span>
-				</li>
-			</ol>
+		<div class="removealButtons">
+			<button ng-click="removeChecked()">Remove Checked Tasks</button>
+			<button ng-click="removeAll()">Remove All Tasks</button>
 		</div>
 	</div>
 </body>
