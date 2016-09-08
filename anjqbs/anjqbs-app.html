@@ -4,20 +4,20 @@
 <head>
 	<meta charset = "UTF-8">
 	<meta name = "author" content="Chris Ogletree">
-	<meta name = "description" content="Fooling around with AngularJS to make a shopping list application">
+	<meta name = "description" content="Took my AngularJS shopping list project and decided to add other libraries in, mainly jQuery and Bootstrap, in order to practice utilizing multiple libraries in the same application">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<title>Shopping List App</title>
+	<title>To Do List App</title>
 	
 	<link href="https://cogletre.github.io/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 	
-	<link rel = "stylesheet" href="anjq-style.css">
+	<link rel = "stylesheet" href="anjqbs-style.css">
 	
 	<script src="https://cogletre.github.io/angularjs/angular.min.js"></script>
 	
-	<script src="anjq-jq-script.js"></script>
-	<script src="anjq-an-script.js"></script>
+	<script src="anjqbs-jq-script.js"></script>
+	<script src="anjqbs-an-script.js"></script>
 	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -32,13 +32,13 @@
 	<h1 style="font-size:15px;text-align:left;margin:10px 0 0 0;padding:0px;"><a href="http://cogletre.github.io">&larr; back to main portfolio</a></h1>
 	
 	<div ng-app="shoppingList" ng-controller="listCtrl" id="appContainer">
-		<h1 class="listTitle">Shopping List</h1>
-		<input ng-model="itemName" class="itemNameInput" placeholder="e.g. Bananas, Rice, etc.">
-		<input type="number" class="itemQuantityInput" placeholder="###" ng-model="itemQuantity" min="1"><button ng-click="addItem()" class="addItemButton">Add</button>
-		<br /><span style = "color:red;" ng-show="itemExists" class="itemExists">Item Exists</span>
+		<h1 class="listTitle">To-Do List</h1>
+		<input ng-model="taskName" class="taskNameInput" placeholder="Your To-Do Item">
+
+		<br /><span style = "color:red;" ng-show="taskExists" class="itemExists">Item Exists</span>
 		<br />
-		<button ng-click="removeChecked()">Remove Checked Items</button>
-		<button ng-click="removeAll()">Remove All Items</button>
+		<button ng-click="removeChecked()">Remove Checked Tasks</button>
+		<button ng-click="removeAll()">Remove All Tasks</button>
 		
 		
 		<table class="listTable table table-striped">
