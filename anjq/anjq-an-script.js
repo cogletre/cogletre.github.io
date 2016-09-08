@@ -1,4 +1,4 @@
-// AngularJS code for Angular + jQuery project
+// AngularJS code for Angular + jQuery + Bootstrap project
 
 // define the application
 var app = angular.module("shoppingList", []);

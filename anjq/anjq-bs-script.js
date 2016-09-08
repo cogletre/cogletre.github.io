@@ -1,1 +1,1 @@
-// jQuery code for Angular + jQuery project
+// jQuery code for Angular + jQuery + Bootstrap project
