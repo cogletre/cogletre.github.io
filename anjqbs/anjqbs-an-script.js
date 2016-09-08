@@ -8,7 +8,7 @@ var taskExists = function(taskList,taskName) {
 	var exists = false;
 	
 	for(x = 0; x < taskList.length; x++) {
-		if( taskList[x]['taskName'].toLowerCase() === taskName.toLowerCase()) {
+		if( taskList[x]['name'].toLowerCase() === taskName.toLowerCase()) {
 			exists = true;
 		}
 	}
@@ -22,6 +22,10 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 	$scope.taskName = "";
 	$scope.taskExists = false;
 	$scope.storedTaskNames = [];
+	
+	$scope.newLoadChosen = true;
+	$scope.createNew = false;
+	$scope.loadSaved = false;
 	
 	//confirm if local storage is supported by browser
 	if (typeof(Storage) !== "undefined") {

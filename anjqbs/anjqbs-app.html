@@ -33,15 +33,18 @@
 	
 	<div ng-app="todoListApp" ng-controller="todoListCtrl" id="appContainer">
 		<h1 class="taskListTitle">To-Do List</h1>
-		<input ng-model="taskName" class="taskNameInput" placeholder="Your To-Do Task"><button class="addTaskItem" ng-click="addTask()">Add</button>
-
-		<br /><span style = "color:red;" ng-show="taskExists" class="itemExists">Task Exists</span>
-		<br />
 		
-		<div class="loadListDiv">
-			
+		<button class="newListButton" ng-show="newLoadChosen" ng-click="createNewList()">Create New List</button><button class="loadListButton" ng-show="newLoadChosen" ng-click="loadSavedList()">Load Saved List</button>
+		
+		<div id="newListArea" ng-show="createNew" class="newList">
+			<input ng-model="taskName" class="taskNameInput" placeholder="Your To-Do Task"><button class="addTaskItem" ng-click="addTask()">Add</button>
+
+			<br /><span style = "color:red;" ng-show="taskExists" class="itemExists">Task Exists</span>
+		</div>
+		
+		<div id="loadListArea" ng-show="loadSaved" class="loadList">
 			<br />
-			<button id="showListButton" class="showListButton" ng-click="showTaskLists()" ng-disabled="noSavedLists || saveNotAllowed">Show Saved Lists</button><span class="loadStatus" id="loadStatus"></span>
+			<!--<button id="showListButton" class="showListButton" ng-click="showTaskLists()" ng-disabled="noSavedLists || saveNotAllowed">Show Saved Lists</button><span class="loadStatus" id="loadStatus"></span>-->
 			<ol ng-show="showSaved" class="savedLists">
 				<li ng-repeat="taskListName in storedTaskNames">
 					<button ng-click="getList(taskListName)" class="loadListButton">{{taskListName}}</button><span ng-click="deleteList(listName,$index)" class="deleteList">Delete</span>
@@ -52,18 +55,22 @@
 		
 		
 		<table class="listTable table table-striped">
-			<tr class="topRow">
-				<th class="col1"></th>
-				<th class="col2">Task</th>
-				<th class="col4">Edit</th>
-				<th class="col4">Remove</th>
-			</tr>
-			<tr ng-repeat="task in taskList" class="taskRow">
-				<td class="selectCell col1"><input type="checkbox" ng-model="checkedTask" ng-click="checkTask($index)" class="taskSelect" ></td>
-				<td class="nameCell col2">{{task.name}}</td>
-				<td class="editCell col4 editTask" ng-click="editTask($index)">Edit</td>
-				<td class="removeCell col4 removeTask" ng-click="removeTask($index)">Remove</td>
-			</tr>
+			<thead>
+				<tr class="topRow">
+					<th class="col1"></th>
+					<th class="col2">Task</th>
+					<th class="col4">Edit</th>
+					<th class="col4">Remove</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="task in taskList" class="taskRow">
+					<td class="selectCell col1"><input type="checkbox" ng-model="checkedTask" ng-click="checkTask($index)" class="taskSelect" ></td>
+					<td class="nameCell col2">{{task.name}}</td>
+					<td class="editCell col4 editTask" ng-click="editTask($index)">Edit</td>
+					<td class="removeCell col4 removeTask" ng-click="removeTask($index)">Remove</td>
+				</tr>
+			</tbody>
 		</table>
 		
 		<div class="saveListDiv">
