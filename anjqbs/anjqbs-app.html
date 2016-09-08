@@ -39,9 +39,7 @@
 		<br />
 		
 		<div class="loadListDiv">
-			<input ng-model="taskListName" ng-disabled="saveNotAllowed || noTaskItems" class="listNameInput" placeholder="e.g. Chores, etc."><button ng-click="saveTaskList(taskListName)" ng-disabled="saveNotAllowed || noTaskItems" class="saveListButton">Save</button>
-			<br />
-			<span class="saveStatus" id="saveStatus"></span>
+			
 			<br />
 			<button id="showListButton" class="showListButton" ng-click="showTaskLists()" ng-disabled="noSavedLists || saveNotAllowed">Show Saved Lists</button><span class="loadStatus" id="loadStatus"></span>
 			<ol ng-show="showSaved" class="savedLists">
@@ -68,7 +66,13 @@
 			</tr>
 		</table>
 		
-		<div class="removealButtons">
+		<div class="saveListDiv">
+			<input ng-model="taskListName" ng-disabled="saveNotAllowed || noTaskItems" class="listNameInput" placeholder="e.g. Chores, etc."><button ng-click="saveTaskList(taskListName)" ng-disabled="saveNotAllowed || noTaskItems" class="saveListButton">Save</button>
+				<br />
+				<span class="saveStatus" id="saveStatus"></span>
+		</div>
+		
+		<div class="removalButtons">
 			<button ng-click="removeChecked()">Remove Checked Tasks</button>
 			<button ng-click="removeAll()">Remove All Tasks</button>
 		</div>
