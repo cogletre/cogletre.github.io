@@ -31,11 +31,11 @@
 <body>
 	<h1 style="font-size:15px;text-align:left;margin:10px 0 0 0;padding:0px;"><a href="http://cogletre.github.io">&larr; back to main portfolio</a></h1>
 	
-	<div ng-app="shoppingList" ng-controller="listCtrl" id="appContainer">
-		<h1 class="listTitle">To-Do List</h1>
+	<div ng-app="todoListApp" ng-controller="todoListCtrl" id="appContainer">
+		<h1 class="taskListTitle">To-Do List</h1>
 		<input ng-model="taskName" class="taskNameInput" placeholder="Your To-Do Item">
 
-		<br /><span style = "color:red;" ng-show="taskExists" class="itemExists">Item Exists</span>
+		<br /><span style = "color:red;" ng-show="taskExists" class="itemExists">Task Exists</span>
 		<br />
 		<button ng-click="removeChecked()">Remove Checked Tasks</button>
 		<button ng-click="removeAll()">Remove All Tasks</button>
@@ -44,29 +44,27 @@
 		<table class="listTable table table-striped">
 			<tr class="topRow">
 				<td class="col1"></td>
-				<td class="col2">Item Name</td>
-				<td class="col3">#</td>
+				<td class="col2">Task</td>
 				<td class="col4">Edit</td>
 				<td class="col4">Remove</td>
 			</tr>
-			<tr ng-repeat="item in listItems" class="itemRow">
-				<td class="selectCell col1"><input type="checkbox" ng-model="checkedItem" ng-click="checkItem($index)" class="itemSelect" ></td>
-				<td class="nameCell col2">{{item.name}}</td>
-				<td class="quantityCell col3" style="font-size:14px;">{{item.quantity}}</td>
-				<td class="editCell col4 editItem" ng-click="editItem($index)">Edit</td>
-				<td class="removeCell col4 removeItem" ng-click="removeItem($index)">Remove</td>
+			<tr ng-repeat="task in taskList" class="itemRow">
+				<td class="selectCell col1"><input type="checkbox" ng-model="checkedTask" ng-click="checkTask($index)" class="taskSelect" ></td>
+				<td class="nameCell col2">{{task.name}}</td>
+				<td class="editCell col4 editTask" ng-click="editTask($index)">Edit</td>
+				<td class="removeCell col4 removeTask" ng-click="removeTask($index)">Remove</td>
 			</tr>
 		</table>
 		
 		<div>
-			<input ng-model="listName" ng-disabled="saveNotAllowed || noListItems" class="listNameInput" placeholder="e.g. My List"><button ng-click="saveList(listName)" ng-disabled="saveNotAllowed || noListItems" class="saveListButton">Save</button>
+			<input ng-model="taskListName" ng-disabled="saveNotAllowed || noTaskItems" class="taskNameInput" placeholder="e.g. Chores, etc."><button ng-click="saveTaskList(taskListName)" ng-disabled="saveNotAllowed || noTaskItems" class="saveListButton">Save</button>
 			<br />
 			<span class="saveStatus" id="saveStatus"></span>
 			<br />
-			<button id="showListButton" class="showListButton" ng-click="showLists()" ng-disabled="noSavedLists || saveNotAllowed">Show Saved Lists</button><span class="loadStatus" id="loadStatus"></span>
+			<button id="showListButton" class="showListButton" ng-click="showTaskLists()" ng-disabled="noSavedLists || saveNotAllowed">Show Saved Lists</button><span class="loadStatus" id="loadStatus"></span>
 			<ol ng-show="showSaved" class="savedLists">
-				<li ng-repeat="listName in storedListNames">
-					<button ng-click="getList(listName)" class="loadListButton">{{listName}}</button><span ng-click="deleteList(listName,$index)" class="deleteList">Delete</span>
+				<li ng-repeat="taskListName in storedTaskNames">
+					<button ng-click="getList(taskListName)" class="loadListButton">{{taskListName}}</button><span ng-click="deleteList(listName,$index)" class="deleteList">Delete</span>
 				</li>
 			</ol>
 		</div>

@@ -1,14 +1,14 @@
 // AngularJS code for Angular + jQuery + Bootstrap project
 
 // define the application
-var app = angular.module("shoppingList", []);
+var app = angular.module("todoList", []);
 
-// function to determine if an item added to the list already exists
-var itemExists = function(list,item) {
+// function to determine if a task added to the list already exists
+var taskExists = function(taskList,taskName) {
 	var exists = false;
 	
-	for(x = 0; x < list.length; x++) {
-		if(list[x]['name'].toLowerCase() === item.toLowerCase()) {
+	for(x = 0; x < taskList.length; x++) {
+		if( taskList[x]['taskName'].toLowerCase() === taskName.toLowerCase()) {
 			exists = true;
 		}
 	}
@@ -17,87 +17,78 @@ var itemExists = function(list,item) {
 }
 
 // sets controller for application, uses $scope and $timeout dependencies
-app.controller("listCtrl", function($scope,$timeout) {
-	$scope.listItems = [];
-	$scope.listName = "";
-	$scope.itemExists = false;
-	$scope.storedListNames = [];
+app.controller("todoListCtrl", function($scope,$timeout) {
+	$scope.taskList = [];
+	$scope.taskName = "";
+	$scope.taskExists = false;
+	$scope.storedTaskNames = [];
 	
 	//confirm if local storage is supported by browser
 	if (typeof(Storage) !== "undefined") {
 		$scope.saveNotAllowed = false;
 		
 		// checks if local storage contains a list of names already
-		if(localStorage.storedNames){
+		if(localStorage.storedTasks){
 			
 			// if the list of names is not empty, retrieves the list from local storage and enables showListButton
-			if(JSON.parse(localStorage.storedNames).length > 0) {
-				$scope.storedListNames = JSON.parse(localStorage.storedNames);
-				$scope.noSavedLists = false;
+			if(JSON.parse(localStorage.storedTasks).length > 0) {
+				$scope.storedTaskNames = JSON.parse(localStorage.storedTasks);
+				$scope.noSavedTasks = false;
 			} else {
 				// otherwise, disables showListButton
-				$scope.noSavedLists = true;
+				$scope.noSavedTasks = true;
 			}
 		} else {
 			// otherwise initializes an empty list for local storage to use
-			localStorage.storedNames = JSON.stringify($scope.storedListNames);
-			$scope.noSavedLists = true;
+			localStorage.storedTasks = JSON.stringify($scope.storedTaskNames);
+			$scope.noSavedTasks = true;
 		}
 	} else {
 		//otherwise, display a message about no storage available, and disable saveList and showListButton
 		$scope.saveNotAllowed = true;
-		$scope.noSavedLists = true;
-		document.getElementById("saveStatus").innerHTML = "Sorry, you can't save your lists";
+		$scope.noSavedTasks = true;
+		document.getElementById("saveStatus").innerHTML = "Sorry, you can't save your tasks";
 	}
 	
 	// function to add an item to the list; sets name based on input and sets checked value to false
 	$scope.addItem = function(){
-		if (!$scope.itemName) {return;}
-		if (!$scope.itemQuantity) {return;}
-		if (!itemExists($scope.listItems,$scope.itemName)) {
-			//var capItemName = $scope.itemName.charAt(0).toUpperCase() + $scope.itemName.slice(1);
-			$scope.listItems.push({name:$scope.itemName,quantity:$scope.itemQuantity,checked:false});
-			$scope.itemExists = false;
+		if (!$scope.taskName) {return;}
+		if (!taskExists($scope.taskList,$scope.taskName)) {
+			$scope.taskList.push({name:$scope.taskName,checked:false});
+			$scope.taskExists = false;
 		} else {
-			$scope.itemExists = true;
+			$scope.taskExists = true;
 		}
-		// reset the itemName input field
-		$scope.itemName = "";
-		$scope.itemQuantity = "";
+		// reset the taskName input field
+		$scope.taskName = "";
 	}
 	
 	// function to remove all items from the list
 	$scope.removeAll = function(){
-		$scope.listItems = [];
+		$scope.taskList = [];
 	}
 	
 	// removes selected item from list based on its index
-	$scope.removeItem = function (itemIndex) {
-        $scope.listItems.splice(itemIndex, 1);
+	$scope.removeTask = function (taskIndex) {
+        $scope.taskList.splice(taskIndex, 1);
     }
 	
 	// function for editing an item; prompts user for a new item name
-	$scope.editItem = function (itemIndex) {
-        var newItemName = prompt("Enter new item name:",$scope.listItems[itemIndex].name);
-        var newItemQuantity = prompt("Enter new item quantity:",$scope.listItems[itemIndex].quantity);
-		
-		while (isNaN(newItemQuantity)){
-			newItemQuantity = prompt("Please enter a number:");
-		}
-		$scope.listItems[itemIndex].name = newItemName;
-		$scope.listItems[itemIndex].quantity = newItemQuantity;
+	$scope.editTask = function (taskIndex) {
+        var newTaskName = prompt("Enter new item name:",$scope.taskList[taskIndex].name);
+		$scope.taskList[taskIndex].name = newTaskName;
     }
 	
 	// function for checkbox click, sets checked value of listItem to the opposite
-	$scope.checkItem = function(x) {
-		$scope.listItems[x].checked = !$scope.listItems[x].checked;
+	$scope.checkTask = function(taskIndex) {
+		$scope.taskList[taskIndex].checked = !$scope.taskList[taskIndex].checked;
 	}
 	
 	// remove all checked items from list
 	$scope.removeChecked = function() {
-		for (x=0; x<$scope.listItems.length;x++) {
-			if($scope.listItems[x].checked == true) {
-				$scope.listItems.splice(x,1);
+		for (x = 0; x < $scope.taskList.length; x++) {
+			if($scope.taskList[x].checked == true) {
+				$scope.taskList.splice(x,1);
 				x--;
 			}
 		}
@@ -106,85 +97,85 @@ app.controller("listCtrl", function($scope,$timeout) {
 	// initialize saved lists to be hidden
 	$scope.showSaved = false;
 	// function to show/hide lists on button click
-	$scope.showLists = function() {
+	$scope.showTaskLists = function() {
 		$scope.showSaved = !$scope.showSaved;
 		
 		if ($scope.showSaved === false) {
 			document.getElementById("showListButton").style.background = "buttonface";
-			document.getElementById("showListButton").innerHTML = "Show Saved Lists";
+			document.getElementById("showListButton").innerHTML = "Show Saved Task Lists";
 		} else {
 			document.getElementById("showListButton").style.background = "rgb(175,175,175)";
-			document.getElementById("showListButton").innerHTML = "Hide Saved Lists";
+			document.getElementById("showListButton").innerHTML = "Hide Saved Task Lists";
 		}
 	}
 	
 	//function to save list to localStorage in browser
-	$scope.saveList = function() {
-		if ($scope.listName !== "") {
-			var storeName = $scope.listName;
+	$scope.saveTaskList = function() {
+		if ($scope.taskListName !== "") {
+			var storeName = $scope.taskListName;
 			
-			if ($scope.storedListNames.indexOf(storeName) !== -1) {
+			if ($scope.storedTaskNames.indexOf(storeName) !== -1) {
 				// update the stored list if it already exists
-				localStorage.setItem(storeName, JSON.stringify($scope.listItems));
+				localStorage.setItem(storeName, JSON.stringify($scope.taskList));
 				
 				// message if list is updated
 				document.getElementById("saveStatus").style.color = "green";
 				document.getElementById("saveStatus").innerHTML = "Updated: " + storeName;
 				
-				$scope.noSavedLists = false;
+				$scope.noSavedTasks = false;
 			} else {
 				// save the stored list if it doesn't already exist
-				$scope.storedListNames.push(storeName);
-				localStorage.setItem(storeName, JSON.stringify($scope.listItems));
-				localStorage.setItem("storedNames", JSON.stringify($scope.storedListNames));
+				$scope.storedTaskNames.push(storeName);
+				localStorage.setItem(storeName, JSON.stringify($scope.taskList));
+				localStorage.setItem("storedNames", JSON.stringify($scope.storedTaskNames));
 				
 				// message if list is stored
 				document.getElementById("saveStatus").style.color = "blue";
 				document.getElementById("saveStatus").innerHTML = "Saved: " + storeName;
-				$scope.noSavedLists = false;
+				$scope.noSavedTasks = false;
 			}
 			// clear the list of all items and the list name input field
-			$scope.listName = "";
-			$scope.listItems = [];
+			$scope.taskListName = "";
+			$scope.taskList = [];
 			
 			// $timeout to remove the update/save messages after 2 seconds
 			$timeout(function(){document.getElementById("saveStatus").innerHTML = ""},2000);
 		} else {
 			document.getElementById("saveStatus").style.color = "red";
-			document.getElementById("saveStatus").innerHTML = "Please name your list";
+			document.getElementById("saveStatus").innerHTML = "Please name your task list";
 		}
 	}
 	
 	//function to retrieve a saved list from localStorage
-	$scope.getList = function(listName) {
-		$scope.listItems = [];
+	$scope.getList = function(taskListName) {
+		$scope.taskList = [];
 		
-		var parseList = JSON.parse(localStorage.getItem(listName));
+		var parseList = JSON.parse(localStorage.getItem(taskListName));
 		
 		for(x in parseList) {
-			$scope.listItems.push({name:parseList[x].name,quantity:parseList[x].quantity,checked:false});
+			$scope.taskList.push({name:parseList[x].name,quantity:parseList[x].quantity,checked:false});
 		}
 		// Message if list loaded successfully
 		document.getElementById("loadStatus").style.color = "green";
-		document.getElementById("loadStatus").innerHTML = "Loaded: " + listName;
+		document.getElementById("loadStatus").innerHTML = "Loaded: " + taskListName;
 		$timeout(function(){document.getElementById("loadStatus").innerHTML = ""},2000);
 	}
 	
 	// function to delete a saved list from local storage and remove from the 
-	$scope.deleteList = function(listName,listIndex) {
-		localStorage.removeItem(listName);
+	$scope.deleteList = function(taskListName,listIndex) {
+		localStorage.removeItem(taskListName);
 		
-		$scope.storedListNames.splice(listIndex,1);
-		localStorage.storedNames = JSON.stringify($scope.storedListNames);
+		$scope.storedTaskNames.splice(listIndex,1);
+		localStorage.storedNames = JSON.stringify($scope.storedTaskNames);
 		
 		document.getElementById("loadStatus").style.color = "red";
-		document.getElementById("loadStatus").innerHTML = "Deleted: " + listName;
+		document.getElementById("loadStatus").innerHTML = "Deleted: " + taskListName;
 		
-		if($scope.storedListNames.length === 0) {
+		if($scope.storedTaskNames.length === 0) {
 			$scope.showSaved = false;
-			$scope.noSavedLists = true;
+			$scope.noSavedTasks = true;
 			document.getElementById("showListButton").style.background = "buttonface";
-			document.getElementById("showListButton").innerHTML = "Show Saved Lists";
+			document.getElementById("showListButton").innerHTML = "Show Saved Task Lists";
 		}
 		$timeout(function(){document.getElementById("loadStatus").innerHTML = ""},2000);
 	}
