@@ -1,7 +1,7 @@
 
 $( document ).ready( function(){
 	
-	$("div.border").height( $("body").height() );
+	$(".border").height( $(".main-content").height() );
 	
 	
 	$( "#work-accordion" ).accordion({
