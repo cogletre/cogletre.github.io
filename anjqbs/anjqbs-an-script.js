@@ -1,7 +1,7 @@
 // AngularJS code for Angular + jQuery + Bootstrap project
 
 // define the application
-var app = angular.module("todoList", []);
+var app = angular.module("todoListApp", []);
 
 // function to determine if a task added to the list already exists
 var taskExists = function(taskList,taskName) {
