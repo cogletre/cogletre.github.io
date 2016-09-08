@@ -1,4 +1,6 @@
 
+.portfolio-link {font-size:15px;text-align:left;margin:10px 0 0 0;padding:0px;text-decoration:underline;}
+
 .border {background:gray;}
 .border-right {border-left:2px solid green;}
 .border-left {border-right:2px solid green;}
@@ -10,14 +12,14 @@
 	text-align:center;
 	background:white;
 	border-bottom:1px solid green;
-	border-radius:0;
+	border-radius:0px!important;
 	padding:0px;
 }
 
 .header-jumbotron h1.my-name {font-size:32px;}
 .header-jumbotron h2.career-title {font-size:26px;margin-bottom:20px;}
 
-.header-jumbotron p a {font-size:16px;}
+.header-jumbotron p a {font-size:16px;text-decoration:underline;}
 .header-jumbotron p a.resume-link {margin-right:10px;}
 .header-jumbotron p a.github-link {margin-left:10px;}
 
