@@ -73,10 +73,12 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 	$scope.createNewList = function() {
 		$scope.createNew = true;
 		$scope.loadSaved = false;
+		$scope.saveOrLoadChoice = false;
 	}
 	$scope.loadSavedList = function() {
 		$scope.createNew = false;
 		$scope.loadSaved = true;
+		$scope.saveOrLoadChoice = false;
 	}
 	
 	$scope.taskListName = "";
@@ -246,5 +248,13 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 			document.getElementById("showListButton").innerHTML = "Show Saved Task Lists";
 		}
 		$timeout(function(){document.getElementById("listTitleStatus").innerHTML = ""},2000);
+	}
+	
+	$scope.closeCurrentList = function() {
+		$scope.taskList = [];
+		$scope.taskName = "";
+		$scope.listStarted = false;
+		$scope.listLoaded = false;
+		$scope.saveOrLoadChoice = true;
 	}
 });
