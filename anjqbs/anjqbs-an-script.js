@@ -36,6 +36,7 @@ var checkListName = function(newName, savedLists) {
 app.controller("todoListCtrl", function($scope,$timeout) {
 	$scope.taskList = [];
 	$scope.taskName = "";
+	$scope.saveOrLoadChoice = true;
 	
 	$scope.storedTaskNames = [];
 	
