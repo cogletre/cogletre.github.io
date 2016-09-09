@@ -29,7 +29,7 @@
 </head>
 
 <body>
-	<h1 style="font-size:15px;text-align:left;margin:10px 0 0 0;padding:0px;"><a href="http://cogletre.github.io">&larr; back to main portfolio</a></h1>
+	<h1 class="portfolioLink"><a href="http://cogletre.github.io">&larr; back to main portfolio</a></h1>
 	
 	<div ng-app="todoListApp" ng-controller="todoListCtrl" id="appContainer">
 		<h1 class="taskListTitle">To-Do List</h1>
@@ -40,12 +40,12 @@
 		
 		<div id="newListArea" ng-show="createNew" class="newList">
 			<input ng-model="newListName" class="listNameInput" placeholder="Name your new list">
-			<button class="createList" ng-click="startList()">Start List</button><br />
+			<button class="createList" ng-click="startList()">Start List</button><span class="cancelStart" ng-click="cancelChoice()">Cancel</span><br />
 			<span id="listNameWarning"></span>
 		</div>
 		
 		<div id="loadListArea" ng-show="loadSaved" class="loadList">
-			<span>Click on a list to load it:</span>
+			<span>Click on a list to load it:</span><span class="cancelStart" ng-click="cancelChoice()">Cancel</span>
 			<ol class="savedLists">
 				<li ng-repeat="listName in storedTaskNames">
 					<button ng-click="getList(listName)" class="loadListButton">{{listName}}</button><span ng-click="deleteList(listName,$index)" class="deleteList">Delete</span>
@@ -61,7 +61,7 @@
 			<br /><span style = "color:red;" ng-show="taskExists" class="itemExists">Task Exists</span>
 		
 		
-			<table class="listTable table table-striped">
+			<table class="listTable table table-bordered">
 				<thead>
 					<tr class="topRow">
 						<th class="col1"></th>

@@ -40,7 +40,13 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 	
 	$scope.storedTaskNames = [];
 	
-	
+	$scope.cancelChoice = function() {
+		$scope.saveOrLoadChoice = true;
+		$scope.loadSaved = false;
+		$scope.createNew = false;
+		$scope.listLoaded = false;
+		$scope.listStarted = false;
+	}
 	
 	//confirm if local storage is supported by browser
 	if (typeof(Storage) !== "undefined") {
@@ -111,7 +117,7 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 			document.getElementById("listTitleStatus").innerHTML = "Name already exists";
 		} else {
 			$scope.taskListName = updateListName;
-			document.getElementById("listTitleStatus").style.color = "green";
+			document.getElementById("listTitleStatus").style.color = "rgb(0,150,0)";
 			document.getElementById("listTitleStatus").innerHTML = "Name updated!";
 		}
 	}
@@ -186,7 +192,7 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 				localStorage.setItem(storeName, JSON.stringify($scope.taskList));
 				
 				// message if list is updated
-				document.getElementById("saveStatus").style.color = "green";
+				document.getElementById("saveStatus").style.color = "rgb(0,150,0)";
 				document.getElementById("saveStatus").innerHTML = "Updated: " + storeName;
 				
 				$scope.noSavedTasks = false;
@@ -227,7 +233,7 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 			$scope.taskList.push({name:parseList[x].name,checked:false});
 		}
 		// Message if list loaded successfully
-		document.getElementById("listTitleStatus").style.color = "green";
+		document.getElementById("listTitleStatus").style.color = "rgb(0,150,0)";
 		document.getElementById("listTitleStatus").innerHTML = "Loaded: " + listName;
 		$timeout(function(){document.getElementById("listTitleStatus").innerHTML = ""},2000);
 	}
