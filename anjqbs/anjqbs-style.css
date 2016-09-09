@@ -23,27 +23,25 @@ table.listTable {
 .col3{width:5%;padding-left:10px;}
 .col4{width:12%;padding-left:10px;}
 
-.topRow {border-bottom:1px solid black;font-size:14px;font-weight:bold;}
-.taskRow {border-bottom:1px solid rgba(150,150,150,0.5);transition:all 500ms ease;}
-.taskRow:hover {background-color:rgba(230,230,230,0.5);}
+.topRow {font-size:14px;font-weight:bold;}
+.taskRow {transition:all 500ms ease;}
 
 .taskRow td {
-	border-left:1px solid rgba(150,150,150,0.5);
-	border-right:1px solid rgba(150,150,150,0.5);
-	border-bottom:1px solid rgba(150,150,150,0.5);
 	transition:all 500ms ease;
+	vertical-align:middle;
 }
 
 .taskRow td:hover {
-	background-color:rgba(200,200,200,0.5);
+	background-color:rgba(180,180,180,0.5);
 }
 
 .taskSelect {margin:5px 0 0 5px;cursor:pointer;}
 
 .editTask,.removeTask,.deleteList {cursor:pointer;font-size:12px;transition:all 500ms ease;}
+h2.listTitle {cursor:pointer;transition:all 500ms ease;}
 
 .removeTask:hover,.deleteList:hover {color:red;}
-.editTask:hover {color:green;}
+.editTask:hover,.listTitle:hover {color:green;}
 .taskSelect:hover {box-shadow:0px 0px 1px rgb(150,150,150);}
 
 .taskNameInput,.listNameInput {
@@ -58,6 +56,5 @@ table.listTable {
 
 .showListButton {margin-top:10px;}
 .savedLists {margin-bottom:0px;}
-.taskExists,.saveStatus,.loadStatus {font-size:14px;}
-.taskExists,.saveStatus {margin-bottom:5px;}
-
+.taskExists,.saveStatus {margin-bottom:5px;font-size:14px;}
+.listTitleStatus {float:right;font-size:14px;}

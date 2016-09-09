@@ -7,10 +7,10 @@
 	<meta name = "description" content="Took my AngularJS shopping list project and decided to add other libraries in, mainly jQuery and Bootstrap, in order to practice utilizing multiple libraries in the same application">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<title>To Do List App</title>
+	<title>To-Do List App</title>
 	
 	<link href="https://cogletre.github.io/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 	
 	<link rel = "stylesheet" href="anjqbs-style.css">
 	
@@ -34,54 +34,55 @@
 	<div ng-app="todoListApp" ng-controller="todoListCtrl" id="appContainer">
 		<h1 class="taskListTitle">To-Do List</h1>
 		
-		<button class="newListButton" ng-show="newLoadChosen" ng-click="createNewList()">Create New List</button><button class="loadListButton" ng-show="newLoadChosen" ng-click="loadSavedList()">Load Saved List</button>
+		<button class="newListButton" ng-click="createNewList()">Create New List</button><button class="loadListButton" id="loadButton" ng-click="loadSavedList()" ng-disabled="saveNotAllowed">Load Saved List</button>
 		
 		<div id="newListArea" ng-show="createNew" class="newList">
-			<input ng-model="taskName" class="taskNameInput" placeholder="Your To-Do Task"><button class="addTaskItem" ng-click="addTask()">Add</button>
-
-			<br /><span style = "color:red;" ng-show="taskExists" class="itemExists">Task Exists</span>
+			<input ng-model="newListName" class="listNameInput" placeholder="Name your new list">
+			<button class="createList" ng-click="startList()">Start List</button><br />
+			<span id="listNameWarning"></span>
 		</div>
 		
 		<div id="loadListArea" ng-show="loadSaved" class="loadList">
-			<br />
-			<!--<button id="showListButton" class="showListButton" ng-click="showTaskLists()" ng-disabled="noSavedLists || saveNotAllowed">Show Saved Lists</button><span class="loadStatus" id="loadStatus"></span>-->
-			<ol ng-show="showSaved" class="savedLists">
-				<li ng-repeat="taskListName in storedTaskNames">
-					<button ng-click="getList(taskListName)" class="loadListButton">{{taskListName}}</button><span ng-click="deleteList(listName,$index)" class="deleteList">Delete</span>
+			<span>Click on a list to load it:</span>
+			<ol class="savedLists">
+				<li ng-repeat="listName in storedTaskNames">
+					<button ng-click="getList(listName)" class="loadListButton">{{listName}}</button><span ng-click="deleteList(listName,$index)" class="deleteList">Delete</span>
 				</li>
 			</ol>
 		</div>
 		
+		<div id="bottomArea" ng-show="listStarted || listLoaded" class="bottomArea">
+			
+			<h2 class="listTitle" ng-click="editListName()" title="Click to edit list name">{{taskListName}}<span id="listTitleStatus" class="listTitleStatus"></span></h2>
+			
+			<input ng-model="taskName" class="taskNameInput" placeholder="Add a task"><button class="addTaskItem" ng-click="addTask()">Add</button>
+			<br /><span style = "color:red;" ng-show="taskExists" class="itemExists">Task Exists</span>
 		
 		
-		<table class="listTable table table-striped">
-			<thead>
-				<tr class="topRow">
-					<th class="col1"></th>
-					<th class="col2">Task</th>
-					<th class="col4">Edit</th>
-					<th class="col4">Remove</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="task in taskList" class="taskRow">
-					<td class="selectCell col1"><input type="checkbox" ng-model="checkedTask" ng-click="checkTask($index)" class="taskSelect" ></td>
-					<td class="nameCell col2">{{task.name}}</td>
-					<td class="editCell col4 editTask" ng-click="editTask($index)">Edit</td>
-					<td class="removeCell col4 removeTask" ng-click="removeTask($index)">Remove</td>
-				</tr>
-			</tbody>
-		</table>
-		
-		<div class="saveListDiv">
-			<input ng-model="taskListName" ng-disabled="saveNotAllowed || noTaskItems" class="listNameInput" placeholder="e.g. Chores, etc."><button ng-click="saveTaskList(taskListName)" ng-disabled="saveNotAllowed || noTaskItems" class="saveListButton">Save</button>
-				<br />
-				<span class="saveStatus" id="saveStatus"></span>
-		</div>
-		
-		<div class="removalButtons">
+			<table class="listTable table table-striped">
+				<thead>
+					<tr class="topRow">
+						<th class="col1"></th>
+						<th class="col2">Task</th>
+						<th class="col4">Edit</th>
+						<th class="col4">Remove</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="task in taskList" class="taskRow">
+						<td class="selectCell col1"><input type="checkbox" ng-model="checkedTask" ng-click="checkTask($index)" class="taskSelect" ></td>
+						<td class="nameCell col2">{{task.name}}</td>
+						<td class="editCell col4 editTask" ng-click="editTask($index)">Edit</td>
+						<td class="removeCell col4 removeTask" ng-click="removeTask($index)">Remove</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			
 			<button ng-click="removeChecked()">Remove Checked Tasks</button>
-			<button ng-click="removeAll()">Remove All Tasks</button>
+			<button ng-click="removeAll()">Clear List</button>
+			<br /><br />
+			<button ng-click="saveTaskList(taskListName)" ng-disabled="saveNotAllowed || noTaskItems" class="saveListButton">Save Task List</button><span id="saveStatus"></span>
 		</div>
 	</div>
 </body>
