@@ -39,7 +39,7 @@
 		</div>
 		
 		<div id="newListArea" ng-show="createNew" class="newList">
-			<input ng-model="newListName" class="listNameInput" placeholder="Name your new list">
+			<input type="text" ng-model="newListName" class="listNameInput" maxlength="20" placeholder="List title (max 20 char.)">
 			<button class="createList" ng-click="startList()">Start List</button><span class="cancelStart" ng-click="cancelChoice()">Cancel</span><br />
 			<span id="listNameWarning"></span>
 		</div>
@@ -55,10 +55,11 @@
 		
 		<div id="bottomArea" ng-show="listStarted || listLoaded" class="bottomArea">
 			
-			<h2 class="listTitle" ng-click="editListName()" title="Click to edit list name">{{taskListName}}<span id="listTitleStatus" class="listTitleStatus"></span></h2>
+			<h2 class="listTitle" ng-click="editListName()" title="Click to edit list name">{{taskListName}}</h2>
+			<span id="listTitleStatus" class="listTitleStatus"></span>
 			
-			<input ng-model="taskName" class="taskNameInput" placeholder="Add a task"><button class="addTaskItem" ng-click="addTask()">Add</button>
-			<br /><span style = "color:red;" ng-show="taskExists" class="itemExists">Task Exists</span>
+			<input ng-model="taskName" class="taskNameInput" maxlength="15" placeholder="Add task (max 15 chars)"><button class="addTaskItem" ng-click="addTask()">Add</button>
+			<span style = "color:red;" ng-show="taskExists" class="itemExists">Task Exists</span>
 		
 		
 			<table class="listTable table table-bordered">

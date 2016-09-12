@@ -16,10 +16,10 @@ body {font-size:16px;max-width:450px;}
 	margin-top:10px;
 }
 
-.cancelStart {float:right;transition:all 500ms ease;text-decoration:underline;}
+.cancelStart {float:right;transition:all 500ms ease;text-decoration:underline;cursor:pointer;font-weight:bold;}
 .cancelStart:hover {color:red;}
 
-h1.taskListTitle {margin:10px 0px 20px 0px;}
+h1.taskListTitle {margin:10px 0 20px 0;}
 
 table.listTable {
 	border-collapse:collapse;
@@ -48,7 +48,10 @@ table.listTable {
 .taskSelect {margin:5px 0 0 5px;cursor:pointer;}
 .editTask,.removeTask {font-weight:bold;}
 .editTask,.removeTask,.deleteList {cursor:pointer;font-size:12px;transition:all 500ms ease;}
-h2.listTitle {cursor:pointer;transition:all 500ms ease;}
+
+
+h2.listTitle {cursor:pointer;transition:all 500ms ease;margin:10px 0 20px 0;font-size:24px;width:50%;display:inline-block;}
+.listTitleStatus {font-size:14px;display:inline-block;}
 
 .removeTask:hover,.deleteList:hover {color:red;}
 .editTask:hover,.listTitle:hover {color:rgb(0,150,0);}
@@ -67,4 +70,3 @@ h2.listTitle {cursor:pointer;transition:all 500ms ease;}
 .showListButton {margin-top:10px;}
 .savedLists {margin-bottom:0px;}
 .taskExists,.saveStatus {margin-bottom:5px;font-size:14px;}
-.listTitleStatus {float:right;font-size:14px;}

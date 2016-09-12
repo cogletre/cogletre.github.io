@@ -111,15 +111,23 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 		
 		if (updateListName === "") {
 			document.getElementById("listTitleStatus").style.color = "red";
-			document.getElementById("listTitleStatus").innerHTML = "Must enter a name for the list";
+			document.getElementById("listTitleStatus").innerHTML = "Must name the list";
+			$timeout(function(){document.getElementById("listTitleStatus").innerHTML = ""},2000);
+		} else if (updateListName.length > 20) {
+			document.getElementById("listTitleStatus").style.color = "red";
+			document.getElementById("listTitleStatus").innerHTML = "Name too long";
+			$timeout(function(){document.getElementById("listTitleStatus").innerHTML = ""},2000);
 		} else if (checkListName(updateListName,$scope.storedTaskNames)) {
 			document.getElementById("listTitleStatus").style.color = "red";
 			document.getElementById("listTitleStatus").innerHTML = "Name already exists";
+			$timeout(function(){document.getElementById("listTitleStatus").innerHTML = ""},2000);
 		} else {
 			$scope.taskListName = updateListName;
 			document.getElementById("listTitleStatus").style.color = "rgb(0,150,0)";
 			document.getElementById("listTitleStatus").innerHTML = "Name updated!";
+			$timeout(function(){document.getElementById("listTitleStatus").innerHTML = ""},2000);
 		}
+		
 	}
 	
 	$scope.taskExists = false;
@@ -131,6 +139,7 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 			$scope.taskExists = false;
 		} else {
 			$scope.taskExists = true;
+			$timeout(function(){$scope.taskExists = false},2000);
 		}
 		// reset the taskName input field
 		$scope.taskName = "";
