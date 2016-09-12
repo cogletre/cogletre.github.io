@@ -1,11 +1,11 @@
 
 body {font-size:16px;width:95%;margin:1%;}
 
-button.newListButton,button.createList {}
-button.newListButton:hover,button.createList:hover {color:blue;}
+button.newListButton,button.createList {transition:all 500ms ease;}
+button.newListButton:hover,button.createList:hover {color:blue;border-color:blue;}
 
-button.loadListButton,button.loadListButton {}
-button.loadListButton:hover,button.loadListButton:hover {color:green;}
+button.loadListButton,button.loadListButton {transition:all 500ms ease;}
+button.loadListButton:hover,button.loadListButton:hover {color:green;border-color:green;}
 
 @media screen and (min-width:501px){
 body {font-size:16px;max-width:450px;}
