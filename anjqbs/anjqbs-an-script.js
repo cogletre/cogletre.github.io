@@ -92,7 +92,7 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 	$scope.listStarted = false;
 	
 	$scope.startList = function () {
-		if($scope.newListName === "") {
+		if($scope.newListName === "" || $scope.newListName === undefined) {
 			document.getElementById("listNameWarning").innerHTML = "Please name your list";
 			$scope.newListName = "";
 		} else {
