@@ -92,7 +92,9 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 	$scope.listStarted = false;
 	
 	$scope.startList = function () {
-		if($scope.newListName !== "") {
+		if($scope.newListName === "") {
+			document.getElementById("listNameWarning").innerHTML = "Please name your list";
+		} else {
 			if(!checkListName($scope.newListName,$scope.storedTaskNames)) {
 				$scope.taskListName = $scope.newListName;
 				$scope.newListName = "";
@@ -101,8 +103,6 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 			} else {
 				document.getElementById("listNameWarning").innerHTML = "Name already in use";
 			}
-		} else {
-			document.getElementById("listNameWarning").innerHTML = "Please name your list";
 		}
 	}
 	
