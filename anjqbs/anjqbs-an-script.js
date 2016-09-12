@@ -94,6 +94,7 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 	$scope.startList = function () {
 		if($scope.newListName === "") {
 			document.getElementById("listNameWarning").innerHTML = "Please name your list";
+			$scope.newListName = "";
 		} else {
 			if(!checkListName($scope.newListName,$scope.storedTaskNames)) {
 				$scope.taskListName = $scope.newListName;
