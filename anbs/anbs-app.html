@@ -28,13 +28,13 @@
 </head>
 
 <body>
-	<h1 class="portfolioLink"><a href="http://cogletre.github.io">&larr; back to main portfolio</a></h1>
+	<h1 class="portfolioLink"><a href="http://cogletre.github.io">&#10094; back to main portfolio</a></h1>
 	
 	<div ng-app="todoListApp" ng-controller="todoListCtrl" id="appContainer">
 		<h1 class="taskListTitle">To-Do List</h1>
 		
-		<div ng-show="saveOrLoadChoice">
-			<button class="newListButton" ng-click="createNewList()">Create New List</button><button class="loadListButton" id="loadButton" ng-click="loadSavedList()" ng-disabled="saveNotAllowed">Load Saved List</button>
+		<div ng-show="saveOrLoadChoice" class="saveLoadButtons">
+			<button class="newListButton" ng-click="createNewList()">Create New List</button><button class="showListsButton" id="loadButton" ng-click="loadSavedList()" ng-disabled="saveNotAllowed">Load Saved List</button>
 		</div>
 		
 		<div id="newListArea" ng-show="createNew" class="newList">
@@ -44,9 +44,9 @@
 		</div>
 		
 		<div id="loadListArea" ng-show="loadSaved" class="loadList">
-			<span>Click on a list to load it:</span><span class="cancelStart" ng-click="cancelChoice()">Cancel</span>
+			<span style="font-weight:bold;">Click on a list to load it:</span><span class="cancelStart" ng-click="cancelChoice()">Cancel</span>
 			<ol class="savedLists">
-				<li ng-repeat="listName in storedTaskNames">
+				<li ng-repeat="listName in storedTaskNames" class="savedListItem">
 					<button ng-click="getList(listName)" class="loadListButton">{{listName}}</button><span ng-click="deleteList(listName,$index)" class="deleteList">Delete</span>
 				</li>
 			</ol>
@@ -61,10 +61,10 @@
 			<span style = "color:red;" ng-show="taskExists" class="itemExists">Task Exists</span>
 		
 		
-			<table class="listTable table table-bordered">
+			<table class="listTable table">
 				<thead>
 					<tr class="topRow">
-						<th class="col1"></th>
+						<th class="col1"><input type="checkbox" ng-click="checkAll()" class="selectAll"></th>
 						<th class="col2">Task</th>
 						<th class="col4">Edit</th>
 						<th class="col4">Remove</th>
@@ -72,7 +72,7 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="task in taskList" class="taskRow">
-						<td class="selectCell col1"><input type="checkbox" ng-model="checkedTask" ng-click="checkTask($index)" class="taskSelect" ></td>
+						<td class="selectCell col1"><input type="checkbox" ng-model="checkedTask" ng-click="checkTask($index)" class="taskSelect"></td>
 						<td class="nameCell col2">{{task.name}}</td>
 						<td class="editCell col4 editTask" ng-click="editTask($index)">Edit</td>
 						<td class="removeCell col4 removeTask" ng-click="removeTask($index)">Remove</td>
@@ -84,7 +84,8 @@
 			<button ng-click="removeChecked()">Remove Checked Tasks</button>
 			<button ng-click="removeAll()">Clear List</button>
 			<br /><br />
-			<button ng-click="saveTaskList(taskListName)" ng-disabled="saveNotAllowed || noTaskItems" class="saveListButton">Save Task List</button><span id="saveStatus"></span><br />
+			<button ng-click="saveTaskList(taskListName)" ng-disabled="saveNotAllowed || noTaskItems" class="saveListButton">Save Task List</button><span id="saveStatus"></span>
+			<button ng-click="saveAndClose(taskListName)" ng-disabled="saveNotAllowed || noTaskItems" class="saveAndCloseButton"><span class="saveText">Save</span> and <span class="closeText">Close</span></button><br />
 			<button ng-click="closeCurrentList()" class="closeListButton">Close List</button>
 		</div>
 	</div>

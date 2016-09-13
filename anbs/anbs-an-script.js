@@ -93,6 +93,7 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 	
 	$scope.startList = function () {
 		if($scope.newListName === "" || $scope.newListName === undefined) {
+			document.getElementById("listNameWarning").style.color = "red";
 			document.getElementById("listNameWarning").innerHTML = "Please name your list";
 			$scope.newListName = "";
 		} else {
@@ -102,9 +103,12 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 				$scope.createNew = false;
 				$scope.listStarted = true;
 			} else {
+				document.getElementById("listNameWarning").style.color = "red";
 				document.getElementById("listNameWarning").innerHTML = "Name already in use";
+				$scope.newListName = "";
 			}
 		}
+		$timeout(function(){document.getElementById("listNameWarning").innerHTML = ""},2000);
 	}
 	
 	$scope.editListName = function () {
@@ -167,6 +171,30 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 		$scope.taskList[taskIndex].checked = !$scope.taskList[taskIndex].checked;
 	}
 	
+	$scope.allChecked = false;
+	// function for checkbox click, to set all items to checked
+	$scope.checkAll = function() {
+		$scope.allChecked = !$scope.allChecked;
+		
+		if($scope.allChecked === true) {
+			for(x = 0; x < $scope.taskList.length; x++) {
+				$scope.taskList[x].checked = true;
+				var taskButtons = document.getElementsByClassName('taskSelect');
+				for(y = 0; y < taskButtons.length; y++) {
+					taskButtons[y].checked = true;
+				}
+			}
+		} else {
+			for(x = 0; x < $scope.taskList.length; x++) {
+				$scope.taskList[x].checked = false;
+				var taskButtons = document.getElementsByClassName('taskSelect');
+				for(y = 0; y < taskButtons.length; y++) {
+					taskButtons[y].checked = false;
+				}
+			}
+		}
+	}
+	
 	// remove all checked items from list
 	$scope.removeChecked = function() {
 		for (x = 0; x < $scope.taskList.length; x++) {
@@ -217,9 +245,6 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 				document.getElementById("saveStatus").innerHTML = "Saved: " + storeName;
 				$scope.noSavedTasks = false;
 			}
-			// clear the list of all items and the list name input field
-			$scope.taskListName = "";
-			$scope.taskList = [];
 			
 			// $timeout to remove the update/save messages after 2 seconds
 			$timeout(function(){document.getElementById("saveStatus").innerHTML = ""},2000);
