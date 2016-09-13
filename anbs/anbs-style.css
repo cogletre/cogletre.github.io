@@ -22,13 +22,16 @@ h1.taskListTitle {margin:10px 0 20px 0;text-align:center;}
 .newListButton {margin-right:5%;}
 .showListsButton {margin-left:5%;}
 
-button.newListButton:hover,button.createList:hover {color:blue;border-width:2px;border-color:blue;}
+button.newListButton:hover,button.createList:hover,button.addTaskItem:hover {color:blue;border-width:2px;border-color:blue;}
 
-button.showListsButton:hover,button.loadListButton:hover {color:green;border-width:2px;border-color:green;}
+button.showListsButton:hover,button.loadListButton:hover,button.reloadListButton:hover,button.saveListButton:hover {color:green;border-width:2px;border-color:green;}
+
+button.removeCheckedButton:hover,button.removeAllButton:hover,button.closeListButton:hover {color:red;border-width:2px;border-color:red;}
 
 ol.savedLists li.savedListItem {padding:5px 0;}
 
 .saveText,.closeText {transition:all 500ms ease;}
+button.saveAndCloseButton:hover {border-width:2px;border-color:green red red green;}
 button.saveAndCloseButton:hover .saveText {color:green;}
 button.saveAndCloseButton:hover .closeText {color:red;}
 
@@ -79,7 +82,7 @@ table.listTable tr.taskRow td {
 	background-color:rgba(150,150,150,0.5);
 }
 
-.taskSelect {margin:5px 0 0 5px;cursor:pointer;}
+.taskSelect,.selectAll {margin:5px 0 0 5px;cursor:pointer;}
 .editTask,.removeTask {font-weight:bold;}
 .editTask,.removeTask,.deleteList {cursor:pointer;font-size:12px;transition:all 500ms ease;}
 

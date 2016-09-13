@@ -115,22 +115,22 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 		var updateListName = prompt("Enter new list name:");
 		
 		if (updateListName === "") {
-			document.getElementById("listTitleStatus").style.color = "red";
-			document.getElementById("listTitleStatus").innerHTML = "Must name the list";
-			$timeout(function(){document.getElementById("listTitleStatus").innerHTML = ""},2000);
+			document.getElementById("saveTitleStatus").style.color = "red";
+			document.getElementById("saveTitleStatus").innerHTML = "Must name the list";
+			$timeout(function(){document.getElementById("saveTitleStatus").innerHTML = ""},2000);
 		} else if (updateListName.length > 20) {
-			document.getElementById("listTitleStatus").style.color = "red";
-			document.getElementById("listTitleStatus").innerHTML = "Name too long";
-			$timeout(function(){document.getElementById("listTitleStatus").innerHTML = ""},2000);
+			document.getElementById("saveTitleStatus").style.color = "red";
+			document.getElementById("saveTitleStatus").innerHTML = "Name too long";
+			$timeout(function(){document.getElementById("saveTitleStatus").innerHTML = ""},2000);
 		} else if (checkListName(updateListName,$scope.storedTaskNames)) {
-			document.getElementById("listTitleStatus").style.color = "red";
-			document.getElementById("listTitleStatus").innerHTML = "Name already exists";
-			$timeout(function(){document.getElementById("listTitleStatus").innerHTML = ""},2000);
+			document.getElementById("saveTitleStatus").style.color = "red";
+			document.getElementById("saveTitleStatus").innerHTML = "Name already exists";
+			$timeout(function(){document.getElementById("saveTitleStatus").innerHTML = ""},2000);
 		} else {
 			$scope.taskListName = updateListName;
-			document.getElementById("listTitleStatus").style.color = "rgb(0,150,0)";
-			document.getElementById("listTitleStatus").innerHTML = "Name updated!";
-			$timeout(function(){document.getElementById("listTitleStatus").innerHTML = ""},2000);
+			document.getElementById("saveTitleStatus").style.color = "rgb(0,150,0)";
+			document.getElementById("saveTitleStatus").innerHTML = "Name updated!";
+			$timeout(function(){document.getElementById("saveTitleStatus").innerHTML = ""},2000);
 		}
 		
 	}
@@ -153,6 +153,8 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 	// function to remove all items from the list
 	$scope.removeAll = function(){
 		$scope.taskList = [];
+		document.getElementById("checkAll").checked = false;
+		$scope.allChecked = false;
 	}
 	
 	// removes selected item from list based on its index
@@ -203,6 +205,8 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 				x--;
 			}
 		}
+		document.getElementById("checkAll").checked = false;
+		$scope.allChecked = false;
 	}
 	
 	// initialize saved lists to be hidden - not needed for this app
@@ -230,8 +234,8 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 				localStorage.setItem(storeName, JSON.stringify($scope.taskList));
 				
 				// message if list is updated
-				document.getElementById("saveStatus").style.color = "rgb(0,150,0)";
-				document.getElementById("saveStatus").innerHTML = "Updated: " + storeName;
+				document.getElementById("saveTitleStatus").style.color = "rgb(0,150,0)";
+				document.getElementById("saveTitleStatus").innerHTML = "Updated: " + storeName;
 				
 				$scope.noSavedTasks = false;
 			} else {
@@ -241,25 +245,61 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 				localStorage.setItem("storedNames", JSON.stringify($scope.storedTaskNames));
 				
 				// message if list is stored
-				document.getElementById("saveStatus").style.color = "blue";
-				document.getElementById("saveStatus").innerHTML = "Saved: " + storeName;
+				document.getElementById("saveTitleStatus").style.color = "blue";
+				document.getElementById("saveTitleStatus").innerHTML = "Saved: " + storeName;
 				$scope.noSavedTasks = false;
 			}
 			
 			// $timeout to remove the update/save messages after 2 seconds
-			$timeout(function(){document.getElementById("saveStatus").innerHTML = ""},2000);
+			$timeout(function(){document.getElementById("saveTitleStatus").innerHTML = ""},2000);
 		} else {
-			document.getElementById("saveStatus").style.color = "red";
-			document.getElementById("saveStatus").innerHTML = "Please name your task list";
+			/*document.getElementById("saveStatus").style.color = "red";
+			document.getElementById("saveStatus").innerHTML = "Please name your task list";*/
+		}
+	}
+	
+	$scope.saveAndClose = function() {
+		if ($scope.taskListName !== "") {
+			var storeName = $scope.taskListName;
+			
+			if ($scope.storedTaskNames.indexOf(storeName) !== -1) {
+				// update the stored list if it already exists
+				localStorage.setItem(storeName, JSON.stringify($scope.taskList));
+				
+				// message if list is updated
+				document.getElementById("saveTitleStatus").style.color = "rgb(0,150,0)";
+				document.getElementById("saveTitleStatus").innerHTML = "Updated: " + storeName;
+				
+				$scope.noSavedTasks = false;
+			} else {
+				// save the stored list if it doesn't already exist
+				$scope.storedTaskNames.push(storeName);
+				localStorage.setItem(storeName, JSON.stringify($scope.taskList));
+				localStorage.setItem("storedNames", JSON.stringify($scope.storedTaskNames));
+				
+				// message if list is stored
+				document.getElementById("saveTitleStatus").style.color = "blue";
+				document.getElementById("saveTitleStatus").innerHTML = "Saved: " + storeName;
+				$scope.noSavedTasks = false;
+			}
+			
+			$scope.taskList = [];
+			$scope.taskName = "";
+			$scope.listStarted = false;
+			$scope.listLoaded = false;
+			$scope.saveOrLoadChoice = true;
+		} else {
+			/*document.getElementById("saveStatus").style.color = "red";
+			document.getElementById("saveStatus").innerHTML = "Please name your task list";*/
 		}
 	}
 	
 	$scope.listLoaded = false;
 	//function to retrieve a saved list from localStorage
-	$scope.getList = function(listName,$index) {
+	$scope.getList = function(listName) {
 		$scope.listLoaded = true;
 		$scope.loadSaved = false;
-		$scope.taskListName = listName
+		$scope.taskListName = listName;
 		$scope.taskList = [];
 		
 		var parseList = JSON.parse(localStorage.getItem(listName));
@@ -268,9 +308,9 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 			$scope.taskList.push({name:parseList[x].name,checked:false});
 		}
 		// Message if list loaded successfully
-		document.getElementById("listTitleStatus").style.color = "rgb(0,150,0)";
-		document.getElementById("listTitleStatus").innerHTML = "Loaded: " + listName;
-		$timeout(function(){document.getElementById("listTitleStatus").innerHTML = ""},2000);
+		document.getElementById("saveTitleStatus").style.color = "rgb(0,150,0)";
+		document.getElementById("saveTitleStatus").innerHTML = "Loaded: " + listName;
+		$timeout(function(){document.getElementById("saveTitleStatus").innerHTML = ""},2000);
 	}
 	
 	// function to delete a saved list from local storage and remove from the 
@@ -280,8 +320,8 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 		$scope.storedTaskNames.splice(listIndex,1);
 		localStorage.storedNames = JSON.stringify($scope.storedTaskNames);
 		
-		document.getElementById("listTitleStatus").style.color = "red";
-		document.getElementById("listTitleStatus").innerHTML = "Deleted: " + taskListName;
+		document.getElementById("saveTitleStatus").style.color = "red";
+		document.getElementById("saveTitleStatus").innerHTML = "Deleted: " + taskListName;
 		
 		if($scope.storedTaskNames.length === 0) {
 			$scope.showSaved = false;
@@ -289,7 +329,7 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 			document.getElementById("showListButton").style.background = "buttonface";
 			document.getElementById("showListButton").innerHTML = "Show Saved Task Lists";
 		}
-		$timeout(function(){document.getElementById("listTitleStatus").innerHTML = ""},2000);
+		$timeout(function(){document.getElementById("saveTitleStatus").innerHTML = ""},2000);
 	}
 	
 	$scope.closeCurrentList = function() {
