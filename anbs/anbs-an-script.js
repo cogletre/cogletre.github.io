@@ -48,6 +48,12 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 		$scope.listStarted = false;
 	}
 	
+	if ($scope.taskList.length === 0) {
+		$scope.listEmpty = true;
+	} else {
+		$scope.listEmpty = false;
+	}
+	
 	//confirm if local storage is supported by browser
 	if (typeof(Storage) !== "undefined") {
 		$scope.saveNotAllowed = false;
@@ -102,6 +108,7 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 				$scope.newListName = "";
 				$scope.createNew = false;
 				$scope.listStarted = true;
+				$scope.listEmpty = false;
 			} else {
 				document.getElementById("listNameWarning").style.color = "red";
 				document.getElementById("listNameWarning").innerHTML = "Name already in use";
@@ -148,6 +155,7 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 		}
 		// reset the taskName input field
 		$scope.taskName = "";
+		$scope.listEmpty = false;
 	}
 	
 	// function to remove all items from the list
@@ -155,11 +163,15 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 		$scope.taskList = [];
 		document.getElementById("checkAll").checked = false;
 		$scope.allChecked = false;
+		$scope.listEmpty = true;
 	}
 	
 	// removes selected item from list based on its index
 	$scope.removeTask = function (taskIndex) {
         $scope.taskList.splice(taskIndex, 1);
+		if($scope.taskList.length === 0) {
+			$scope.listEmpty = true;
+		}
     }
 	
 	// function for editing an item; prompts user for a new item name

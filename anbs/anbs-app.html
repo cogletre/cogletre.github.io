@@ -32,6 +32,7 @@
 	
 	<div ng-app="todoListApp" ng-controller="todoListCtrl" id="appContainer">
 		<h1 class="taskListTitle">To-Do List</h1>
+		<button ng-click="closeCurrentList()" class="closeListButton" ng-show="listStarted || listLoaded" style="float:right;">Close List</button>
 		
 		<div ng-show="saveOrLoadChoice" class="saveLoadButtons">
 			<button class="newListButton" ng-click="createNewList()">Create New List</button><button class="showListsButton" id="loadButton" ng-click="loadSavedList()" ng-disabled="saveNotAllowed">Load Saved List</button>
@@ -65,9 +66,9 @@
 				<thead>
 					<tr class="topRow">
 						<th class="col1"><input type="checkbox" ng-click="checkAll()" id="checkAll" class="selectAll"></th>
-						<th class="col2">Task</th>
-						<th class="col4">Edit</th>
-						<th class="col4">Remove</th>
+						<th class="col2" colspan="3">Task</th>
+						<!--<th class="col4">Edit</th>
+						<th class="col4">Remove</th>-->
 					</tr>
 				</thead>
 				<tbody>
@@ -81,10 +82,10 @@
 			</table>
 			
 			
-			<button ng-click="removeChecked()" class="removeCheckedButton">Remove Checked Tasks</button>
-			<button ng-click="removeAll()" class="removeAllButton">Clear List</button>
+			<button ng-click="removeChecked()" class="removeCheckedButton" ng-disabled="noneChecked">Remove Checked Tasks</button>
+			<button ng-click="removeAll()" class="removeAllButton" ng-disabled="listEmpty">Clear List</button>
 			<br /><br />
-			<button ng-click="closeCurrentList()" class="closeListButton">Close List</button>
+			
 			<button ng-click="getList(taskListName)" class="reloadListButton">Reload List</button>
 			<br /><br />
 			<button ng-click="saveTaskList(taskListName)" ng-disabled="saveNotAllowed || noTaskItems" class="saveListButton">Save Task List</button>

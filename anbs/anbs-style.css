@@ -55,11 +55,11 @@ table.listTable {
 
 table.listTable tr td,table.listTable tr th {border:1px solid black;}
 
-tr.topRow th {font-size:14px;font-weight:bold;background-color:rgb(240,240,20);}
-table.listTable tr:nth-child(even) td {background-color:rgb(247,247,72);}
-table.listTable tr:nth-child(even) td:hover {background-color:rgb(247,247,200);}
-table.listTable tr:nth-child(odd) td {background-color:rgb(247,247,134);}
-table.listTable tr:nth-child(odd) td:hover {background-color:rgb(247,247,200);}
+tr.topRow th {font-size:14px;font-weight:bold;background-color:rgb(240,240,240);}
+table.listTable tr:nth-child(even) td {background-color:rgb(210,210,210);}
+table.listTable tr:nth-child(even) td:hover {background-color:rgb(255,255,200);}
+table.listTable tr:nth-child(odd) td {background-color:rgb(190,190,190);}
+table.listTable tr:nth-child(odd) td:hover {background-color:rgb(255,255,200);}
 
 .col1{width:5%;text-align:center;}
 .col2{width:40%;padding-left:10px;}
