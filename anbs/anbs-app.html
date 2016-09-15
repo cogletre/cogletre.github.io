@@ -66,9 +66,9 @@
 				<thead>
 					<tr class="topRow">
 						<th class="col1"><input type="checkbox" ng-click="checkAll()" id="checkAll" class="selectAll"></th>
-						<th class="col2" colspan="3">Task</th>
-						<!--<th class="col4">Edit</th>
-						<th class="col4">Remove</th>-->
+						<th class="col2" colspan="2">Task</th>
+						<!--<th class="col4">Edit</th>-->
+						<th class="col4" ng-click="getList(taskListName)" title="Reload List">&#8634;</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -84,9 +84,6 @@
 			
 			<button ng-click="removeChecked()" class="removeCheckedButton" ng-disabled="noneChecked">Remove Checked Tasks</button>
 			<button ng-click="removeAll()" class="removeAllButton" ng-disabled="listEmpty">Clear List</button>
-			<br /><br />
-			
-			<button ng-click="getList(taskListName)" class="reloadListButton">Reload List</button>
 			<br /><br />
 			<button ng-click="saveTaskList(taskListName)" ng-disabled="saveNotAllowed || noTaskItems" class="saveListButton">Save Task List</button>
 			<button ng-click="saveAndClose(taskListName)" ng-disabled="saveNotAllowed || noTaskItems" class="saveAndCloseButton"><span class="saveText">Save</span> and <span class="closeText">Close</span></button>

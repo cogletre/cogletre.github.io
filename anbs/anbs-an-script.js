@@ -119,9 +119,9 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 	}
 	
 	$scope.editListName = function () {
-		var updateListName = prompt("Enter new list name:");
+		var updateListName = prompt("Enter new list name: (20 char max)");
 		
-		if (updateListName === "") {
+		if (updateListName === "" || updateListName === null) {
 			document.getElementById("saveTitleStatus").style.color = "red";
 			document.getElementById("saveTitleStatus").innerHTML = "Must name the list";
 			$timeout(function(){document.getElementById("saveTitleStatus").innerHTML = ""},2000);
@@ -219,6 +219,9 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 		}
 		document.getElementById("checkAll").checked = false;
 		$scope.allChecked = false;
+		if ($scope.taskList.length === 0) {
+			$scope.listEmpty = true;
+		}
 	}
 	
 	// initialize saved lists to be hidden - not needed for this app
@@ -313,6 +316,7 @@ app.controller("todoListCtrl", function($scope,$timeout) {
 		$scope.loadSaved = false;
 		$scope.taskListName = listName;
 		$scope.taskList = [];
+		$scope.listEmpty = false;
 		
 		var parseList = JSON.parse(localStorage.getItem(listName));
 		

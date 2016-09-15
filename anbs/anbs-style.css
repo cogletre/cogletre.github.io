@@ -56,6 +56,9 @@ table.listTable {
 table.listTable tr td,table.listTable tr th {border:1px solid black;}
 
 tr.topRow th {font-size:14px;font-weight:bold;background-color:rgb(240,240,240);}
+tr.topRow th.col4 {font-weight:bold;transition:all 500ms ease;cursor:pointer;font-size:16px;}
+tr.topRow th.col4:hover {color:green;}
+
 table.listTable tr:nth-child(even) td {background-color:rgb(210,210,210);}
 table.listTable tr:nth-child(even) td:hover {background-color:rgb(255,255,200);}
 table.listTable tr:nth-child(odd) td {background-color:rgb(190,190,190);}
