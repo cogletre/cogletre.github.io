@@ -1,11 +1,13 @@
 
 body {font-size:16px;width:95%;margin:1%;}
 button {transition:all 500ms ease;}
-button:hover {}
+button:hover {border-radius:3px;}
+
+button.noSavedLists:hover {border-color:red!important;color:red!important;}
 
 
 @media screen and (min-width:501px){
-	body {font-size:16px;max-width:450px;}
+	body {max-width:450px;}
 }
 
 /***/

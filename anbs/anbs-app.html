@@ -18,9 +18,8 @@
 	
 	<script src="anbs-an-script.js"></script>
 	
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
 	<script src = "https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src = "https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 	
@@ -35,7 +34,7 @@
 		<button ng-click="closeCurrentList()" class="closeListButton" ng-show="listStarted || listLoaded" style="float:right;">Close List</button>
 		
 		<div ng-show="saveOrLoadChoice" class="saveLoadButtons">
-			<button class="newListButton" ng-click="createNewList()">Create New List</button><button class="showListsButton" id="loadButton" ng-click="loadSavedList()" ng-disabled="saveNotAllowed">Load Saved List</button>
+			<button class="newListButton" ng-click="createNewList()">Create New List</button><button class="showListsButton" id="loadButton" ng-click="loadSavedList()" ng-disabled="saveNotAllowed || noSavedLists">Load Saved List</button>
 		</div>
 		
 		<div id="newListArea" ng-show="createNew" class="newList">
@@ -65,7 +64,7 @@
 			<table class="listTable table">
 				<thead>
 					<tr class="topRow">
-						<th class="col1"><input type="checkbox" ng-click="checkAll()" id="checkAll" class="selectAll"></th>
+						<th class="col1"><input type="checkbox" ng-click="checkAll()" id="checkAll" class="selectAll" title="Select All"></th>
 						<th class="col2" colspan="2">Task</th>
 						<!--<th class="col4">Edit</th>-->
 						<th class="col4" ng-click="getList(taskListName)" title="Reload List">&#8634;</th>
