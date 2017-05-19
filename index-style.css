@@ -4,9 +4,9 @@ html {
 	background:gray;
 }
 body {
-	min-height:100%;
 	background:white;
-	padding:10px 20px 10px;
+	padding:0;
+	margin:0;
 	border-left:2px solid green;
 	border-right:2px solid green;
 }
@@ -16,22 +16,31 @@ footer {
 }
 header {
 	text-align:center;
+	border-bottom:2px solid green;
+	margin:0;
 }
-a, a.work-link {
-	color:black;
-	transition:all 500ms ease;
+a {
+	color:#5C7F71;
+	transition:all 300ms ease;
+	text-decoration:none;
+	font-weight:bold;
 }
+a:hover {
+	color:#B2A8A2;
+}
+
 p.work-skills,p.role-description,p.project-description,p.project-tools {
 	margin-bottom:5px;
 }
 
+header, div.about-me, div.previous-work, div.projects {
+	padding:20px 20px 20px 20px;
+}
 
-/* Styling for screens wider than 768px */
-@media screen and (min-width:768px){
+@media screen and (min-width:600px){
 	body {
-		color:black;
-		max-width:70%;
-		margin:0% 15%;
+		width:85%;
+		margin:auto;
 	}
 
 	a.work-link {
@@ -43,9 +52,6 @@ p.work-skills,p.role-description,p.project-description,p.project-tools {
 		margin-top:5px;
 	}
 
-	a:hover, a.work-link:hover {
-		color:blue;
-	}
 
 	h1 {}
 	h2 {}
