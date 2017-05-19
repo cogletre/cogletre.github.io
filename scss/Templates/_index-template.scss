@@ -1,28 +1,7 @@
+// ================
+// Template: Index
+// ========
 
-// Import _variables.scss
-@import 'variables';
-
-
-body {
-	width:100%;
-	height:100%;
-	margin:0;
-	padding:0;
-	background:$light_gray;
-}
-
-a {
-	color:$link;
-	font-weight:bold;
-	text-decoration:none;
-	transition:$short_tran;
-}
-a:hover {
-	color:$link_hover;
-}
-h1,h2,h3,h4,h5,h6 {
-	font-family:$rubik_font;
-}
 
 #content {
 	width:95%;
