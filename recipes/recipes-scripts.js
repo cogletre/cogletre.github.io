@@ -13,3 +13,9 @@ function loadRecipes(callback) {
 	};
 	xhttp.send(null);
 }
+
+
+function openModal(recipeId) {
+	console.log('clicked ' + recipeId);
+	return;
+}

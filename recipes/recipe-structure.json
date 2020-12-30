@@ -24,6 +24,58 @@
 				"Bake until the top is golden brown and the eggs are set, 20 to 25 minutes. When you shake the pan, the eggs shouldn’t jiggle. Cool on a rack for about 10 minutes.",
 				"Cut into wedges to serve warm or at room temperature."
 			]
+		},
+		{
+			"name":"Baked Risotto With Greens and Peas",
+			"yield":"4 servings",
+			"cookTime":"30 minutes",
+			"image":"https://static01.nyt.com/images/2020/09/20/dining/kc-green-risotto/merlin_176510055_e9146cdb-15dd-4a58-a0db-d9884b386655-articleLarge.jpg",
+			"description":"This easy baked risotto eliminates the constant stirring required in traditional risotto recipes. It’s laden with vegetables, namely kale and spinach, but other leafy greens like Swiss chard or collard greens would work equally well. If you happen to have some extra asparagus, sub it in for the peas. This risotto makes a great starter or side dish, but you can also turn it into a vegetarian main course by using vegetable or mushroom stock in place of the chicken broth, and topping it with sautéed mushrooms, a fried egg or crispy tofu slices. Leftovers can be refrigerated for two days and reheated with more broth, or repurposed into crunchy rice cakes or arancini. Simply form into patties or balls, coat in bread crumbs and shallow-fry until golden and crunchy.",
+			"ingredients":[
+				"2 tablespoons extra-virgin olive oil",
+				"1/2 cup finely chopped yellow onion",
+				"1 small garlic clove, minced",
+				"1 cup Arborio rice (about 7 ounces)",
+				 "Kosher salt and black pepper",
+				"4 ounces green or lacinato kale (about 1/3 bunch), stems separated and thinly sliced, leaves stacked and cut into 1/4-inch-thick ribbons (about 4 packed cups)",
+				"3 1/2 cups low-sodium chicken broth",
+				"4 ounces baby spinach (about 4 packed cups)",
+				"1 cup frozen peas, thawed",
+				"3/4 cup grated Parmesan (3 ounces), plus more for garnish",
+				"3 tablespoons unsalted butter",
+				"1 tablespoon lemon juice"
+			],
+			"preparation": [
+				"Heat oven to 375 degrees. In a large Dutch oven, heat oil over medium. Add onion and cook, stirring occasionally, until softened, about 3 minutes. Add garlic and stir until fragrant, 1 minute. Add rice, season with salt and pepper, and stir until coated in oil and lightly toasted, 2 minutes.",
+				"Add kale, season with salt and pepper, and stir until wilted, 30 seconds. Add broth and bring to a boil over high heat.",
+				"Cover and bake until almost all of the liquid is absorbed and rice is tender, about 20 minutes.",
+				"Stir in spinach and peas until spinach is wilted. Add Parmesan, butter and lemon juice, and stir until well blended and saucy. (Liquid will continue to absorb as risotto sits.) Season with salt and pepper. Serve in bowls and top with more Parmesan."
+			]
+		},
+		{
+			"name":"Loaded Baked Frittata",
+			"yield":"4 to 6 servings",
+			"cookTime":"45 minutes",
+			"image":"https://static01.nyt.com/images/2018/09/08/dining/ko-loaded-frittata-horizontal/ko-loaded-frittata-horizontal-articleLarge.jpg",
+			"description":"Sautéed onion, pepper and spinach lace this sturdy frittata that’s as good warm out of the pan as it is cold. Bacon and goat cheese enrich the mix, which can be eaten alone or put in a sandwich (see tip below). This recipe is, of course, delicious as is, but you can also take a cue from one of our commenters, Joan, who made this with leftover peppers and onions, adding sliced roasted baby potatoes. Ready in 45 minutes, it lasts for up to three days in the refrigerator, so you can enjoy it as long as it lasts — which may not be very long.",
+			"ingredients":[
+				"8 large eggs",
+				"1/2 cup whole milk",
+				"Kosher salt & black pepper",
+				"1/2 cup finely diced bacon",
+				"1 cup diced onion (from 1 small onion)",
+				"2 cups diced red or orange bell peppers (from 2 peppers)",
+				"1 (5-ounce) package baby spinach",
+				"4 ounces fresh goat cheese"
+			],
+			"preparation": [
+				"Heat oven to 375 degrees. In a medium bowl, beat eggs, milk, 1 teaspoon salt and 1/2 teaspoon pepper until smooth. Set aside.",
+				"Put bacon in a 10- to 12-inch cast-iron or oven-safe nonstick skillet. Set over medium heat and cook, stirring occasionally, until browned, 4 to 5 minutes.",
+				"Add onion, peppers and 1/2 teaspoon each salt and pepper and cook, stirring often, until onions are translucent, 6 to 7 minutes. Add the spinach a handful at a time, stirring after each addition, to wilt.",
+				"Reduce heat to low and pour in the egg mixture. Stir well to evenly distribute the vegetables, then smooth the top. Drop small nuggets of goat cheese evenly on top. Transfer to the oven.",
+				"Bake until the top is golden brown and the eggs are set, 20 to 25 minutes. When you shake the pan, the eggs shouldn’t jiggle. Cool on a rack for about 10 minutes.",
+				"Cut into wedges to serve warm or at room temperature."
+			]
 		}
 	]
 }

@@ -21,16 +21,29 @@
 				loadRecipes(function(resp) {
 					recipeJson=JSON.parse(resp);
 					recipeArr=recipeJson['recipes'];
-							var recipeDiv;
-							for(var r=0;r<recipeArr.length;r++) {
-								recipeDiv='<div id="recipe'+(r+1)+'" class="list-item recipe'+(r+1)+'"><div class="recipe-name">'+recipeArr[r].name+'</div></div>';
-								$tempDiv = document.createElement('div');
-								$tempDiv.id='recipe'+(r+1);
-								$tempDiv.className='list-item recipe'+(r+1);
-								$tempDiv.style.backgroundImage=recipeArr[r].image;
-								$('#list-wrapper')[0].appendChild($tempDiv);
-								console.log(recipeDiv);
-							}
+					var recipeDiv;
+					for(var r=0;r<recipeArr.length;r++) {
+						$tempDiv=document.createElement('div');
+						$tempDiv.id='recipe'+r;
+						$tempDiv.className='list-item recipe'+r;
+						$tempDiv.style.backgroundImage='url('+recipeArr[r].image+')';
+						
+						$tempName=document.createElement('div');
+						$tempName.className='recipe-name';
+						$tempName.innerHTML=recipeArr[r].name;
+						
+						$tempLink=document.createElement('a');
+						$tempLink.className='recipe-link';
+						$tempLink.id='recipe'+r;
+						
+						$tempDiv.appendChild($tempName);
+						$tempDiv.appendChild($tempLink);
+						
+						$('#list-wrapper')[0].appendChild($tempDiv);
+					}
+					$('.recipe-link').click(function() {
+						openModal(this.id);
+					});
 				});
 			});
 		</script>
@@ -68,33 +81,23 @@
 				</div>
 			</div>
 			<div id="list-container" class="list-container">
-				<div id="list-wrapper" class="list-wrapper">
-					<script>
-					</script>
-<!--
-					<div id="recipe01" class="list-item recipe01">
-						<div class="recipe-name">Recipe 01</div>
-						<a class="recipe-link" href="#"></a>
-					</div>
-					<div id="recipe02" class="list-item recipe02">
-						<div class="recipe-name">Recipe 02</div>
-						<a class="recipe-link" href="#"></a>
-					</div>
-					<div id="recipe03" class="list-item recipe03">
-						<div class="recipe-name">Recipe 03</div>
-						<a class="recipe-link" href="#"></a>
-					</div>
-					<div id="recipe04" class="list-item recipe04">
-						<div class="recipe-name">Recipe 04</div>
-						<a class="recipe-link" href="#"></a>
-					</div>
--->
-				</div>
+				<div id="list-wrapper" class="list-wrapper"></div>
 			</div>
-			<div class="json-test">
-				<div id="test-name"></div>
-				<div id="test-yield"></div>
-				<div id="test-time"></div>
+			<div id="recipe-modal" class="modal-container">
+				<div id="close-modal">&#10005;</div>
+				<div class="modal-image"></div>
+				<div class="modal-text">
+					<div id="recipe-name"></div>
+					<div id="recipe-yield"></div>
+					<div id="recipe-time"></div>
+					<div id="recipe-description"></div>
+					<div id="recipe-ingredients">
+						<ul id="ingredient-list"></ul>
+					</div>
+					<div id="recipe-instructions">
+						<ol id="instruction-list"></ol>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
