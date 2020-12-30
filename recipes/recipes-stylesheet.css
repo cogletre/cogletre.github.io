@@ -30,6 +30,10 @@ body {
 	margin:0;
 	padding:0;
 }
+#body-wrapper .filters-container {
+	margin:0 0 40px;
+	padding:0;
+}
 #body-wrapper .list-container {
 	display:block;
 	position:relative;

@@ -19,7 +19,32 @@
 			<header>
 				<h1>Tree House Recipes</h1>
 			</header>
-
+			
+			<div id="filters-container" class="filters-container">
+				<div id="filters-wrapper" class="filters-wrapper">
+					<div id="filters" class="filters">
+						<div class="filter ingredient-filter">
+							<label for="ingredients">Main ingredient:</label>
+							<select id="ingredients" name="ingredients">
+								<option>Select...</option>
+								<option value="chicken">Chicken</option>
+								<option value="shrimp">Shrimp</option>
+								<option value="fish">Fish</option>
+							</select>
+						</div>
+						<div class="filter restrictions-filter">
+							<label for="restrictions">Dietary restrictions:</label>
+							<select id="restrictions" name="restrictions">
+								<option>Select...</option>
+								<option value="vegetarian">Vegetarian</option>
+								<option value="gluten-free">Gluten-free</option>
+								<option value="vegan">Vegan</option>
+								<option value="dairy-free">Dairy-free</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div id="list-container" class="list-container">
 				<div id="list-wrapper" class="list-wrapper">
 					<div id="recipe01" class="list-item recipe01">
