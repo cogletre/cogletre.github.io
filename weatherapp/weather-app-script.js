@@ -1,11 +1,13 @@
-var zipCode;
-var startDate,endDate,currentDate;
 
-var currDayTemp;
-var currTempArray = [];
+var zipcode;
+var numDays;
+var dayOne,dayTwo,dayThree,dayFour,dayFive;
 
-var weatherURL;
-var weatherXmlHttp = new XMLHttpRequest();
+
+
+var weatherCall="api.openweathermap.org/data/2.5/weather?zip=";
+var forecastCall="api.openweathermap.org/data/2.5/forecast?zip="
+var weatherXmlHttp=new XMLHttpRequest();
 
 var tempScript = null;
 
@@ -37,20 +39,36 @@ function readWeather(weatherData) {
 
 
 
-function dispTemp() {
+function getForecast() {
 	
-	zipCode = document.getElementById("zipCode").value;
+	zipcode=document.getElementById("zipcode").value;
+	numDays=document.getElementById("forecastLength").value;
 	
-	startDate = new Date(document.getElementById("dateOne").value);
-	endDate = new Date(document.getElementById("dateTwo").value);
+	switch (numDays) {
+		case 'one-day':
+			weatherCall+=zipcode;
+			document.getElementById("num-days").innerHTML="1-Day";
+			break;
+		case 'three-day':
+			forecastCall+=zipcode;
+			document.getElementById("num-days").innerHTML="3-Day";
+			break;
+		case 'five-day':
+			forecastCall+=zipcode;
+			document.getElementById("num-days").innerHTML="5-Day";
+			break;
+		default:
+			weatherCall+=zipcode;
+			document.getElementById("num-days").innerHTML="1-Day";
+			break;
+	}
+	document.getElementById("zip-fill").innerHTML=zipcode;
 	
-	currentDate = startDate;
 	
-		
 	while(currentDate.getDate() <= endDate.getDate()){
-		currDateStr = currentDate.toDateString();
+		currDateStr=currentDate.toDateString();
 		
-		weatherURL = "https://api.weathersource.com/v1/6bde010b79d7f87f0397/history_by_postal_code.json?_callback=readWeather&period=day&postal_code_eq="+zipCode+"&country_eq=US&timestamp_eq="+currDateStr+"T12:00+00:00&fields=tempAvg";
+		apiCall=;
 		
 		tempScript = document.createElement("script");
 		tempScript.src = weatherURL;
@@ -60,14 +78,5 @@ function dispTemp() {
 		currentDate.setDate(currentDate.getDate() + 1);
 	}
 	
-	document.getElementById("city-zip").innerHTML = zipCode;
 	
-	zipCode = null;
-	avgTemp = 0;
-	totalDays = 0;
-	totalTemp = 0;
-	currDayTemp = 0;
-	startDate = null;
-	endDate = null;
-	currentDate = null;
 }

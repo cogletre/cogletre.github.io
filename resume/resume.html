@@ -32,28 +32,38 @@
 	
 	
 	
-	div#resume-content {
-		padding:30px 30px 30px 30px;
+	div#resume {
+		padding:0;
 		margin:auto;
+		width:90%;
+		border:1px solid black;
 	}
 	
-	header.title {
+	header {
 		text-align:center;
 	}
-	header.title h1 {
+	header h1 {
 		font-weight:bold;
 		font-size:20px;
 		margin:10px 0 10px 0;
 		padding:0;
+		font-family:Rubik,Arial,sans-serif;
 	}
-	header.title p {
+	header p {
 		font-weight:normal;
 		font-size:15px;
 		margin:5px 0 5px 0;
 		padding:0;
+		font-family:Arial,sans-serif;
 	}
-	header.title p a {
+	header p a {
 		
+	}
+	
+	
+	div#main {
+		padding:0 5%;
+		margin:0;
 	}
 	
 	
@@ -64,41 +74,99 @@
 
 <body>
 
-<div id="resume-content">
+<div id="resume">
 	
-	<header class="title">
+	<header>
 		
-		<h1 class="title-head">Christopher G. Ogletree</h1>
+		<h1>Christopher G. Ogletree</h1>
 		
-		<div class="title-info">
-			
-			<p><a href="mailto:cogletre@gmail.com">cogletre@gmail.com</a> ~ 1519 N. Hudson Ave. ~ Chicago, IL 60614 ~ <a href="tel:5083979354">(508)397-9354</a> (cell)</p>
-			
+		<div>
+			<p><a href="mailto:cogletre@gmail.com">cogletre@gmail.com</a> ~ <a href="https://www.linkedin.com/in/chrisogletree/" target="_blank">LinkedIn</a> ~ <a href="tel:5083979354">(508)397-9354</a> (cell)</p>
 		</div>
 	</header>
 	
-	
-	<div id="summary" class="section">
-		<h2 class="section-head">Summary</h2>
+	<div id="main">
 		
+		<div id="summary" class="section">
+			<h2 class="section-head">Summary</h2>
+
+			<ul class="list summary-list">
+				<li>Web Development: 2.5 years of experience with HTML, CSS, JavaScript, jQuery</li>
+				<li>Content Management Systems: 1 year of experience in development with WordPress and Sitefinity</li>
+				<li>User Experience Design: 1 year of experience utilizing wireframes for effective design, SEO implementation and SEO</li>
+				<li>Digital Communication Administration: experience creating, developing, and deploying email campaigns, as well as styling and designing Salesforce and Pardot Communities</li>
+				<li>Software Development: experience utilizing Java, C/C++, SQL, JSON, JavaScript/jQuery</li>
+				<li>Mobile Application Development: experience working on Android Apps</li>
+			</ul>
+		</div>
+
+
+		<div id="education" class="section">
+			<h2 class="section-head">Education</h2>
+			
+			<ul class="list education-list">
+				<li><strong>University of Vermont,</strong> Burlington, VT
+					<ul>
+						<li><em>August, 2011 - May, 2015</em></li>
+					</ul>
+				</li>
+				<li><strong>Major:</strong> Bachelor of Arts, Computer Science, Minor: Business Administration
+					<ul>
+						<li><strong>GPA:</strong> 3.49 / 4</li>
+						<li><strong>Division 1 NCAA Athlete:</strong> Track &amp; Field</li>
+					</ul>
+				</li>
+				<li><strong>University of Otago,</strong> Dunedin, New Zealand
+					<ul>
+						<li><strong>Semester Abroad:</strong> <em>June, 2013 - November, 2013</em></li>
+					</ul>
+				</li>
+				
+			</ul>
+			
+		</div>
+
+
+		<div id="experience" class="section">
+			<h2 class="section-head">Work Experience</h2>
+			
+			<div class="company">
+				<h2 class="company"><strong>Goby Inc,</strong> Chicago, IL</h2>
+				<h3 class="role">Inbound Marketing Coordinator, <em>October, 2016 - Present</em></h3>
+
+				<ul class="list work-list">
+
+
+				</ul>
+			</div>
+			
+			<div class="company">
+				<h2 class="company"><strong>American Physician Institute,</strong> Westmont, IL</h2>
+				<h3 class="role">Webmaster, <em>December, 2015 - July, 2016</em></h3>
+
+				<ul class="list work-list">
+
+
+				</ul>
+			</div>
+			
+			<div class="company">
+				<h2 class="company"><strong>Sweeney Design / Build,</strong> Shelburne, VT</h2>
+				<h3 class="role">Head of Web Design, <em>September, 2014 - May, 2015</em></h3>
+
+				<ul class="list work-list">
+
+
+				</ul>
+			</div>
+		</div>
+
+
+		<div id="awards" class="section">
+			<h2 class="section-head">Honors &amp; Awards</h2>
+		</div>
+	
 	</div>
-	
-	
-	<div id="education" class="section">
-		<h2 class="section-head">Education</h2>
-		
-	</div>
-	
-	
-	<div id="experience" class="section">
-		<h2 class="section-head">Work Experience</h2>
-	</div>
-	
-	
-	<div id="awards" class="section">
-		<h2 class="section-head">Honors &amp; Awards</h2>
-	</div>
-	
 	
 	<footer>
 		

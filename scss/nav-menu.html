@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+
+<style>
+	
+	body {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		background: #cccccc;
+	}
+
+	a {
+		color: #6ba4b8;
+		font-weight: bold;
+		text-decoration: none;
+		transition: all 300ms ease;
+	}
+
+	a:hover {
+		color: #d0c883;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: Rubik, Arial, sans-serif;
+	}
+	
+	
+	nav {
+		
+	}
+	nav a {
+		color:#a3c7d2;
+		transition:all 300ms ease;
+	}
+	nav a:hover {
+		color:#d0c883;
+	}
+	nav ul.nav-list {
+		list-style-type:none;
+		background:#5c7f71;
+		position:relative;
+	}
+	nav ul.nav-list li.nav-item {
+		display:inline-block;
+		min-width:10%;
+		max-width:15%;
+		border:2px solid #a3c7d2;
+		padding:10px 15px;
+		position:relative;
+	}
+	nav ul.nav-list li.nav-item ul.nav-sub-list {
+		
+	}
+	nav ul.nav-list li.nav-item ul.nav-sub-list.hidden {
+		display:none;
+	}
+	nav ul.nav-list li.nav-item ul.nav-sub-list li.nav-sub-item {
+		display:block;
+		
+	}
+	
+</style>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+<script>
+	
+	$('.parent').onmouseover {
+		$('.nav-sub-list').removeClass('hidden');
+	}
+	
+</script>
+
+</head>
+
+<body>
+
+<nav class="site-nav">
+	<ul class="nav-list" id="nav-menu">
+		<li class="nav-item non-parent">
+			<a href="#">Home</a>
+		</li>
+		<li class="nav-item parent">
+			<a href="#">About</a>
+			<ul class="nav-sub-list hidden">
+				<li class="nav-sub-item">
+					<a href="#">Resume</a>
+				</li>
+			</ul>
+		</li>
+		<li class="nav-item parent">
+			<a href="#">Projects</a>
+			<ul class="nav-sub-list hidden">
+				<li class="nav-sub-item">
+					<a href="#">Home</a>
+				</li>
+				<li class="nav-sub-item">
+					<a href="#">Home</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</nav>
+
+</body>
+</html>

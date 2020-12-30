@@ -6,73 +6,63 @@
 	<meta name="author" content="Chris Ogletree">
 	<meta name="description" content="Coding project for Yapmo technical interview">
 	
-	<title>Weather Display Web App</title>
+	<title>Weather Forecast App</title>
 	
 	<link rel="stylesheet" href="weather-app-style.css">
 	
-	<script type = "text/javascript" src = "weather-app-script.js"></script>
+	<script type="text/javascript" src="weather-app-script.js"></script>
+	
+	<style>
+		form {
+			max-width:500px;
+			margin:auto;
+		}
+	</style>
 	
 </head>
 
 <body>
+
+	<h1 class="back-link">
+		<a href = "http://cogletre.github.io">&larr; back to portfolio</a>
+	</h1>
 	
-	<!--
-	Yapmo - Weather App
-	
-	This is my weather web application.
-	
-	Things I learned:
-	1. JSON with web applications
-	2. Utilizing WeatherSource.com API
-	3. pages.github.io
-	4. Callbacks in JavaScript
-	5. Cross-Browser calls within JSONP
-	
-	Obvious flaws:
-	1. The program times out very quickly as the number of dates included in the calculated average increases; not entirely sure right now how I would compensate for that, but it's definitely food for thought.
-	2. Included no documentation in the actual code itself.
-	3. Included no testing for inputs, such as errors for incorrect user input or testing date values to make sure of a feasible range.
-	-->
-	<h1 style = "font-size:15px;"><a href = "http://cogletre.github.io">&larr; back to portfolio</a></h1>
-	
-	<header class = "header">
-		<h1 class="page-title">Calculate Your Average Temperature</h1>
+	<header class="header">
+		<h1 class="page-title">Forecasts</h1>
 	</header>
 	
 	
-	<div id = "temp-info-input">
+	<div id="forecast-input">
 		
-		<p>Enter your Zipcode:</p>
-		<span><input type="text" name = "zipcode" id = "zipCode" maxlength = "5" size = "10"></span>
-		<br />
+		<form method="get">
+			<label>Enter U.S. Zipcode:</label>
+
+			<input type="number" name="zipcode" id="zipcode" class="zipcode" maxlength="5">
+
+			<label>Time Range:</label>
+
+			<select name="forecastLength" id="forecastLength" class="forecastLength">
+				<option value="one-day">Current</option>
+				<option value="three-day">Three-Day</option>
+				<option value="five-day">Five-Day</option>
+			</select>
 		
-		<p>Desired Range of Time:<br /><span style = "font-size:10px;font-style:italic;">dates must be after 1979</span></p>
-		
-		<span>
-			<input type = "date" name = "dateOne" id = "dateOne" min="1979-12-31"></input>
-				<span style = "padding:0px 10px">through</span>
-			<input type = "date" name = "dateTwo" id = "dateTwo" min="1979-12-31"></input>
-		</span>
-		<br />
-		
-		<span class = "tempHidden" id = "dateErrorField">
-			
-		</span>
-		
-		<br />
-		<button type = "button" onclick = "dispTemp()" id = "displayTemp">Display Temperature</button>
+			<button onclick="getForecast();" class="displayTemp" id="displayTemp">Calculate</button>
 		</form>
+		
 	</div>
 	
 	<div id = "temp-output">
-		<p>Average temperature for <span id = "city-zip"></span></p>
+		<p><span id="num-days"></span> forecast for <span id="zip-fill"></span></p>
 	
-		<p><span id = "avg-temp-output"></span></p>
+		<div class="output day1">
+			
+			<h2 class="temp temp1"></h2>
+			
+			<p class="fore fore1"></p>
+		</div>
 	</div>
 	
-	<footer>
-		<h3>Developed by Chris Ogletree<br />for Yapmo technical interview</h3>
-	</footer>
 	
 </body>
 </html>

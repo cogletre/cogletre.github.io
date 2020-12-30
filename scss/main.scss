@@ -1,13 +1,17 @@
 
 // Import Global
-@import 'Global/variables';
+@import 'global/variables';
 
 
-@import 'Global/general-templates';
+@import 'template-parts/general';
 
+
+@import 'template-parts/header';
 
 // Import Template
-@import 'Templates/index-template';
+@import 'templates/index-template';
 
 
 
+
+@import 'template-parts/footer';
