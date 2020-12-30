@@ -15,7 +15,3 @@ function loadRecipes(callback) {
 }
 
 
-function openModal(recipeId) {
-	console.log('clicked ' + recipeId);
-	return;
-}

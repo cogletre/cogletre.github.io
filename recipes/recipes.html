@@ -42,7 +42,11 @@
 						$('#list-wrapper')[0].appendChild($tempDiv);
 					}
 					$('.recipe-link').click(function() {
-						openModal(this.id);
+						$recObj=$('.recipe-link');
+						$recArr=Object.values($recObj);
+						$currId=this.id;
+						$currLinkNum=$recArr.indexOf(this);
+						openModal($currLinkNum);
 					});
 				});
 			});
@@ -100,5 +104,18 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			function openModal(recipeId) {
+				$recNum=recipeId;
+				console.log('clicked ' + recipeId);
+				$currRecArr=recipeArr[$recNum];
+				console.log($currRecArr);
+				$('#recipe-name').text($currRecArr.name);
+				$('#recipe-yield').text($currRecArr.yield);
+				$('#recipe-time').text($currRecArr.cookTime);
+				$('#recipe-description').text($currRecArr.description);
+				return;
+			}
+		</script>
 	</body>
 </html>
