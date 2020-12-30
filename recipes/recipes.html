@@ -12,6 +12,28 @@
 		
 		<link rel="stylesheet" href="recipes-stylesheet.css">
 		<script src="recipes-scripts.js"></script>
+		
+		
+		<script>
+			var recipeJson;
+			var recipeArr;
+			$(function() {
+				loadRecipes(function(resp) {
+					recipeJson=JSON.parse(resp);
+					recipeArr=recipeJson['recipes'];
+							var recipeDiv;
+							for(var r=0;r<recipeArr.length;r++) {
+								recipeDiv='<div id="recipe'+(r+1)+'" class="list-item recipe'+(r+1)+'"><div class="recipe-name">'+recipeArr[r].name+'</div></div>';
+								$tempDiv = document.createElement('div');
+								$tempDiv.id='recipe'+(r+1);
+								$tempDiv.className='list-item recipe'+(r+1);
+								$tempDiv.style.backgroundImage=recipeArr[r].image;
+								$('#list-wrapper')[0].appendChild($tempDiv);
+								console.log(recipeDiv);
+							}
+				});
+			});
+		</script>
 	</head>
 
 	<body>
@@ -47,6 +69,9 @@
 			</div>
 			<div id="list-container" class="list-container">
 				<div id="list-wrapper" class="list-wrapper">
+					<script>
+					</script>
+<!--
 					<div id="recipe01" class="list-item recipe01">
 						<div class="recipe-name">Recipe 01</div>
 						<a class="recipe-link" href="#"></a>
@@ -63,6 +88,7 @@
 						<div class="recipe-name">Recipe 04</div>
 						<a class="recipe-link" href="#"></a>
 					</div>
+-->
 				</div>
 			</div>
 			<div class="json-test">
@@ -70,20 +96,6 @@
 				<div id="test-yield"></div>
 				<div id="test-time"></div>
 			</div>
-			<script>
-				var recipeJson;
-				var recipeArr;
-				$(function() {
-					loadRecipes(function(resp) {
-						recipeJson=JSON.parse(resp);
-						recipeArr=recipeJson['recipes'];
-						console.log(recipeJson['recipes'][0]);
-						$('#test-name').text(recipeJson['recipes'][0].name);
-						$('#test-yield').text(recipeJson['recipes'][0].yield);
-						$('#test-time').text(recipeJson['recipes'][0].description);
-					});
-				});
-			</script>
 		</div>
 	</body>
 </html>
