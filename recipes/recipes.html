@@ -65,6 +65,20 @@
 					</div>
 				</div>
 			</div>
+			<div class="json-test">
+				<div id="test-name"></div>
+				<div id="test-yield"></div>
+				<div id="test-time"></div>
+			</div>
+			<script>
+				var recipeJson
+				$(function() {
+					loadRecipes(function(resp) {
+						recipeJson=JSON.parse(resp);
+					});
+					console.log(recipeJson);
+				});
+			</script>
 		</div>
 	</body>
 </html>
