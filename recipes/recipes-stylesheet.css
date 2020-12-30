@@ -1,2 +1,111 @@
 /* Recipes page stylesheet */
 
+* {
+	box-sizing:border-box;
+}
+body {
+	background-color:#cccccc;
+	padding:40px;
+	margin:0;
+	position:relative;
+}
+#body-wrapper {
+	background-color:#ffffff;
+	width:100%;
+	max-width:1200px;
+	margin:0 auto;
+	padding:40px;
+}
+#body-wrapper header {
+	margin:0 0 40px;
+	padding:0;
+}
+#body-wrapper header h1 {
+	font-family:Rubik,Arial,sans-serif;
+	color:#444444;
+	font-size:30px;
+	line-height:40px;
+	font-weight:bold;
+	text-align:center;
+	margin:0;
+	padding:0;
+}
+#body-wrapper .list-container {
+	display:block;
+	position:relative;
+}
+#body-wrapper .list-container .list-wrapper {
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:space-around;
+	align-items:start;
+}
+#body-wrapper .list-container .list-wrapper .list-item {
+	flex-basis:22.5%;
+	position:relative;
+	height:250px;
+	width:250px;
+	border:1px solid #dddddd;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-color:transparent;
+	background-position:center;
+}
+#body-wrapper .list-container .list-wrapper .list-item.recipe01 {
+	background-image:url('https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/7/26/1/BX0407H_lemon-chicken-breasts_s4x3.jpg.rend.hgtvcom.826.620.suffix/1380555544156.jpeg');
+}
+#body-wrapper .list-container .list-wrapper .list-item.recipe02 {
+	background-image:url('https://food.fnr.sndimg.com/content/dam/images/food/fullset/2017/5/18/0/BX1302H_Garlic-and-Herb-Roasted-Shrimp_s4x3.jpg.rend.hgtvcom.826.620.suffix/1495125455576.jpeg');
+}
+#body-wrapper .list-container .list-wrapper .list-item.recipe03 {
+	background-image:url('https://food.fnr.sndimg.com/content/dam/images/food/fullset/2007/4/30/0/ei1017_fusilli.jpg.rend.hgtvcom.826.620.suffix/1398787149575.jpeg');
+}
+#body-wrapper .list-container .list-wrapper .list-item.recipe04 {
+	background-image:url('https://food.fnr.sndimg.com/content/dam/images/food/fullset/2016/6/12/3/FNM070116_Chicken-Watermelon-Tacos-recipe_s4x3.jpg.rend.hgtvcom.826.620.suffix/1465935996619.jpeg');
+}
+#body-wrapper .list-container .list-wrapper .list-item:after {
+	content:'';
+	position:absolute;
+	background-color:transparent;
+	width:100%;
+	height:100%;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index:0;
+	transition:all 300ms ease;
+}
+#body-wrapper .list-container .list-wrapper .list-item .recipe-name {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	text-align:center;
+	z-index:1;
+	color:#ffffff;
+	font-family:Rubik,Arial,sans-serif;
+	font-size:20px;
+	line-height:30px;
+	font-weight:bold;
+	opacity:0;
+	transition:all 300ms ease;
+}
+#body-wrapper .list-container .list-wrapper .list-item .recipe-link {
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	z-index:2;
+	transition:all 300ms ease;
+}
+#body-wrapper .list-container .list-wrapper .list-item:hover:after {
+	background-color:rgba(0,0,0,0.5);
+}
+#body-wrapper .list-container .list-wrapper .list-item:hover .recipe-name {
+	opacity:1;
+}
