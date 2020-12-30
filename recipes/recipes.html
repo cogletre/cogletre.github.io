@@ -71,12 +71,17 @@
 				<div id="test-time"></div>
 			</div>
 			<script>
-				var recipeJson
+				var recipeJson;
+				var recipeArr;
 				$(function() {
 					loadRecipes(function(resp) {
 						recipeJson=JSON.parse(resp);
+						recipeArr=recipeJson['recipes'];
+						console.log(recipeJson['recipes'][0]);
+						$('#test-name').text(recipeJson['recipes'][0].name);
+						$('#test-yield').text(recipeJson['recipes'][0].yield);
+						$('#test-time').text(recipeJson['recipes'][0].description);
 					});
-					console.log(recipeJson);
 				});
 			</script>
 		</div>
