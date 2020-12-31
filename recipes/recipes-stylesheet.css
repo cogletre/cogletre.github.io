@@ -107,6 +107,7 @@ body {
 	left:0;
 	right:0;
 	z-index:2;
+	cursor:pointer;
 	transition:all 300ms ease;
 }
 #body-wrapper .list-container .list-wrapper .list-item:hover:after {
@@ -117,7 +118,7 @@ body {
 }
 
 #body-wrapper #recipe-modal {
-	/*display:none;*/
+	display:none;
 	overflow-y:scroll;
 	position:fixed;
 	z-index:100;
@@ -133,7 +134,7 @@ body {
 }
 #body-wrapper #recipe-modal {
 	animation-name:zoom;
-	animation-duration:600ms;
+	animation-duration:400ms;
 }
 @keyframes zoom {
 	from {transform:scale(0.1)}

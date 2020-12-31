@@ -87,9 +87,9 @@
 			<div id="list-container" class="list-container">
 				<div id="list-wrapper" class="list-wrapper"></div>
 			</div>
-			<div id="recipe-modal" class="modal-container">
+			<div id="recipe-modal" class="modal-container closed">
 				<div class="modal-wrapper">
-					<div id="close-modal">&times;</div>
+					<div id="close-modal" onclick="closeModal();">&times;</div>
 					<div id="modal-image"></div>
 					<div class="modal-text">
 						<div id="recipe-name"></div>
@@ -114,6 +114,7 @@
 				console.log('clicked ' + recipeId);
 				$currRecArr=recipeArr[$recNum];
 				console.log($currRecArr);
+				$('#recipe-modal').css('display','block');
 				$('#recipe-modal #modal-image').css('background-image','url('+$currRecArr.image+')');
 				$('#recipe-modal #recipe-name').text($currRecArr.name);
 				$('#recipe-modal #recipe-yield').text($currRecArr.yield);
@@ -134,6 +135,18 @@
 					$prepList[0].appendChild($prepLi);
 				}
 				return;
+			}
+			function closeModal() {
+				$('#recipe-modal').css('display','none');
+				$('#recipe-modal #modal-image').css('background-image','none');
+				$('#recipe-modal #recipe-name').text('');
+				$('#recipe-modal #recipe-yield').text('');
+				$('#recipe-modal #recipe-time').text('');
+				$('#recipe-modal #recipe-description').text('');
+				$ingredientList=$('#ingredient-list');
+				$ingredientList.empty();
+				$prepList=$('#instruction-list');
+				$prepList.empty();
 			}
 		</script>
 	</body>
