@@ -115,3 +115,61 @@ body {
 #body-wrapper .list-container .list-wrapper .list-item:hover .recipe-name {
 	opacity:1;
 }
+
+#body-wrapper #recipe-modal {
+	/*display:none;*/
+	overflow-y:scroll;
+	position:fixed;
+	z-index:100;
+	width:100%;
+	height:100%;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	margin:0;
+	padding:100px 0 20px;
+	background-color:rgba(0,0,0,0.8);
+}
+#body-wrapper #recipe-modal {
+	animation-name:zoom;
+	animation-duration:600ms;
+}
+@keyframes zoom {
+	from {transform:scale(0.1)}
+	to {transform:scale(1)}
+}
+#body-wrapper #recipe-modal .modal-wrapper {
+	background-color:#ffffff;
+	position:relative;
+	width:95%;
+	max-width:1000px;
+	margin:auto;
+	padding:60px 40px 40px;
+	border-radius:5px;
+}
+#body-wrapper #recipe-modal .modal-wrapper #close-modal {
+	position:absolute;
+	top:5px;
+	right:15px;
+	color:#444444;
+	cursor:pointer;
+	font-size:40px;
+	font-weight:500;
+	transition:all 300ms ease;
+}
+#body-wrapper #recipe-modal .modal-wrapper #close-modal:hover {
+	opacity:0.8;
+}
+#body-wrapper #recipe-modal .modal-wrapper #modal-image {
+	width:100%;
+	max-width:400px;
+	height:300px;
+	float:right;
+	margin:0 0 20px 40px;
+	border-radius:5px;
+	box-shadow:2px 2px 5px 0px rgba(0,0,0,0.75);
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
+}

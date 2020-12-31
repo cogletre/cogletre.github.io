@@ -88,18 +88,22 @@
 				<div id="list-wrapper" class="list-wrapper"></div>
 			</div>
 			<div id="recipe-modal" class="modal-container">
-				<div id="close-modal">&#10005;</div>
-				<div class="modal-image"></div>
-				<div class="modal-text">
-					<div id="recipe-name"></div>
-					<div id="recipe-yield"></div>
-					<div id="recipe-time"></div>
-					<div id="recipe-description"></div>
-					<div id="recipe-ingredients">
-						<ul id="ingredient-list"></ul>
-					</div>
-					<div id="recipe-instructions">
-						<ol id="instruction-list"></ol>
+				<div class="modal-wrapper">
+					<div id="close-modal">&times;</div>
+					<div id="modal-image"></div>
+					<div class="modal-text">
+						<div id="recipe-name"></div>
+						<div id="recipe-yield"></div>
+						<div id="recipe-time"></div>
+						<div id="recipe-description"></div>
+						<div id="recipe-ingredients">
+							<span>Ingredients:</span>
+							<ul id="ingredient-list"></ul>
+						</div>
+						<div id="recipe-instructions">
+							<span>Instructions:</span>
+							<ol id="instruction-list"></ol>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -110,10 +114,25 @@
 				console.log('clicked ' + recipeId);
 				$currRecArr=recipeArr[$recNum];
 				console.log($currRecArr);
-				$('#recipe-name').text($currRecArr.name);
-				$('#recipe-yield').text($currRecArr.yield);
-				$('#recipe-time').text($currRecArr.cookTime);
-				$('#recipe-description').text($currRecArr.description);
+				$('#recipe-modal #modal-image').css('background-image','url('+$currRecArr.image+')');
+				$('#recipe-modal #recipe-name').text($currRecArr.name);
+				$('#recipe-modal #recipe-yield').text($currRecArr.yield);
+				$('#recipe-modal #recipe-time').text($currRecArr.cookTime);
+				$('#recipe-modal #recipe-description').text($currRecArr.description);
+				$recIngArr=$currRecArr.ingredients;
+				$ingredientList=$('#ingredient-list');
+				$prepList=$('#instruction-list');
+				for(var i=0;i<$recIngArr.length;i++) {
+					$ingLi=document.createElement('li');
+					$ingLi.innerHTML=$recIngArr[i];
+					$ingredientList[0].appendChild($ingLi);
+				}
+				$recInstArr=$currRecArr.preparation;
+				for(var p=0;p<$recInstArr.length;p++) {
+					$prepLi=document.createElement('li');
+					$prepLi.innerHTML=$recInstArr[p];
+					$prepList[0].appendChild($prepLi);
+				}
 				return;
 			}
 		</script>
