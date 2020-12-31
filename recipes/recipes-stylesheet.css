@@ -49,23 +49,12 @@ body {
 	position:relative;
 	height:250px;
 	width:250px;
-	border:1px solid #dddddd;
+	border-radius:5px;
+	box-shadow:1px 1px 5px 0px rgba(0,0,0,0.5);
 	background-size:cover;
 	background-repeat:no-repeat;
 	background-color:transparent;
 	background-position:center;
-}
-#body-wrapper .list-container .list-wrapper .list-item.recipe01 {
-	background-image:url('https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/7/26/1/BX0407H_lemon-chicken-breasts_s4x3.jpg.rend.hgtvcom.826.620.suffix/1380555544156.jpeg');
-}
-#body-wrapper .list-container .list-wrapper .list-item.recipe02 {
-	background-image:url('https://food.fnr.sndimg.com/content/dam/images/food/fullset/2017/5/18/0/BX1302H_Garlic-and-Herb-Roasted-Shrimp_s4x3.jpg.rend.hgtvcom.826.620.suffix/1495125455576.jpeg');
-}
-#body-wrapper .list-container .list-wrapper .list-item.recipe03 {
-	background-image:url('https://food.fnr.sndimg.com/content/dam/images/food/fullset/2007/4/30/0/ei1017_fusilli.jpg.rend.hgtvcom.826.620.suffix/1398787149575.jpeg');
-}
-#body-wrapper .list-container .list-wrapper .list-item.recipe04 {
-	background-image:url('https://food.fnr.sndimg.com/content/dam/images/food/fullset/2016/6/12/3/FNM070116_Chicken-Watermelon-Tacos-recipe_s4x3.jpg.rend.hgtvcom.826.620.suffix/1465935996619.jpeg');
 }
 #body-wrapper .list-container .list-wrapper .list-item:after {
 	content:'';
@@ -77,6 +66,7 @@ body {
 	bottom:0;
 	left:0;
 	right:0;
+	border-radius:5px;
 	z-index:0;
 	transition:all 300ms ease;
 }
@@ -129,7 +119,7 @@ body {
 	left:0;
 	right:0;
 	margin:0;
-	padding:100px 0 20px;
+	padding:80px 0;
 	background-color:rgba(0,0,0,0.8);
 }
 #body-wrapper #recipe-modal {
@@ -161,16 +151,94 @@ body {
 }
 #body-wrapper #recipe-modal .modal-wrapper #close-modal:hover {
 	opacity:0.8;
+	transform:scale(1.05);
 }
 #body-wrapper #recipe-modal .modal-wrapper #modal-image {
 	width:100%;
 	max-width:400px;
-	height:300px;
+	height:350px;
 	float:right;
 	margin:0 0 20px 40px;
 	border-radius:5px;
-	box-shadow:2px 2px 5px 0px rgba(0,0,0,0.75);
+	box-shadow:2px 2px 5px 0px rgba(0,0,0,0.5);
 	background-size:cover;
 	background-repeat:no-repeat;
 	background-position:center;
+}
+#body-wrapper #recipe-modal .modal-wrapper .modal-text {
+	text-align:left;
+	color:#444444;
+}
+#body-wrapper #recipe-modal .modal-wrapper .modal-text #recipe-name {
+	font-size:20px;
+	line-height:30px;
+	font-weight:bold;
+	margin:0 0 10px;
+	padding:0;
+}
+#body-wrapper #recipe-modal .modal-wrapper .modal-text #recipe-yield,#body-wrapper #recipe-modal .modal-wrapper .modal-text #recipe-time {
+	font-size:16px;
+	line-height:24px;
+	margin:0 0 5px;
+	padding:0;
+}
+#body-wrapper #recipe-modal .modal-wrapper .modal-text .section-title {
+	display:block;
+	font-size:16px;
+	line-height:30px;
+	font-weight:bold;
+	margin:20px 0 0;
+	padding:0;
+}
+#body-wrapper #recipe-modal .modal-wrapper .modal-text #recipe-description {
+	font-size:16px;
+	line-height:24px;
+	margin:0;
+	padding:0;
+}
+#body-wrapper #recipe-modal .modal-wrapper .modal-text #recipe-ingredients {
+	clear:both;
+	margin:30px 0;
+	padding:0;
+}
+#body-wrapper #recipe-modal .modal-wrapper .modal-text #recipe-ingredients span {
+	display:block;
+	font-size:16px;
+	line-height:30px;
+	font-weight:bold;
+	margin:0 0 5px;
+	padding:0;
+}
+#body-wrapper #recipe-modal .modal-wrapper .modal-text #recipe-ingredients ul {
+	margin:0;
+	padding:0 0 0 40px;
+}
+#body-wrapper #recipe-modal .modal-wrapper .modal-text #recipe-ingredients ul li {
+	font-size:16px;
+	line-height:26px;
+	margin:8px 0;
+	padding:0;
+}
+#body-wrapper #recipe-modal .modal-wrapper .modal-text #recipe-instructions {
+	clear:both;
+	margin:30px 0;
+	padding:0;
+}
+#body-wrapper #recipe-modal .modal-wrapper .modal-text #recipe-instructions span {
+	display:block;
+	font-size:16px;
+	line-height:30px;
+	font-weight:bold;
+	margin:0 0 5px;
+	padding:0;
+}
+#body-wrapper #recipe-modal .modal-wrapper .modal-text #recipe-instructions ol {
+	margin:0;
+	padding:0 0 0 40px;
+}
+#body-wrapper #recipe-modal .modal-wrapper .modal-text #recipe-instructions ol li {
+	font-size:16px;
+	line-height:26px;
+	margin:8px 0;
+	padding:0;
 }

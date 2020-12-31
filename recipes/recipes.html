@@ -87,7 +87,7 @@
 			<div id="list-container" class="list-container">
 				<div id="list-wrapper" class="list-wrapper"></div>
 			</div>
-			<div id="recipe-modal" class="modal-container closed">
+			<div id="recipe-modal" class="modal-container modal-closed">
 				<div class="modal-wrapper">
 					<div id="close-modal" onclick="closeModal();">&times;</div>
 					<div id="modal-image"></div>
@@ -95,6 +95,7 @@
 						<div id="recipe-name"></div>
 						<div id="recipe-yield"></div>
 						<div id="recipe-time"></div>
+						<span class="section-title desc-title">Description:</span>
 						<div id="recipe-description"></div>
 						<div id="recipe-ingredients">
 							<span>Ingredients:</span>
@@ -107,6 +108,41 @@
 					</div>
 				</div>
 			</div>
+			<div id="form-modal" class="modal-container form-closed">
+				<div class="form-wrapper">
+					<div id="close-form">&times;</div>
+					<div id="form-intro"></div>
+					<form id="recipe-form">
+						<div class="rec-overview">
+							<div class="overview-sec">
+								<label for="recName">Dish name:</label>
+								<input name="recName" id="recName" type="text">
+							</div>
+							<div class="overview-sec">
+								<label for="recYield">Yield:</label>
+								<input name="recYield" id="recYield" type="text" placeholder="Ex. 4 to 6 servings">
+							</div>
+							<div class="overview-sec">
+								<label for="recTime">Cook time:</label>
+								<input name="recTime" id="recTime" type="text" placeholder="Ex. 45 minutes">
+							</div>
+							<div class="overview-sec">
+								<label for="recImage">Recipe image (URL):</label>
+								<input name="recImage" id="recImage" type="text" placeholder="Enter full URL of image">
+							</div>
+						</div>
+						<label for="recDesc">Description:</label>
+						<textarea name="recDesc" id="recDesc"></textarea>
+						<label for="recIng">Ingredients (one per line):</label>
+						<textarea name="recIng" id="recIng"></textarea>
+						<label for="recInst">Instructions (one per line):</label>
+						<textarea name="recInst" id="recInst"></textarea>
+						<div class="submit">
+							<input type="submit" value="Submit">
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 		<script>
 			function openModal(recipeId) {
@@ -114,11 +150,11 @@
 				console.log('clicked ' + recipeId);
 				$currRecArr=recipeArr[$recNum];
 				console.log($currRecArr);
-				$('#recipe-modal').css('display','block');
+				$('#recipe-modal').css('display','block').removeClass('modal-closed').addClass('modal-open');
 				$('#recipe-modal #modal-image').css('background-image','url('+$currRecArr.image+')');
 				$('#recipe-modal #recipe-name').text($currRecArr.name);
-				$('#recipe-modal #recipe-yield').text($currRecArr.yield);
-				$('#recipe-modal #recipe-time').text($currRecArr.cookTime);
+				$('#recipe-modal #recipe-yield').text('Yield: '+$currRecArr.yield);
+				$('#recipe-modal #recipe-time').text('Cook time: '+$currRecArr.cookTime);
 				$('#recipe-modal #recipe-description').text($currRecArr.description);
 				$recIngArr=$currRecArr.ingredients;
 				$ingredientList=$('#ingredient-list');
@@ -137,7 +173,8 @@
 				return;
 			}
 			function closeModal() {
-				$('#recipe-modal').css('display','none');
+				//$('#recipe-modal').css('display','none').removeClass('modal-open').addClass('modal-closed');
+				$('#recipe-modal').hide('scale').removeClass('modal-open').addClass('modal-closed');
 				$('#recipe-modal #modal-image').css('background-image','none');
 				$('#recipe-modal #recipe-name').text('');
 				$('#recipe-modal #recipe-yield').text('');
@@ -148,6 +185,11 @@
 				$prepList=$('#instruction-list');
 				$prepList.empty();
 			}
+			$('html').keydown(function(e) {
+				if(e.which==27 && $('.modal-open').length>0) {
+					closeModal();
+				}
+			});
 		</script>
 	</body>
 </html>
